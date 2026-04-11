@@ -1,0 +1,786 @@
+<!--
+  YUMI WILLEMS — WIX SITE REDESIGN INJECTION
+
+  To install:
+  1. Go to Wix Dashboard → Settings → Custom Code
+  2. Click "+ Add Code"
+  3. Paste everything between the <style> and </script> tags below
+  4. Set placement: "Head"
+  5. Set pages: "All pages"
+  6. Save and publish
+
+  This script:
+  - Overrides all fonts, colors, and spacing
+  - Hides the sci-fi hero banner on homepage
+  - Restructures the layout to be minimal and clean
+  - Applies to both HOME and ACHIEVEMENTS pages
+-->
+
+<style id="yumi-redesign">
+/* ============================================
+   GLOBAL OVERRIDES — FONTS, COLORS, SPACING
+   ============================================ */
+
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap');
+
+/* Root variables */
+:root {
+  --yw-bg: #FEFDFB !important;
+  --yw-text: #222 !important;
+  --yw-text-light: #666 !important;
+  --yw-text-faint: #999 !important;
+  --yw-border: #E8E5E0 !important;
+  --yw-warm: #F7F5F2 !important;
+}
+
+/* Kill ALL Wix default background colors, images, gradients */
+[id="SITE_CONTAINER"],
+[id="PAGES_CONTAINER"],
+[id="SITE_PAGES"],
+[id="masterPage"],
+.wixui-section,
+.wixui-column-strip,
+.wixui-column-strip__column,
+[data-mesh-id],
+[id*="BG_LAYER"],
+[id*="BG_MEDIA"],
+[class*="LWbAav"],
+[class*="MazNVa_bgImage"] {
+  background-color: var(--yw-bg) !important;
+  background-image: none !important;
+  background: var(--yw-bg) !important;
+}
+
+/* Hide all background overlay/media containers globally */
+[id*="__bg-overlay"],
+[id*="BACKGROUND_GROUP"] > div > div:first-child,
+.BmZ5pC,
+.sNF0_A {
+  background: transparent !important;
+  background-image: none !important;
+  opacity: 0 !important;
+}
+
+/* Override ALL text to Inter */
+body, p, span, div, a, li, h1, h2, h3, h4, h5, h6,
+.wixui-rich-text, .wixui-rich-text p, .wixui-rich-text span,
+.wixui-dropdown-menu__item, .font_0, .font_1, .font_2, .font_3,
+.font_4, .font_5, .font_6, .font_7, .font_8, .font_9, .font_10 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+/* Headings use EB Garamond */
+h1, h2, h3, .wixui-rich-text h1, .wixui-rich-text h2, .wixui-rich-text h3,
+[data-testid="richTextElement"] h1, [data-testid="richTextElement"] h2 {
+  font-family: 'EB Garamond', Georgia, serif !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.3px !important;
+}
+
+/* All text color override */
+body, p, span, div, a, li, h1, h2, h3, h4, h5, h6 {
+  color: var(--yw-text) !important;
+}
+
+/* Secondary text */
+.wixui-rich-text p, .wixui-rich-text span {
+  color: var(--yw-text-light) !important;
+  font-size: 15px !important;
+  line-height: 1.75 !important;
+}
+
+/* Constrain page width for readability */
+[id="PAGES_CONTAINER"] > div,
+[id="SITE_PAGES"] > div > div {
+  max-width: 860px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* ============================================
+   HEADER / NAV
+   ============================================ */
+
+/* Make header clean with frosted glass */
+[id="SITE_HEADER"],
+[id="SITE_HEADER_WRAPPER"] {
+  background: rgba(254,253,251,0.92) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid var(--yw-border) !important;
+  box-shadow: none !important;
+}
+
+/* Nav logo */
+#comp-lr32yljg {
+  opacity: 0.8 !important;
+}
+
+/* Nav menu items */
+.wixui-dropdown-menu__item,
+.wixui-dropdown-menu__label {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.3px !important;
+  color: var(--yw-text-light) !important;
+  text-transform: none !important;
+}
+
+.wixui-dropdown-menu__item:hover .wixui-dropdown-menu__label {
+  color: var(--yw-text) !important;
+}
+
+/* Search bar */
+.wixui-search-bar {
+  border-radius: 6px !important;
+  border: 1px solid var(--yw-border) !important;
+  background: var(--yw-bg) !important;
+}
+
+/* ============================================
+   HOME PAGE — HERO SECTION
+   ============================================ */
+
+/* Remove the sci-fi hero background */
+#comp-lr2rahek,
+#comp-lr2rahek *,
+#comp-lr2rahek [data-bg-scrub],
+#comp-lr2rahek .KaEeLN,
+#comp-lr2rahek .KaEeLN * {
+  background: var(--yw-bg) !important;
+  background-image: none !important;
+  background-color: var(--yw-bg) !important;
+}
+
+/* Kill any BG images/videos in hero */
+#comp-lr2rahek img[src*="11062b"],
+#comp-lr2rahek video,
+#comp-lr2rahek [id*="BG_"],
+#comp-lr2rahek [class*="BG_"] {
+  display: none !important;
+  opacity: 0 !important;
+}
+
+/* Remove dark overlay box on hero */
+#comp-lr2rahf9,
+#comp-lr2rahf9 > div {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Hero title */
+#comp-lr2rahfa, #comp-lr2rahfa h1, #comp-lr2rahfa h2,
+#comp-lr2rahfa span, #comp-lr2rahfa p {
+  font-family: 'EB Garamond', Georgia, serif !important;
+  font-size: 36px !important;
+  font-weight: 500 !important;
+  color: var(--yw-text) !important;
+  text-shadow: none !important;
+  letter-spacing: -0.5px !important;
+}
+
+/* Hero subtitle */
+#comp-lr2rahfc, #comp-lr2rahfc span, #comp-lr2rahfc p {
+  font-size: 15px !important;
+  color: var(--yw-text-light) !important;
+  font-family: 'Inter', sans-serif !important;
+  text-shadow: none !important;
+}
+
+/* "read here" link */
+#comp-lr2rahek a {
+  color: var(--yw-text) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+  text-decoration-color: var(--yw-border) !important;
+}
+
+/* ============================================
+   HOME PAGE — ABOUT ME SECTION
+   ============================================ */
+
+/* About section background — kill all dark backgrounds */
+#comp-lr2tryo9,
+#comp-lr2tryo9 *,
+#comp-lr33l3ry,
+#comp-lr33l3ry *,
+#comp-lr33l3rz,
+#comp-lr33l3rz * {
+  background: var(--yw-bg) !important;
+  background-color: var(--yw-bg) !important;
+  background-image: none !important;
+}
+
+#comp-lr2tryo9 [id*="BG_"],
+#comp-lr2tryo9 [class*="BG_"] {
+  display: none !important;
+}
+
+/* "About Me" heading */
+#comp-lr33l3rz1, #comp-lr33l3rz1 h2, #comp-lr33l3rz1 span {
+  font-family: 'EB Garamond', Georgia, serif !important;
+  font-size: 28px !important;
+  font-weight: 500 !important;
+  color: var(--yw-text) !important;
+}
+
+/* About me photo */
+#comp-lr33qhe9 img {
+  border-radius: 8px !important;
+  object-fit: cover !important;
+}
+
+/* LinkedIn button */
+#comp-lr33l3s01 a,
+#comp-lr33l3s01 span,
+a[href*="linkedin"] {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--yw-text-light) !important;
+  border: 1px solid var(--yw-border) !important;
+  border-radius: 6px !important;
+  padding: 8px 20px !important;
+  background: transparent !important;
+  text-decoration: none !important;
+}
+
+/* Academic Publications heading */
+#comp-mkoiztz8, #comp-mkoiztz8 h2, #comp-mkoiztz8 span {
+  font-family: 'EB Garamond', Georgia, serif !important;
+  font-size: 22px !important;
+  font-weight: 500 !important;
+  color: var(--yw-text) !important;
+}
+
+/* ============================================
+   HOME PAGE — FEATURED IN LOGOS
+   ============================================ */
+
+#comp-mkstf9lk {
+  background: var(--yw-warm) !important;
+  border-radius: 8px !important;
+  padding: 32px !important;
+}
+
+#comp-mkstf9lk img {
+  height: 48px !important;
+  width: auto !important;
+  object-fit: contain !important;
+  filter: none !important;
+}
+
+/* ============================================
+   HOME PAGE — NEWSLETTER SECTION
+   ============================================ */
+
+#comp-lr31mgph {
+  background: var(--yw-warm) !important;
+}
+
+#comp-lr31mgqc, #comp-lr31mgqc h2, #comp-lr31mgqc span {
+  font-family: 'EB Garamond', Georgia, serif !important;
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  color: var(--yw-text) !important;
+}
+
+/* Newsletter input */
+#comp-lr31mgqn input,
+#comp-lr31mgql1 input {
+  border: 1px solid var(--yw-border) !important;
+  border-radius: 6px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  background: #fff !important;
+  padding: 10px 14px !important;
+}
+
+/* Newsletter button */
+#comp-lr31mgqu2 button,
+#comp-lr31mgqu2 a {
+  background: #333 !important;
+  color: #fff !important;
+  border-radius: 6px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  border: none !important;
+  padding: 10px 20px !important;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+#comp-lr2s4513,
+#comp-lr2s4527,
+#comp-lr2s4528,
+[id="SITE_FOOTER"],
+[id="SITE_FOOTER_WRAPPER"] {
+  background: var(--yw-bg) !important;
+  border-top: 1px solid var(--yw-border) !important;
+}
+
+#comp-lr2w9g25, #comp-lr2w9g25 span {
+  font-size: 12px !important;
+  color: var(--yw-text-faint) !important;
+}
+
+#comp-lr2w68zl a {
+  font-size: 12px !important;
+  color: var(--yw-text-faint) !important;
+  text-decoration: none !important;
+}
+
+/* ============================================
+   MEDIA / ACHIEVEMENTS PAGE
+   ============================================ */
+
+/* Hero section background — collapse the empty banner space */
+#comp-lr45dmdq,
+#comp-lr45dme56,
+#comp-lr45dme85 {
+  background: var(--yw-bg) !important;
+  background-image: none !important;
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: 80px !important;
+  overflow: hidden !important;
+}
+
+/* Collapse the banner section entirely */
+#comp-lr45dmdq [data-mesh-id],
+#comp-lr45dme56 [data-mesh-id] {
+  min-height: 0 !important;
+  height: auto !important;
+}
+
+/* Hide the abstract swirl banner image on achievements page */
+#comp-lr45dmdq *,
+#comp-lr45dme56 *,
+#comp-lr45dme85 *,
+#comp-lr45dme85 > [data-bg-scrub],
+#comp-lr45dmdq .KaEeLN,
+#comp-lr45dmdq .KaEeLN * {
+  background-image: none !important;
+  background: var(--yw-bg) !important;
+  background-color: var(--yw-bg) !important;
+}
+
+#comp-lr45dmdq img[src*="11062b"],
+#comp-lr45dmdq video,
+#comp-lr45dmdq [id*="BG_"],
+#comp-lr45dmdq [class*="BG_"],
+#comp-lr45dme85 img:not(.wixui-image) {
+  display: none !important;
+  opacity: 0 !important;
+}
+
+/* "My Career Story" heading */
+#comp-lr45dmeb7, #comp-lr45dmeb7 h2, #comp-lr45dmeb7 span {
+  font-family: 'EB Garamond', Georgia, serif !important;
+  font-size: 32px !important;
+  font-weight: 500 !important;
+  color: var(--yw-text) !important;
+}
+
+/* Career story text */
+#comp-lr45dmed4 p, #comp-lr45dmed4 span {
+  font-size: 15px !important;
+  line-height: 1.8 !important;
+  color: var(--yw-text-light) !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+#comp-lr45dmed4 a {
+  color: var(--yw-text) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+}
+
+#comp-lr45dmed4 strong, #comp-lr45dmed4 b {
+  color: var(--yw-text) !important;
+  font-weight: 500 !important;
+}
+
+/* Horizontal dividers */
+.wixui-horizontal-line {
+  border-color: var(--yw-border) !important;
+  opacity: 1 !important;
+}
+
+/* "Featured By" heading */
+#comp-lr45dmf8, #comp-lr45dmf8 h2, #comp-lr45dmf8 span {
+  font-family: 'EB Garamond', Georgia, serif !important;
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  color: var(--yw-text) !important;
+}
+
+/* Featured logos - make them bigger */
+#comp-lr45dmf7 img {
+  height: 64px !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
+
+/* "Media Highlights" heading */
+#comp-lr45dmef, #comp-lr45dmef h2, #comp-lr45dmef span {
+  font-family: 'EB Garamond', Georgia, serif !important;
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  color: var(--yw-text) !important;
+}
+
+/* Media highlights note text */
+#comp-lr47m4dv, #comp-lr47m4dv span, #comp-lr47m4dv p {
+  font-size: 13px !important;
+  color: var(--yw-text-faint) !important;
+  font-style: italic !important;
+}
+
+/* Media highlights sections */
+#comp-lr45dmee1,
+#comp-lr45dmea3,
+#comp-lr45dmf7,
+#comp-lr4m6871,
+#comp-lr4lzbis {
+  background: var(--yw-bg) !important;
+}
+
+/* Repeater items (media slideshow) */
+.wixui-repeater {
+  background: var(--yw-bg) !important;
+}
+
+/* Media slideshow items */
+.wixui-repeater [data-mesh-id] {
+  background: var(--yw-bg) !important;
+  border-bottom: 1px solid var(--yw-border) !important;
+  padding-bottom: 32px !important;
+  margin-bottom: 32px !important;
+}
+
+/* Media item titles */
+.wixui-repeater h2, .wixui-repeater h3 {
+  font-family: 'EB Garamond', Georgia, serif !important;
+  font-size: 20px !important;
+  font-weight: 500 !important;
+}
+
+/* Media item descriptions */
+.wixui-repeater p {
+  font-size: 14px !important;
+  line-height: 1.8 !important;
+  color: var(--yw-text-light) !important;
+}
+
+/* Media item images */
+.wixui-repeater img {
+  border-radius: 6px !important;
+}
+
+/* "Photo Gallery" heading */
+#comp-lr4m6swj, #comp-lr4m6swj h2, #comp-lr4m6swj span {
+  font-family: 'EB Garamond', Georgia, serif !important;
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  color: var(--yw-text) !important;
+}
+
+/* Gallery widget */
+.wixui-gallery {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+.wixui-gallery__item {
+  border-radius: 0 !important;
+}
+
+/* Gallery captions */
+.wixui-gallery [data-hook="title"],
+.wixui-gallery [data-hook="description"] {
+  font-family: 'Inter', sans-serif !important;
+}
+
+.wixui-gallery [data-hook="title"] {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+}
+
+.wixui-gallery [data-hook="description"] {
+  font-size: 13px !important;
+  color: var(--yw-text-light) !important;
+}
+
+/* ============================================
+   BLOG PAGE OVERRIDES
+   ============================================ */
+
+/* Blog header text */
+[id="PAGES_CONTAINER"] .wixui-rich-text {
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* Blog post cards */
+[data-hook="post-list-widget"] {
+  background: var(--yw-bg) !important;
+}
+
+/* Blog category tabs */
+[data-hook="categories-menu"] a,
+[data-hook="categories-menu"] span {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  letter-spacing: 0.3px !important;
+}
+
+/* Blog post titles */
+[data-hook="post-title"] {
+  font-family: 'EB Garamond', Georgia, serif !important;
+  font-weight: 500 !important;
+}
+
+/* Blog post excerpts */
+[data-hook="post-description"] {
+  font-family: 'Inter', sans-serif !important;
+  color: var(--yw-text-light) !important;
+  font-size: 14px !important;
+}
+
+/* ============================================
+   UTILITY — SMOOTH TRANSITIONS
+   ============================================ */
+
+* {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease !important;
+}
+
+/* Remove Wix ads banner if present */
+[id="WIX_ADS"] {
+  display: none !important;
+}
+
+/* === TARGETED BACKGROUND KILLS === */
+
+/* About Me column: rgba(0,0,0,0.8) overlay */
+#bgLayers_comp-lr33l3rz .LWbAav,
+#bgLayers_comp-lr33l3rz .Kv1aVt {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Hero dark overlay box (rgb(50,50,50)) */
+.uYj0Sg.wixui-box,
+#comp-lr2rahf9 .uYj0Sg {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Hero background image element */
+#img_comp-lr2rahek,
+#bgMedia_comp-lr2rahek,
+#bgMedia_comp-lr2rahek .bgImage,
+#bgMedia_comp-lr2rahek wow-image {
+  display: none !important;
+}
+
+/* Hero BG color layer */
+#bgLayers_comp-lr2rahek .LWbAav {
+  background: var(--yw-bg) !important;
+}
+
+/* Footer: black bg + gradient + bg image */
+#bgLayers_comp-lr2s4513 .tcElKx,
+#bgLayers_comp-lr2s4513 .i1tH8h {
+  background: var(--yw-bg) !important;
+  background-color: var(--yw-bg) !important;
+}
+
+#img_comp-lr2s4513,
+#bgMedia_comp-lr2s4513 .bgImage,
+#bgMedia_comp-lr2s4513 wow-image {
+  display: none !important;
+}
+
+#bgLayers_comp-lr2s4527 .LWbAav {
+  background: var(--yw-bg) !important;
+  background-image: none !important;
+}
+
+#bgLayers_comp-lr2s4528 .LWbAav {
+  background: var(--yw-bg) !important;
+}
+
+/* Footer column strip — all inner background layers */
+#comp-lr2s4513 [class*="tcElKx"],
+#comp-lr2s4513 [class*="i1tH8h"],
+#comp-lr2s4513 .if7Vw2,
+#comp-lr2s4513 .if7Vw2 > div,
+#comp-lr2s4527 .MW5IWV > div,
+#comp-lr2s4528 .MW5IWV > div {
+  background: var(--yw-bg) !important;
+  background-color: var(--yw-bg) !important;
+  background-image: none !important;
+}
+
+/* Kill footer bg image */
+#comp-lr2s4513 .bgImage,
+#comp-lr2s4513 wow-image,
+#comp-lr2s4513 img[class*="bgImage"] {
+  opacity: 0 !important;
+  display: none !important;
+}
+
+/* "View All Achievements" button area */
+#comp-mkstvjry,
+#comp-mkstvjry a {
+  background: transparent !important;
+  border: 1px solid var(--yw-border) !important;
+  border-radius: 6px !important;
+  color: var(--yw-text-light) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
+}
+
+/* Featured In section (homepage logos bar) — the green bar */
+#comp-mkstf9lk [class*="tcElKx"],
+#comp-mkstf9lk [class*="i1tH8h"],
+#comp-mkstf9lk .if7Vw2 > div {
+  background: var(--yw-warm) !important;
+  background-image: none !important;
+}
+
+/* Remove excessive shadows */
+[style*="box-shadow"] {
+  box-shadow: none !important;
+}
+</style>
+
+<script id="yumi-redesign-js">
+// Wait for Wix page to fully render
+(function() {
+  function applyRedesign() {
+    // Detect which page we're on
+    const path = window.location.pathname;
+    const isHome = path === '/' || path === '';
+    const isMedia = path === '/media' || path.includes('/media');
+
+    // FORCE remove all background images/colors from every section
+    document.querySelectorAll('[id*="BG_"], [class*="FgquG"], [class*="LWbAav"], [class*="BmZ5pC"], [class*="sNF0_A"]').forEach(el => {
+      el.style.cssText = 'background: transparent !important; background-image: none !important; opacity: 0 !important;';
+    });
+
+    // Remove all section background images
+    document.querySelectorAll('.wixui-section, .wixui-column-strip, .wixui-column-strip__column').forEach(el => {
+      el.style.backgroundColor = '#FEFDFB';
+      el.style.backgroundImage = 'none';
+      // Also target child BG containers
+      el.querySelectorAll('div[id*="bg"], div[class*="bg"], wix-bg-media, wix-bg-image').forEach(bg => {
+        bg.style.cssText = 'display: none !important;';
+      });
+    });
+
+    // Force white background on the photo's parent container
+    document.querySelectorAll('#comp-lr33l3ry, #comp-lr33l3rz, #comp-lr2tryo9').forEach(el => {
+      el.style.cssText += '; background: #FEFDFB !important; background-image: none !important;';
+      el.querySelectorAll('*').forEach(child => {
+        const cs = getComputedStyle(child);
+        if (cs.backgroundImage !== 'none' || cs.backgroundColor.includes('0, 0, 0') || cs.backgroundColor.includes('rgb(0') || cs.backgroundColor.includes('rgba(0')) {
+          child.style.cssText += '; background: #FEFDFB !important; background-image: none !important;';
+        }
+      });
+    });
+
+    // Fix footer — remove dark background image
+    document.querySelectorAll('#comp-lr2s4513, [id="SITE_FOOTER"], [id="SITE_FOOTER_WRAPPER"]').forEach(el => {
+      el.style.cssText += '; background: #FEFDFB !important; background-image: none !important;';
+      el.querySelectorAll('*').forEach(child => {
+        child.style.backgroundImage = 'none';
+        child.style.backgroundColor = '#FEFDFB';
+      });
+    });
+
+    // --- HOMEPAGE MODIFICATIONS ---
+    if (isHome) {
+      // Update the hero title text
+      const heroTitle = document.querySelector('#comp-lr2rahfa');
+      if (heroTitle) {
+        const h2 = heroTitle.querySelector('h2, h1') || heroTitle;
+        if (h2 && h2.textContent.includes("Blog")) {
+          // Find the span inside and update
+          const spans = h2.querySelectorAll('span');
+          spans.forEach(s => {
+            if (s.textContent.includes("Blog")) {
+              s.textContent = "Yumi Willems";
+            }
+          });
+        }
+      }
+
+      // Update the subtitle
+      const heroSub = document.querySelector('#comp-lr2rahfc');
+      if (heroSub) {
+        const spans = heroSub.querySelectorAll('span');
+        spans.forEach(s => {
+          if (s.textContent.includes("Welcome to my personal blog")) {
+            s.textContent = "CEO & Co-Founder of LEAD.app · Columbia University (IKNS) · Writing on knowledge management, people analytics, and enterprise AI";
+          }
+        });
+      }
+    }
+
+    // --- ACHIEVEMENTS PAGE MODIFICATIONS ---
+    if (isMedia) {
+      // Update page heading
+      const careerHeading = document.querySelector('#comp-lr45dmeb7');
+      if (careerHeading) {
+        const el = careerHeading.querySelector('h2, span') || careerHeading;
+        // Keep "My Career Story" as is — it's good
+      }
+    }
+
+    // --- BOTH PAGES: Update footer year ---
+    const footer = document.querySelector('#comp-lr2w9g25');
+    if (footer) {
+      const spans = footer.querySelectorAll('span');
+      spans.forEach(s => {
+        if (s.textContent.includes('2024')) {
+          s.textContent = s.textContent.replace('2024', '2026');
+        }
+      });
+    }
+  }
+
+  // Run after page loads (Wix renders async)
+  if (document.readyState === 'complete') {
+    setTimeout(applyRedesign, 1000);
+  } else {
+    window.addEventListener('load', function() {
+      setTimeout(applyRedesign, 1500);
+    });
+  }
+
+  // Also run on Wix page transitions (SPA navigation)
+  const observer = new MutationObserver(function(mutations) {
+    for (const m of mutations) {
+      if (m.type === 'childList' && m.addedNodes.length > 0) {
+        setTimeout(applyRedesign, 500);
+        break;
+      }
+    }
+  });
+
+  const container = document.querySelector('#PAGES_CONTAINER');
+  if (container) {
+    observer.observe(container, { childList: true, subtree: false });
+  }
+})();
+</script>

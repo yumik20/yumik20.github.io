@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Achievements — Yumi Willems</title>
+  <meta name="description" content="Career story, press coverage, and media highlights for Yumi Willems — CEO & Co-Founder of LEAD.app, researcher at Columbia University.">
+  <meta property="og:title" content="Achievements — Yumi Willems">
+  <meta property="og:description" content="Career story, press coverage, and media highlights for Yumi Willems.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.yumiwillems.com/media">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #FEFDFB;
+      --text: #222;
+      --text-light: #666;
+      --text-faint: #999;
+      --border: #E8E5E0;
+      --warm: #F7F5F2;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      font-size: 15px;
+    }
+
+    /* ---- NAV ---- */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(254,253,251,0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+    nav.scrolled { border-bottom-color: var(--border); }
+    .nav-inner {
+      max-width: 860px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 24px;
+    }
+    .nav-name {
+      font-family: 'EB Garamond', serif;
+      font-size: 20px; font-weight: 500;
+      color: var(--text); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a {
+      text-decoration: none; color: var(--text-light);
+      font-size: 13px; font-weight: 400;
+      letter-spacing: 0.3px; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--text); }
+
+    /* ---- SHARED ---- */
+    .section {
+      max-width: 860px; margin: 0 auto;
+      padding: 56px 24px;
+    }
+    .section-label {
+      font-size: 11px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 1.8px;
+      color: var(--text-faint);
+      margin-bottom: 28px;
+    }
+    .divider {
+      max-width: 860px; margin: 0 auto; padding: 0 24px;
+    }
+    .divider hr { border: none; border-top: 1px solid var(--border); }
+
+    /* ---- PAGE HEADER ---- */
+    .page-header {
+      max-width: 860px; margin: 0 auto;
+      padding: 130px 24px 48px;
+    }
+    .page-header h1 {
+      font-family: 'EB Garamond', serif;
+      font-size: 36px; font-weight: 500;
+      letter-spacing: -0.3px;
+      margin-bottom: 12px;
+    }
+    .page-header p {
+      font-size: 15px; color: var(--text-light);
+      max-width: 580px; line-height: 1.7;
+    }
+    .page-header p a {
+      color: inherit; text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--border);
+    }
+    .page-header p a:hover { text-decoration-color: var(--text-light); }
+
+    /* ---- CAREER STORY ---- */
+    .career-story p {
+      font-size: 15px; line-height: 1.8;
+      color: var(--text-light);
+      max-width: 680px;
+    }
+    .career-story p + p { margin-top: 16px; }
+    .career-story a {
+      color: var(--text); text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--border);
+    }
+    .career-story a:hover { text-decoration-color: var(--text); }
+    .career-story strong { color: var(--text); font-weight: 500; }
+
+    /* ---- PRESS LOGOS ---- */
+    .press-logos {
+      display: flex; flex-wrap: wrap;
+      gap: 24px; align-items: center;
+      padding: 16px 0;
+    }
+    .press-logos img {
+      height: 80px; width: auto;
+      object-fit: contain;
+    }
+
+    /* ---- MEDIA ITEM (photo + description) ---- */
+    .media-item {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 32px;
+      padding-bottom: 48px;
+      margin-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+    .media-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0; padding-bottom: 0;
+    }
+    .media-item.reverse {
+      grid-template-columns: 1fr 320px;
+    }
+    .media-item.reverse .mi-img { order: 2; }
+    .media-item.reverse .mi-body { order: 1; }
+    .mi-img {
+      width: 100%;
+      border-radius: 6px;
+      object-fit: cover;
+      background: var(--warm);
+    }
+    .mi-img.landscape { aspect-ratio: 16/10; }
+    .mi-img.portrait { aspect-ratio: 3/4; }
+    .mi-img.square { aspect-ratio: 1; }
+    .mi-body {}
+    .mi-label {
+      font-size: 11px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 1.2px;
+      color: var(--text-faint);
+      margin-bottom: 8px;
+    }
+    .mi-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 22px; font-weight: 500;
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+    .mi-desc {
+      font-size: 14px; line-height: 1.8;
+      color: var(--text-light);
+    }
+    .mi-desc a {
+      color: var(--text); text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--border);
+    }
+    .mi-desc a:hover { text-decoration-color: var(--text); }
+
+    /* ---- MEDIA ITEM COMPACT (smaller photo) ---- */
+    .media-item-sm {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 24px;
+      padding-bottom: 36px;
+      margin-bottom: 36px;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+    .media-item-sm:last-child {
+      border-bottom: none;
+      margin-bottom: 0; padding-bottom: 0;
+    }
+    .media-item-sm .mi-img {
+      width: 180px; aspect-ratio: 1;
+    }
+    .media-item-sm .mi-title {
+      font-size: 18px;
+    }
+
+    /* ---- PHOTO GALLERY ---- */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+    }
+    .gallery-item img {
+      width: 100%; aspect-ratio: 1;
+      object-fit: cover;
+      background: var(--warm);
+      transition: opacity 0.2s;
+      display: block;
+    }
+    .gallery-item:hover img { opacity: 0.85; }
+    .gallery-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      padding: 24px 14px 12px;
+      opacity: 1;
+    }
+    .gallery-caption span {
+      font-size: 12px; color: #fff;
+      line-height: 1.4;
+    }
+    .gallery-item { display: none; }
+    .gallery-item.visible { display: block; }
+    .gallery-nav {
+      display: flex; justify-content: center;
+      align-items: center; gap: 16px;
+      margin-top: 24px;
+    }
+    .gallery-nav button {
+      padding: 8px 20px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg);
+      font-family: inherit;
+      font-size: 13px;
+      color: var(--text-light);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .gallery-nav button:hover { border-color: var(--text-light); color: var(--text); }
+    .gallery-nav button:disabled { opacity: 0.3; cursor: default; }
+    .gallery-nav button:disabled:hover { border-color: var(--border); color: var(--text-light); }
+    .gallery-nav .gallery-counter {
+      font-size: 13px; color: var(--text-faint);
+    }
+
+    /* ---- NUMBERS ---- */
+    .numbers-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .numbers-item {
+      background: var(--bg);
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .numbers-item .num {
+      font-family: 'EB Garamond', serif;
+      font-size: 28px; font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .numbers-item .num-label {
+      font-size: 12px; color: var(--text-faint);
+    }
+
+    /* ---- FOOTER ---- */
+    footer {
+      max-width: 860px; margin: 0 auto;
+      padding: 40px 24px;
+      display: flex; justify-content: space-between;
+      align-items: center;
+      font-size: 12px; color: var(--text-faint);
+      border-top: 1px solid var(--border);
+    }
+    footer a {
+      color: var(--text-faint); text-decoration: none;
+      transition: color 0.2s;
+    }
+    footer a:hover { color: var(--text-light); }
+    .footer-links { display: flex; gap: 20px; }
+
+    /* ---- NOTE ---- */
+    .note {
+      font-size: 13px; color: var(--text-faint);
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 700px) {
+      .media-item, .media-item.reverse { grid-template-columns: 1fr; gap: 16px; }
+      .media-item.reverse .mi-img { order: 0; }
+      .media-item.reverse .mi-body { order: 0; }
+      .media-item-sm { grid-template-columns: 1fr; gap: 12px; }
+      .media-item-sm .mi-img { width: 100%; }
+      .numbers-row { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-name">Yumi Willems</a>
+    <div class="nav-links">
+      <a href="index.html#writing">Writing</a>
+      <a href="#" class="active">Achievements</a>
+      <a href="index.html#connect">Elsewhere</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <h1>Achievements</h1>
+  <p>I'm Yumi Alyssa Willems Kimura (yes, it's a long name!). Depending on where you search, you'll find me as Yumi Alyssa Kimura in Japan and Yumi Willems or Yumi Kimura in the U.S. &mdash; a result of my love for all my names and my trial-and-error approach to personal SEO.</p>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- MY CAREER STORY -->
+<section class="section">
+  <div class="section-label">My Career Story</div>
+  <div class="career-story">
+    <p>
+      At 18, I took a leap into entrepreneurship, moving to Shanghai without local connections or language skills. There, I co-founded a translation, tour guiding, and real estate business with my schoolmates. During college, I interned at a Japanese immigration law firm, where I saw firsthand the limited career growth opportunities for women in law. After earning my degree from Kwansei Gakuin University in Japan, I transitioned into HR consulting at Hays and later became a partner at Sprinterser Partners, assisting U.S. companies with venture capital fundraising and M&A.
+    </p>
+    <p>
+      Seeking further growth, I moved to the U.S. and played a pivotal role in establishing <strong>Meitu Japan</strong>, leading to its <strong>$4.5 billion IPO in 2016</strong>. Meitu Japan functioned as the regional arm, adapting Meitu's technology for the Japanese market and expanding its reach in Asia's digital and social media landscape.
+    </p>
+    <p>
+      Recognized for my contributions to tech, I secured an <strong>O-1A visa</strong> (for extraordinary ability in business) and went on to found <strong>Lead Tech, Inc. (LEAD)</strong> in the U.S. To deepen my expertise, I pursued evening courses in HR Management and People Analytics at <strong>Wharton</strong> and Product Management and Data Science at <strong>UC Berkeley</strong> (check out my <a href="https://github.com/yumiwillems">GitHub</a>!).
+    </p>
+    <p>
+      Currently, while running LEAD, I'm also pursuing a <strong>Master of Science in Information and Knowledge Strategy (IKNS) at Columbia University</strong>. My work has been <a href="#">featured by Columbia IKNS</a>, where I shared how my information and knowledge strategy shaped my approach to enterprise knowledge management. I also published my first academic paper, <em><a href="https://dx.doi.org/10.2139/ssrn.6096787">"The Organizational Intelligence Loop: A Socio-Technical Framework for Adaptive Enterprise AI Adoption,"</a></em> which documents seven years of work building LEAD and insights from my post-Meitu career, and proposes a practical engineering layer for enterprise AI.
+    </p>
+    <p>
+      I've been invited to guest lecture at <strong>Washington University's Olin Business School</strong>, where I led a session on Human Resource Management in Startups, and to speak on enterprise AI design, adoption, and digital transformation at <strong>Wharton</strong>, other universities, and industry conferences. Along the way, I've also received invitations to serve on public company boards and contribute as a business commentator for Japanese TV formats.
+    </p>
+    <p>
+      At LEAD, we specialize in operational efficiency and knowledge management for enterprises. I lead product, research, marketing, sales and strategy for our products. Recently, we also developed a <strong>Behavioral Knowledge layer for RAG</strong> that turns dynamic organizational behavior into runtime context so enterprise search and agents can operate with real organizational context. Our suite includes <strong>BehaviorGraph</strong> (launched 2020), and <strong>Espresso</strong>.
+    </p>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- FEATURED BY -->
+<section class="section">
+  <div class="section-label">Featured By</div>
+  <div class="press-logos">
+    <img src="https://static.wixstatic.com/media/2af2f1_ba75290dc8c1498794bf7f4865149872~mv2.png/v1/crop/x_97,y_88,w_713,h_714/fill/w_80,h_80,al_c,q_85,enc_avif,quality_auto/techcrunch.png" alt="TechCrunch">
+    <img src="https://static.wixstatic.com/media/2af2f1_9dc2756c51e64680af1aa40c1400f30f~mv2.png/v1/fill/w_80,h_80,al_c,q_85,enc_avif,quality_auto/bridge.png" alt="BRIDGE">
+    <img src="https://static.wixstatic.com/media/2af2f1_8eaed65f31fd4346833eed71e341ec4e~mv2.png/v1/crop/x_12,y_0,w_756,h_756/fill/w_80,h_80,al_c,q_85,enc_avif,quality_auto/nhk.png" alt="NHK">
+    <img src="https://static.wixstatic.com/media/2af2f1_3321b60804e7497a9e15421908373f8b~mv2.png/v1/crop/x_4,y_0,w_204,h_204/fill/w_80,h_80,al_c,q_85,enc_avif,quality_auto/nippontv.png" alt="Nippon TV">
+    <img src="https://static.wixstatic.com/media/2af2f1_5bcd255d9ab744f0816423fe97586879~mv2.png/v1/crop/x_7,y_0,w_273,h_273/fill/w_80,h_80,al_c,q_85,enc_avif,quality_auto/nikkei.png" alt="Nikkei">
+    <img src="https://static.wixstatic.com/media/2af2f1_971968ea2f824693ad195415de75c728~mv2.png/v1/crop/x_6,y_0,w_680,h_680/fill/w_80,h_80,al_c,q_85,enc_avif,quality_auto/insightssuccess.png" alt="Insights Success">
+    <img src="https://static.wixstatic.com/media/2af2f1_9265475620ef4060a87bd21df602500a~mv2.png/v1/fill/w_80,h_80,al_c,q_85,enc_avif,quality_auto/thriveglobal.png" alt="Thrive Global">
+    <img src="https://static.wixstatic.com/media/2af2f1_b799423f71844255bd3c8deb119bb242~mv2.png/v1/fill/w_80,h_80,al_c,q_85,enc_avif,quality_auto/japantimes.png" alt="Japan Times">
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- MEDIA HIGHLIGHTS -->
+<section class="section">
+  <div class="section-label">Media Highlights</div>
+  <p class="note" style="margin-bottom: 32px;">As many of you know me as Yumi Willems in my current professional endeavors, you might come across some of my earlier work or media mentions under my former name, Yumi Alyssa Kimura. Both names represent important stages in my career journey.</p>
+
+  <!-- Beyond the Frontier Panel — maig4kyx: 2af2f1_8ef0d004fce04b84a8aa2f6193b7c6b4 -->
+  <div class="media-item">
+    <img class="mi-img landscape" src="https://static.wixstatic.com/media/2af2f1_8ef0d004fce04b84a8aa2f6193b7c6b4~mv2.png/v1/crop/x_45,y_0,w_464,h_416/fill/w_640,h_400,al_c,q_85,enc_avif,quality_auto/spoke.png" alt="Panel at Beyond the Frontier NYC">
+    <div class="mi-body">
+      <div class="mi-label">Beyond the Frontier &middot; NYC &middot; 2025</div>
+      <div class="mi-title">Panel Speaker at Beyond the Frontier, Microsoft SOHO Garage</div>
+      <p class="mi-desc">I was honored to speak on a panel at Beyond the Frontier NYC, hosted at Microsoft SOHO Garage in summer 2025. I shared why scaling AI isn't just about better models, but about better knowledge management &mdash; not only analyzing documents and conversations, but understanding how knowledge actually moves through people, relationships, networks, and real-time collaboration between humans and AI agents.</p>
+    </div>
+  </div>
+
+  <!-- AI Showcase Host — 6ea38d77: 2af2f1_957806ab5f254307aa5cbf2eabc420cd -->
+  <div class="media-item reverse">
+    <img class="mi-img landscape" src="https://static.wixstatic.com/media/2af2f1_957806ab5f254307aa5cbf2eabc420cd~mv2.jpg/v1/crop/x_0,y_787,w_3600,h_3226/fill/w_640,h_400,al_c,q_80,enc_avif,quality_auto/IMG_3950.jpg" alt="AI Showcase NYC">
+    <div class="mi-body">
+      <div class="mi-label">NYC AI Showcase &middot; April 2025</div>
+      <div class="mi-title">Hosted and Moderated an AI Showcase in NYC</div>
+      <p class="mi-desc">I hosted and moderated a packed AI showcase in NYC &mdash; curating every voice on stage. On 4/30/25, we brought together 100+ founders, investors, and enterprise leaders. Ravi Sarkar (Enterprise CTO, Microsoft) shared the enterprise buyer lens. Alastair Trueger (GP, Event Horizon) brought the investor POV. Jerry Tang (CEO, Atlas Cloud) gave the builder's take. Nabeel Ahmad (changeforce, Columbia Adjunct) tied it to workforce transformation.</p>
+    </div>
+  </div>
+
+  <!-- Beyond the Frontier Speaker — mawupdx6: 2af2f1_416b7c9747ee43bdb02952215b037f6e -->
+  <div class="media-item">
+    <img class="mi-img landscape" src="https://static.wixstatic.com/media/2af2f1_416b7c9747ee43bdb02952215b037f6e~mv2.jpg/v1/crop/x_0,y_191,w_1080,h_968/fill/w_640,h_400,al_c,q_80,enc_avif,quality_auto/Yumi%20Kimura-IG.jpg" alt="Beyond the Frontier speaker">
+    <div class="mi-body">
+      <div class="mi-label">Beyond the Frontier &middot; 2025</div>
+      <div class="mi-title">Invited Speaker at Beyond the Frontier</div>
+      <p class="mi-desc">I've been invited to speak at Beyond the Frontier 2025 &mdash; a gathering of innovators shaping the future of AI, frontier tech, and society. Honored to join this incredible lineup of thinkers, builders, and change-makers pushing the boundaries of what's next.</p>
+    </div>
+  </div>
+
+  <!-- Nikkei Interview — lzioqndn: 2af2f1_4e186d204b344a8790e73455ba54add6 -->
+  <div class="media-item reverse">
+    <img class="mi-img landscape" src="https://static.wixstatic.com/media/2af2f1_4e186d204b344a8790e73455ba54add6~mv2.jpg/v1/crop/x_0,y_529,w_2184,h_1957/fill/w_640,h_400,al_c,q_80,enc_avif,quality_auto/NikkeiXMedia.jpg" alt="Nikkei X Trend interview">
+    <div class="mi-body">
+      <div class="mi-label">Nikkei X Trend &middot; August 2024</div>
+      <div class="mi-title">11-Minute Feature: "Career Techniques of a Silicon Valley Entrepreneur Who Rose from a 'Hard Mode' Life"</div>
+      <p class="mi-desc">On August 6, 2024, Nikkei News (Nikkei X Trend) published an 11-minute read interview detailing my career path and startup journey &mdash; "シリコンバレー起業家が"人生ハードモード"からはい上がれたキャリア術."</p>
+    </div>
+  </div>
+
+  <!-- NHK — kdzpu26i: 2af2f1_0e2a91e37d704f88abd1861fd7819079 -->
+  <div class="media-item">
+    <img class="mi-img landscape" src="https://static.wixstatic.com/media/2af2f1_0e2a91e37d704f88abd1861fd7819079~mv2.jpg/v1/crop/x_0,y_0,w_1169,h_1048/fill/w_640,h_400,al_c,q_80,enc_avif,quality_auto/IMG_3424.jpg" alt="NHK TV appearance">
+    <div class="mi-body">
+      <div class="mi-label">NHK &middot; New Year's Day 2018</div>
+      <div class="mi-title">Two-Hour Feature on NHK Television</div>
+      <p class="mi-desc">On the eve of New Year's Day 2018, I had the privilege of being featured for two hours on NHK TV's education channel. This was particularly significant as NHK's New Year TV shows are renowned for their popularity, often boasting a viewership rate of around 40% nationwide.</p>
+    </div>
+  </div>
+
+  <!-- TechCrunch — kdzpu1lo: 2af2f1_50677d63beb84c85a2a764d7f76c65dd -->
+  <div class="media-item reverse">
+    <img class="mi-img landscape" src="https://static.wixstatic.com/media/2af2f1_50677d63beb84c85a2a764d7f76c65dd~mv2.png/v1/crop/x_0,y_0,w_1158,h_1037/fill/w_640,h_400,al_c,q_85,enc_avif,quality_auto/Screen%20Shot%202024-01-07%20at%204_35_12%20PM.png" alt="TechCrunch Japan">
+    <div class="mi-body">
+      <div class="mi-label">TechCrunch Japan &middot; 2019</div>
+      <div class="mi-title">Featured on TechCrunch Japan's Front Page</div>
+      <p class="mi-desc">LEAD gained significant recognition following its graduation from the Alchemist Accelerator in 2019.</p>
+    </div>
+  </div>
+
+  <!-- Insights Success — lr47d0hs: 2af2f1_237d0d7b35944855a79da8fa3fbc163e -->
+  <div class="media-item">
+    <img class="mi-img landscape" src="https://static.wixstatic.com/media/2af2f1_237d0d7b35944855a79da8fa3fbc163e~mv2.png/v1/fill/w_640,h_400,al_c,q_85,enc_avif,quality_auto/Screen%20Shot%202024-01-07%20at%204_53_31%20PM.png" alt="Insights Success magazine">
+    <div class="mi-body">
+      <div class="mi-label">Insights Success</div>
+      <div class="mi-title">Yumi Alyssa Kimura: Rising Beyond Discrimination</div>
+      <p class="mi-desc">Featured on Insights Success, highlighting my journey from starting business at 18 to leading LEAD.</p>
+    </div>
+  </div>
+
+  <!-- Nihon TV — j9r9uz7e: 2af2f1_6e7f21595bca496496e36203db6688c5 -->
+  <div class="media-item reverse">
+    <img class="mi-img landscape" src="https://static.wixstatic.com/media/2af2f1_6e7f21595bca496496e36203db6688c5~mv2.png/v1/crop/x_0,y_132,w_1170,h_1138/fill/w_640,h_400,al_c,q_85,enc_avif,quality_auto/Nihon%20TV.png" alt="Nippon TV interview">
+    <div class="mi-body">
+      <div class="mi-label">Nippon TV &middot; 2016</div>
+      <div class="mi-title">Featured as a Prominent Female Business Leader</div>
+      <p class="mi-desc">Featured in a 2016 Nihon TV interview as a prominent female business leader, highlighting services dedicated to empowering women.</p>
+    </div>
+  </div>
+
+  <!-- BRIDGE — kdzpu0y3: 2af2f1_221304a2ef3f4d25ad092384591c9bd2 -->
+  <div class="media-item">
+    <img class="mi-img landscape" src="https://static.wixstatic.com/media/2af2f1_221304a2ef3f4d25ad092384591c9bd2~mv2.png/v1/fill/w_640,h_400,al_c,q_85,enc_avif,quality_auto/Screen%20Shot%202024-01-07%20at%204_50_02%20PM.png" alt="BRIDGE article, Alchemist Accelerator">
+    <div class="mi-body">
+      <div class="mi-label">BRIDGE &middot; 2019</div>
+      <div class="mi-title">LEAD Graduates Alchemist Accelerator</div>
+      <p class="mi-desc">Featured on BRIDGE in 2019 &mdash; "「社員ファーストの企業文化作りを」&mdash; AIによる従業員エンゲージメント「LEAD」が米「Alchemist Accelerator」を卒業、日本人2人目."</p>
+    </div>
+  </div>
+
+  <!-- GMIC — lr4a7e9z: 2af2f1_a452d71b0f584f328e527575b015a666 -->
+  <div class="media-item reverse">
+    <img class="mi-img landscape" src="https://static.wixstatic.com/media/2af2f1_a452d71b0f584f328e527575b015a666~mv2.jpeg/v1/fill/w_640,h_400,al_c,q_80,enc_avif,quality_auto/GMIC.jpeg" alt="GMIC Tokyo 2016">
+    <div class="mi-body">
+      <div class="mi-label">GMIC Tokyo &middot; 2016</div>
+      <div class="mi-title">Speaker at Asia's Largest Mobile Internet Conference</div>
+      <p class="mi-desc">In 2016, as the founding Japan Country Manager for Meitu Technologies, I had the privilege of speaking at GMIC (Global Mobile Internet Conference), Asia's largest and leading technology conference. Since 2008, GMIC has been a pivotal event connecting B2B executives from over 70 countries.</p>
+    </div>
+  </div>
+
+  <!-- LINE Corp — lr47cuz0: 2af2f1_cbad9cef73114e189bd7eb46dd41c118 -->
+  <div class="media-item">
+    <img class="mi-img landscape" src="https://static.wixstatic.com/media/2af2f1_cbad9cef73114e189bd7eb46dd41c118~mv2.png/v1/crop/x_124,y_39,w_533,h_478/fill/w_640,h_400,al_c,q_85,enc_avif,quality_auto/Discussion%20with%20Morikawa-san.png" alt="Discussion with ex-CEO of LINE Corp">
+    <div class="mi-body">
+      <div class="mi-label">Tech Leaders Discussion</div>
+      <div class="mi-title">With Akira Morikawa, ex-CEO of LINE Corp</div>
+      <p class="mi-desc">Speaking with Akira Morikawa, ex-CEO of LINE Corp, on BeautyPlus' global impact in a tech leaders' discussion.</p>
+    </div>
+  </div>
+
+  <!-- Meitu/Zawachin -->
+  <div class="media-item reverse">
+    <img class="mi-img landscape" src="https://static.wixstatic.com/media/2af2f1_65366c3bcb464d8eab8afbab51ad4686~mv2.png/v1/crop/x_614,y_0,w_837,h_814/fill/w_640,h_400,al_c,q_85,enc_avif,quality_auto/Speaker.png" alt="MakeupPlus press event">
+    <div class="mi-body">
+      <div class="mi-label">MakeupPlus &middot; 2016</div>
+      <div class="mi-title">Featured Speaker at MakeupPlus App Launch</div>
+      <p class="mi-desc">Featured speaker at the prestigious 2016 press release event for MakeupPlus app, alongside renowned Japanese makeup artist Zawachin.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- PHOTO GALLERY -->
+<section class="section">
+  <div class="section-label">Photo Gallery</div>
+
+  <div class="gallery-grid">
+    <!-- Page 1: highest profile -->
+    <div class="gallery-item">
+      <img src="https://static.wixstatic.com/media/2af2f1_47de62d1ee8c4b23ace2e0e9b3b4d31f~mv2.png/v1/fill/w_430,h_430,al_c,q_85,enc_avif,quality_auto/photo.jpg" alt="Photo with Former Japanese First Lady, Ms. Akie Abe">
+      <div class="gallery-caption"><span>With Former Japanese First Lady, Ms. Akie Abe</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://static.wixstatic.com/media/2af2f1_6d563f0a41774c6b9525450e72658e6a~mv2.jpeg/v1/fill/w_430,h_430,al_c,q_85,enc_avif,quality_auto/photo.jpg" alt="Photo with Steve Wozniak back in 2017">
+      <div class="gallery-caption"><span>With Steve Wozniak, Apple Co-Founder</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://static.wixstatic.com/media/2af2f1_5e60540455ee46ba9e368912e7cefb16~mv2.png/v1/fill/w_430,h_430,al_c,q_85,enc_avif,quality_auto/photo.jpg" alt="Top HR Voice in 2023">
+      <div class="gallery-caption"><span>LinkedIn Top HR Voice, 2023</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://static.wixstatic.com/media/2af2f1_dcf8f7634ea6417e911ead0fbb36759d~mv2.jpeg/v1/fill/w_430,h_430,al_c,q_85,enc_avif,quality_auto/photo.jpg" alt="NHK speakers">
+      <div class="gallery-caption"><span>NHK New Year's Show Speakers, 2018</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://static.wixstatic.com/media/2af2f1_630c3245964a4f8492fb02a15f8e1580~mv2.jpeg/v1/fill/w_430,h_430,al_c,q_85,enc_avif,quality_auto/photo.jpg" alt="Speaking at eBay">
+      <div class="gallery-caption"><span>Speaking on DE&I at eBay, 2018</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://static.wixstatic.com/media/2af2f1_835098a832e54c4298ef62f78343c0dd~mv2.png/v1/fill/w_430,h_430,al_c,q_85,enc_avif,quality_auto/photo.jpg" alt="Panel Discussion at Plug and Play in 2023">
+      <div class="gallery-caption"><span>JWIBA Summit at Stanford / Plug and Play, 2023</span></div>
+    </div>
+    <!-- Page 2: strong credibility -->
+    <div class="gallery-item">
+      <img src="https://static.wixstatic.com/media/2af2f1_00ba45b815d443bf8141e2edd6ce8423~mv2.png/v1/fill/w_430,h_430,al_c,q_85,enc_avif,quality_auto/photo.jpg" alt="2024 North American Chinese Human Resources Summer Forum">
+      <div class="gallery-caption"><span>North American Chinese HR Forum, Silicon Valley 2024</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://static.wixstatic.com/media/2af2f1_8134accc76d64b9395d0d4f516d2257a~mv2.png/v1/fill/w_430,h_430,al_c,q_85,enc_avif,quality_auto/photo.jpg" alt="Spoke at the JCCNC's AI panel in 2023">
+      <div class="gallery-caption"><span>JCCNC AI Panel, San Francisco 2023</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://static.wixstatic.com/media/2af2f1_1f6e7a68f03d480cb8ca529577c4f863~mv2.png/v1/fill/w_430,h_430,al_c,q_85,enc_avif,quality_auto/photo.jpg" alt="Featured for Women's Entrepreneurship Day, 2021">
+      <div class="gallery-caption"><span>SAP.iO Women's Entrepreneurship Day, 2021</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://static.wixstatic.com/media/2af2f1_96040b4294674ae89ee21f6d94415f86~mv2.png/v1/fill/w_430,h_430,al_c,q_85,enc_avif,quality_auto/photo.jpg" alt="Presentation at Plug and Play's Enterprise Tech Demo Day in 2023">
+      <div class="gallery-caption"><span>Plug and Play Enterprise Tech Demo Day, 2023</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://static.wixstatic.com/media/2af2f1_b4f1f4ba6b354859a857b5aa45358c2b~mv2.jpeg/v1/fill/w_430,h_430,al_c,q_85,enc_avif,quality_auto/photo.jpg" alt="LEAD's event in SF">
+      <div class="gallery-caption"><span>LEAD Pitch Event, 150 Attendees, SF</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://static.wixstatic.com/media/2af2f1_88160c937b7d41b09572f6560c74d7d5~mv2.png/v1/fill/w_430,h_430,al_c,q_85,enc_avif,quality_auto/photo.jpg" alt="Panel Speech at Rocket Space">
+      <div class="gallery-caption"><span>Panel Speech at Rocket Space</span></div>
+    </div>
+    <!-- Page 3: additional -->
+    <div class="gallery-item">
+      <img src="https://static.wixstatic.com/media/2af2f1_7308b1022e4f463eafff050d3d5fb5a4~mv2.png/v1/fill/w_430,h_430,al_c,q_85,enc_avif,quality_auto/photo.jpg" alt="Panel Speech in Japan">
+      <div class="gallery-caption"><span>Panel with Salesforce Venture Japan CEO, Fukuoka</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://static.wixstatic.com/media/2af2f1_fd66674c24af4e17ab85b4178de86ea4~mv2.png/v1/fill/w_430,h_430,al_c,q_85,enc_avif,quality_auto/photo.jpg" alt="Spoke at PWC's HR event">
+      <div class="gallery-caption"><span>Speaker at PwC Millennial Lounge</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://static.wixstatic.com/media/2af2f1_04917c1814494c22a6e0da10b75d0adb~mv2.jpeg/v1/fill/w_430,h_430,al_c,q_85,enc_avif,quality_auto/photo.jpg" alt="Press release with the famous Japanese artist Zawachin back in 2017">
+      <div class="gallery-caption"><span>MakeupPlus Launch with Zawachin, 2016</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://static.wixstatic.com/media/2af2f1_2abce0b3909f425da79dd303457536fe~mv2.jpeg/v1/fill/w_430,h_430,al_c,q_85,enc_avif,quality_auto/photo.jpg" alt="Femigrant event speaker">
+      <div class="gallery-caption"><span>Femigrant Founders Event, SF</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://static.wixstatic.com/media/2af2f1_2004c98e3d944fe7b5f06c0d69292543~mv2.jpeg/v1/fill/w_430,h_430,al_c,q_85,enc_avif,quality_auto/photo.jpg" alt="Japanese female founder pitch event">
+      <div class="gallery-caption"><span>Japanese Female Founder Pitch Event</span></div>
+    </div>
+  </div>
+  <div class="gallery-nav">
+    <button id="gallery-prev" disabled>&larr; Prev</button>
+    <span class="gallery-counter" id="gallery-counter"></span>
+    <button id="gallery-next">Next &rarr;</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>&copy; 2026 Yumi Willems</span>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/yumiwillems/">LinkedIn</a>
+    <a href="#">X</a>
+    <a href="#">Substack</a>
+    <a href="#">GitHub</a>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  // Gallery pagination
+  (function() {
+    const items = document.querySelectorAll('.gallery-item');
+    const perPage = 6;
+    let page = 0;
+    const totalPages = Math.ceil(items.length / perPage);
+    const prev = document.getElementById('gallery-prev');
+    const next = document.getElementById('gallery-next');
+    const counter = document.getElementById('gallery-counter');
+
+    function show() {
+      items.forEach((item, i) => {
+        item.classList.toggle('visible', i >= page * perPage && i < (page + 1) * perPage);
+      });
+      prev.disabled = page === 0;
+      next.disabled = page >= totalPages - 1;
+      counter.textContent = (page + 1) + ' / ' + totalPages;
+    }
+
+    prev.addEventListener('click', () => { if (page > 0) { page--; show(); } });
+    next.addEventListener('click', () => { if (page < totalPages - 1) { page++; show(); } });
+    show();
+  })();
+</script>
+
+</body>
+</html>
