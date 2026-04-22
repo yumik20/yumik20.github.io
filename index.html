@@ -249,13 +249,21 @@
       padding-right: 24px;
     }
     .press-grid li:nth-last-child(-n+2) { border-bottom: none; }
-    .press-grid a, .press-grid span:first-child {
+    .press-grid a, .press-grid .pg-title {
       font-size: 13px; color: var(--text);
       text-decoration: none;
       line-height: 1.4;
-      transition: color 0.2s;
     }
-    .press-grid a:hover { color: var(--text-light); }
+    .press-grid a {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--border);
+      transition: text-decoration-color 0.2s, color 0.2s;
+    }
+    .press-grid a:hover {
+      color: var(--text-light);
+      text-decoration-color: var(--text-light);
+    }
     .press-grid .pl-meta {
       font-size: 11px; color: var(--text-faint);
     }
@@ -509,7 +517,7 @@
       <span class="pl-meta">Feb 2026 · University of North Georgia</span>
     </li>
     <li>
-      <span>Beyond the Frontier NYC — Speaker, Microsoft SOHO Garage</span>
+      <span class="pg-title">Beyond the Frontier NYC — Speaker, Microsoft SOHO Garage</span>
       <span class="pl-meta">2025</span>
     </li>
     <li>
@@ -517,7 +525,7 @@
       <span class="pl-meta">Aug 2024</span>
     </li>
     <li>
-      <span>Washington University Olin Business School — Guest Lecturer</span>
+      <span class="pg-title">Washington University Olin Business School — Guest Lecturer</span>
       <span class="pl-meta">Speaking</span>
     </li>
     <li>
@@ -529,7 +537,7 @@
       <span class="pl-meta">Feature</span>
     </li>
     <li>
-      <span>NHK Education Channel — 2-Hour Feature</span>
+      <span class="pg-title">NHK Education Channel — 2-Hour Feature</span>
       <span class="pl-meta">2018</span>
     </li>
     <li>
