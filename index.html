@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yumi Willems — CEO & Co-Founder of LEAD.app</title>
-  <meta name="description" content="CEO & Co-Founder of LEAD.app. Researcher at Columbia University. Writing on knowledge management, people analytics, and enterprise AI.">
-  <meta property="og:title" content="Yumi Willems">
-  <meta property="og:description" content="CEO & Co-Founder of LEAD.app. Researcher at Columbia University. Writing on knowledge management, people analytics, and enterprise AI.">
+  <title>Yumi A.W. Kimura — CEO & Co-Founder of LEAD.app</title>
+  <meta name="description" content="CEO & Co-Founder of LEAD.app. Researcher at Columbia University. LinkedIn Top HR Voice. Writing on knowledge management, people analytics, and enterprise AI.">
+  <meta property="og:title" content="Yumi A.W. Kimura">
+  <meta property="og:description" content="CEO & Co-Founder of LEAD.app. Researcher at Columbia University. LinkedIn Top HR Voice. Writing on knowledge management, people analytics, and enterprise AI.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.yumiwillems.com/">
   <meta property="og:image" content="https://static.wixstatic.com/media/2af2f1_20429695556c4f1eb0e785380cb9282c~mv2.png">
@@ -234,6 +234,37 @@
       white-space: nowrap;
     }
 
+    /* ---- PRESS GRID ---- */
+    .press-grid {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .press-grid li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex; flex-direction: column;
+      gap: 2px;
+      padding-right: 24px;
+    }
+    .press-grid li:nth-last-child(-n+2) { border-bottom: none; }
+    .press-grid a, .press-grid span:first-child {
+      font-size: 13px; color: var(--text);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color 0.2s;
+    }
+    .press-grid a:hover { color: var(--text-light); }
+    .press-grid .pl-meta {
+      font-size: 11px; color: var(--text-faint);
+    }
+    @media (max-width: 700px) {
+      .press-grid { grid-template-columns: 1fr; }
+      .press-grid li:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+      .press-grid li:last-child { border-bottom: none; }
+    }
+
     /* ---- CONNECT GRID ---- */
     .connect-row {
       display: grid;
@@ -358,7 +389,7 @@
 <!-- NAV -->
 <nav id="nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-name">Yumi Willems</a>
+    <a href="index.html" class="nav-name">Yumi A.W. Kimura</a>
     <div class="nav-links">
       <a href="#writing" class="active">Writing</a>
       <a href="achievements.html">Achievements</a>
@@ -377,8 +408,9 @@
       <h1>I build data and AI products for enterprise knowledge sharing.</h1>
       <p class="bio">
         CEO & Co-Founder of <a href="https://www.lead.app">LEAD.app</a>.
-        Currently researching organizational intelligence at Columbia University.
-        I write about knowledge management, people analytics, and what it takes to make enterprise AI actually useful.
+        Researching the <a href="https://academiccommons.columbia.edu/doi/10.7916/9da8-c532">Organizational Intelligence Loop</a> at Columbia University.
+        LinkedIn Top HR Voice. Speaker at Microsoft, Wharton, and Olin Business School.
+        I write about knowledge management, people analytics, and what it actually takes to make enterprise AI work inside real organizations.
       </p>
       <div class="hero-links">
         <a href="#">
@@ -389,7 +421,7 @@
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
           GitHub
         </a>
-        <a href="#">
+        <a href="https://academiccommons.columbia.edu/doi/10.7916/9da8-c532">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
           Papers
         </a>
@@ -437,15 +469,6 @@
     </div>
   </div>
 
-  <div class="featured-post">
-    <img class="fp-img" src="https://static.wixstatic.com/media/2af2f1_290ef476af754777a3f3aec329e101c4~mv2.png" alt="Informationism">
-    <div class="fp-body">
-      <div class="fp-cat">Meta-Structures & Reality</div>
-      <h2 class="fp-title"><a href="https://www.yumiwillems.com/post/self-consciousness-identity-and-the-architecture-of-reality">Informationism and the Fluid Self: Consciousness, Identity, and the Architecture of Reality</a></h2>
-      <p class="fp-excerpt">What if consciousness isn't just a product of neurons, but a fundamental pattern woven into the fabric of reality itself?</p>
-      <div class="fp-meta">May 2025 &middot; 10 min read</div>
-    </div>
-  </div>
 </section>
 
 <!-- MORE POSTS -->
@@ -461,28 +484,8 @@
       <span class="pl-meta">Jan 2026</span>
     </li>
     <li>
-      <a href="https://www.yumiwillems.com/post/what-if-ai-could-forecast-your-life-like-it-forecasts-a-star-s-orbit">What If AI Could Forecast Your Life Like It Forecasts a Star's Orbit?</a>
-      <span class="pl-meta">Jun 2025</span>
-    </li>
-    <li>
       <a href="https://www.yumiwillems.com/post/transforming-hr-evaluation-in-the-next-10-years">Transforming HR Evaluation in the Next 10 Years</a>
       <span class="pl-meta">Apr 2025</span>
-    </li>
-    <li>
-      <a href="https://www.yumiwillems.com/post/building-a-learning-organization-programs-knowledge-sharing-and-leadership-for-success">Building a Learning Organization: Programs, Knowledge Sharing, and Leadership</a>
-      <span class="pl-meta">Oct 2024</span>
-    </li>
-    <li>
-      <a href="https://www.yumiwillems.com/post/from-vision-to-reality-my-founding-story-of-lead-in-the-hr-tech-revolution">From Vision to Reality: My Founding Story of LEAD</a>
-      <span class="pl-meta">Jan 2024</span>
-    </li>
-    <li>
-      <a href="https://www.yumiwillems.com/post/what-aging-taught-me-about-discipline-design-and-the-quiet-power-of-choice">What Aging Taught Me About Discipline, Design, and the Quiet Power of Choice</a>
-      <span class="pl-meta">May 2025</span>
-    </li>
-    <li>
-      <a href="https://www.yumiwillems.com/post/meta-structures">The Hidden Structures of the Universe: From Quantum Consciousness to Societal Echoes</a>
-      <span class="pl-meta">May 2025</span>
     </li>
     <li>
       <a href="https://www.yumiwillems.com/post/the_concept_of_workforce_intelligence_and_talent_dynamicsplatform">The Concept of Workforce Intelligence and Talent Dynamics Platform</a>
@@ -491,6 +494,47 @@
     <li>
       <a href="https://www.yumiwillems.com/post/enhancing-people-dynamics-with-organizational-network-analysis-my-insights-with-survey-examples">Enhancing People Dynamics with Organizational Network Analysis</a>
       <span class="pl-meta">Jan 2024</span>
+    </li>
+  </ul>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- PRESS -->
+<section class="section" id="press">
+  <div class="section-label">Press & Speaking</div>
+  <ul class="press-grid">
+    <li>
+      <a href="https://youtu.be/FltcktwjfP0">JA-GA Futures Forum — Featured Guest Speaker</a>
+      <span class="pl-meta">Feb 2026 · University of North Georgia</span>
+    </li>
+    <li>
+      <span>Beyond the Frontier NYC — Speaker, Microsoft SOHO Garage</span>
+      <span class="pl-meta">2025</span>
+    </li>
+    <li>
+      <span>Nikkei X Trend — Silicon Valley Entrepreneur Career Profile</span>
+      <span class="pl-meta">Aug 2024</span>
+    </li>
+    <li>
+      <span>Washington University Olin Business School — Guest Lecturer</span>
+      <span class="pl-meta">Speaking</span>
+    </li>
+    <li>
+      <a href="https://sps.columbia.edu/news/how-information-knowledge-strategy-shaped-my-approach-enterprise-knowledge-management">Columbia IKNS — Enterprise Knowledge Management</a>
+      <span class="pl-meta">Columbia University</span>
+    </li>
+    <li>
+      <a href="https://insightssuccess.com/yumi-alyssa-kimura-rising-beyond-discrimination/">Insight Success — Rising Beyond Discrimination</a>
+      <span class="pl-meta">Feature</span>
+    </li>
+    <li>
+      <span>NHK Education Channel — 2-Hour Feature</span>
+      <span class="pl-meta">2018</span>
+    </li>
+    <li>
+      <a href="https://thebridge.jp/2019/09/lead-employees-engagement-alchemist-accelerator">TechCrunch Japan & The Bridge — Alchemist Accelerator</a>
+      <span class="pl-meta">2019</span>
     </li>
   </ul>
 </section>
@@ -527,21 +571,20 @@
   <div class="about-content">
     <div>
       <p>
-        I'm Yumi, CEO and Co-Founder of LEAD.app, where we build knowledge-sharing
-        infrastructure for enterprises. Before LEAD, I was the founding Country Manager for Meitu.
+        I'm Yumi A.W. Kimura, CEO and Co-Founder of <a href="https://www.lead.app" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">LEAD.app</a>, where we build knowledge-sharing infrastructure for enterprises. Before LEAD, I was the founding Country Manager for Meitu Technologies, where I led Japan and represented the company at GMIC across 70+ countries.
       </p>
       <p>
-        My current research at Columbia University's Information and Knowledge Strategy program
-        focuses on the Organizational Intelligence Loop (OIL), a framework for making
-        enterprise AI systems that actually understand how organizations work.
+        My research at Columbia University's Information and Knowledge Strategy program produced the <a href="https://academiccommons.columbia.edu/doi/10.7916/9da8-c532" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">Organizational Intelligence Loop (OIL)</a> — a socio-technical framework for embedding organizational context into enterprise AI at runtime.
       </p>
     </div>
     <div>
       <p>
-        I write about the intersection of knowledge management, people analytics, and AI
-        adoption. Most of what I publish here starts as a question I can't find a good answer to.
+        LinkedIn named me a Top HR Voice in 2023. I've spoken at Microsoft, the JA-GA Futures Forum at University of North Georgia, Washington University Olin Business School, Wharton conferences, and the North American Chinese HR Forum. I've been featured in NHK, TechCrunch Japan, Nikkei X Trend, and Nihon TV.
       </p>
-      <p style="margin-top: 24px;">
+      <p>
+        I write about knowledge management, people analytics, and what it takes to make enterprise AI work inside real organizations. Most of what I publish starts as a question I can't find a good answer to.
+      </p>
+      <p style="margin-top: 16px;">
         Based in San Francisco. Previously in Tokyo and Shanghai.
       </p>
     </div>
@@ -562,7 +605,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <span>&copy; 2026 Yumi Willems</span>
+  <span>&copy; 2026 Yumi A.W. Kimura</span>
   <div class="footer-links">
     <a href="https://www.linkedin.com/in/yumiwillems/">LinkedIn</a>
     <a href="#">X</a>
