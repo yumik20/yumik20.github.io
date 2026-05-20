@@ -142,11 +142,19 @@
       padding: 56px 24px;
     }
     .section-label {
-      font-size: 11px; font-weight: 500;
+      font-size: 11px; font-weight: 600;
       text-transform: uppercase; letter-spacing: 1.8px;
       color: var(--text-faint);
       margin-bottom: 28px;
+      padding-left: 12px;
+      border-left: 3px solid var(--text-faint);
     }
+    .section-label[data-section="writing"]     { color: #6d28d9; border-left-color: #6d28d9; }
+    .section-label[data-section="more"]        { color: #6d28d9; border-left-color: #c4b5fd; }
+    .section-label[data-section="recognition"] { color: #0f766e; border-left-color: #0f766e; }
+    .section-label[data-section="press"]       { color: #1d4ed8; border-left-color: #1d4ed8; }
+    .section-label[data-section="elsewhere"]   { color: #b45309; border-left-color: #b45309; }
+    .section-label[data-section="about"]       { color: #334155; border-left-color: #334155; }
 
     /* ---- PHOTO STRIP (new) ---- */
     .photo-strip {
@@ -462,12 +470,12 @@
 
 <!-- FEATURED WRITING -->
 <section class="section" id="writing">
-  <div class="section-label">Selected Writing</div>
+  <div class="section-label" data-section="writing">Selected Writing</div>
 
   <div class="featured-post">
     <img class="fp-img" src="https://map.behaviorgraph.com/og-card.png" alt="The AI Power Map — 420 people, 1,500+ relationships, one map">
     <div class="fp-body">
-      <div class="fp-cat">Book + Interactive Atlas</div>
+      <div class="fp-cat" data-type="project">Book + Interactive Atlas</div>
       <h2 class="fp-title"><a href="https://map.behaviorgraph.com/">The AI Power Map</a></h2>
       <p class="fp-excerpt">A 70,000-word book paired with an interactive atlas of 420 people in core AI. Maps how influence, capital, talent, and trust actually move — across labs, VCs, academia, and safety — from the founding cohorts and PayPal mafia to enterprise infrastructure, hidden ties, and the outsider playbook.</p>
       <div class="fp-meta">2026 &middot; Book + Interactive</div>
@@ -477,7 +485,7 @@
   <div class="featured-post">
     <img class="fp-img" src="https://i.imgur.com/EHhwuBs.jpeg" alt="The Layer Every Enterprise AI Platform Is Missing">
     <div class="fp-body">
-      <div class="fp-cat">Enterprise AI · Market Landscape</div>
+      <div class="fp-cat" data-type="landscape">Enterprise AI · Market Landscape</div>
       <h2 class="fp-title"><a href="https://www.behaviorgraph.com/blog/posts/landscape-missing-layer.html">The Layer Every Enterprise AI Platform Is Missing</a></h2>
       <p class="fp-excerpt">How every major enterprise AI category converges on the same blind spot, and why closing that gap represents an entirely new product category.</p>
       <div class="fp-meta">Mar 2026 &middot; 18 min read</div>
@@ -487,7 +495,7 @@
   <div class="featured-post">
     <img class="fp-img" src="https://www.behaviorgraph.com/static/blog-context-layer-feedback-loop.png" alt="Your AI Agents Route to the Wrong Person">
     <div class="fp-body">
-      <div class="fp-cat">Enterprise AI · Technical</div>
+      <div class="fp-cat" data-type="technical">Enterprise AI · Technical</div>
       <h2 class="fp-title"><a href="https://www.behaviorgraph.com/blog/posts/graphrag-behavioral-layer.html">Your AI Agents Route to the Wrong Person. Here's the Missing Layer.</a></h2>
       <p class="fp-excerpt">Why agents fail at routing despite solid retrieval systems, and how behavioral context is the overlooked solution to organizational intelligence gaps.</p>
       <div class="fp-meta">Apr 2026 &middot; 10 min read</div>
@@ -497,7 +505,7 @@
   <div class="featured-post">
     <img class="fp-img" src="https://static.wixstatic.com/media/2af2f1_8c8448522f6e4860a35d2ce4e8a044ec~mv2.png" alt="The Organizational Intelligence Loop (OIL)">
     <div class="fp-body">
-      <div class="fp-cat">Knowledge Management · Research</div>
+      <div class="fp-cat" data-type="research">Knowledge Management · Research</div>
       <h2 class="fp-title"><a href="https://www.yumiwillems.com/post/the-organizational-intelligence-loop-oil-a-framework-for-adaptive-enterprise-ai">The Organizational Intelligence Loop (OIL): A Framework for Adaptive Enterprise AI</a></h2>
       <p class="fp-excerpt">A founder's take on why enterprise GenAI needs an organizational layer and how the OIL framework uses behavioral graphs and influence signals to make AI adoptable.</p>
       <div class="fp-meta">Jan 2026 &middot; 6 min read</div>
@@ -507,7 +515,7 @@
   <div class="featured-post">
     <img class="fp-img" src="https://static.wixstatic.com/media/2af2f1_bed2fdbaad40419eb4f57383999b8695~mv2.png/v1/fill/w_1000,h_545,al_c,q_90,usm_0.66_1.00_0.01/2af2f1_bed2fdbaad40419eb4f57383999b8695~mv2.png" alt="AI Agent Marketing Team Architecture">
     <div class="fp-body">
-      <div class="fp-cat">AI Agents · Orchestration</div>
+      <div class="fp-cat" data-type="agents">AI Agents · Orchestration</div>
       <h2 class="fp-title"><a href="https://www.yumiwillems.com/post/designing-an-ai-agent-marketing-team-what-actually-works">Designing an AI-Agent Marketing Team: What Actually Works</a></h2>
       <p class="fp-excerpt">How I built and scaled a team of AI agents for real operations using OpenClaw. Ten design principles from structure over intelligence to anti-spam safeguards, and why building an agent system feels more like organizational design than programming.</p>
       <div class="fp-meta">Mar 2026 &middot; 6 min read</div>
@@ -518,7 +526,7 @@
 
 <!-- MORE POSTS -->
 <section class="section" style="padding-top: 0;">
-  <div class="section-label">More Writing</div>
+  <div class="section-label" data-section="more">More Writing</div>
   <ul class="post-list">
     <li>
       <a href="https://www.behaviorgraph.com/blog/posts/harnesses-run-agents-organizational-context.html">Agent Orchestration for AI Engineers: Harnesses, Context, and the Layer Most Teams Barely Thought Of</a>
@@ -535,11 +543,11 @@
 
 <!-- A16Z RECOGNITION -->
 <section class="section" style="padding-bottom: 0;">
-  <div class="section-label">Recognition</div>
+  <div class="section-label" data-section="recognition">Recognition</div>
   <div class="featured-post">
     <img class="fp-img" src="meitu-a16z.png" alt="Meitu ranked #26 on A16Z Top 50 Gen AI Mobile Apps" style="object-fit: contain; background: var(--warm);">
     <div class="fp-body">
-      <div class="fp-cat">Andreessen Horowitz · A16Z</div>
+      <div class="fp-cat" data-type="recognition">Andreessen Horowitz · A16Z</div>
       <h2 class="fp-title"><a href="https://a16z.com/100-gen-ai-apps-6/">Meitu (美图) Ranked #26: A16Z Top 50 Gen AI Mobile Apps</a></h2>
       <p class="fp-excerpt">During my time as founding Country Manager of Meitu (美图) Japan, Meitu (美图) was selected by A16Z as one of the Top 50 Gen AI mobile apps globally by monthly active users, alongside ChatGPT, Gemini, and other leading AI consumer apps.</p>
       <div class="fp-meta">Selected by Andreessen Horowitz &middot; Former employer</div>
@@ -551,7 +559,7 @@
 
 <!-- PRESS -->
 <section class="section" id="press">
-  <div class="section-label">Press & Speaking</div>
+  <div class="section-label" data-section="press">Press & Speaking</div>
   <ul class="press-grid">
     <li>
       <a href="https://youtu.be/FltcktwjfP0">JA-GA Futures Forum: Featured Guest Speaker</a>
@@ -596,7 +604,7 @@
 
 <!-- CONNECT -->
 <section class="section" id="connect">
-  <div class="section-label">Elsewhere</div>
+  <div class="section-label" data-section="elsewhere">Elsewhere</div>
   <div class="connect-row">
     <a class="connect-item" href="https://kimura.yumiwillems.com/">
       <h3>Substack</h3>
@@ -620,7 +628,7 @@
 
 <!-- ABOUT -->
 <section class="section" id="about">
-  <div class="section-label">About</div>
+  <div class="section-label" data-section="about">About</div>
   <div class="about-content">
     <div>
       <p>
