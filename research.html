@@ -168,6 +168,12 @@
       letter-spacing: -0.2px;
       margin-bottom: 18px;
     }
+    .project-fig { margin: 26px auto 4px; max-width: 360px; }
+    .project-fig img { width: 100%; border: 1px solid var(--border); border-radius: 8px; display: block; background: #fff; }
+    .project-fig figcaption { font-size: 12px; line-height: 1.55; color: var(--text-faint); margin-top: 9px; }
+    .oilloop { margin: 26px auto 4px; max-width: 380px; }
+    .oilloop svg { width: 100%; display: block; }
+    .oilloop figcaption { font-size: 12px; line-height: 1.55; color: var(--text-faint); margin-top: 9px; }
     .qmen { list-style: none; }
     .qmen li {
       display: grid;
@@ -342,6 +348,33 @@
         <span class="val">OIL provides a practical, fairness-centered language for organizational context. It became the foundation for the Large Behavior Model below.</span>
       </li>
     </ul>
+    <figure class="oilloop">
+      <svg viewBox="0 0 430 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Organizational Intelligence Loop: an agentic AI layer at the center reads from and acts on the information, process, and people layers, continuously. The people layer is the one most AI skips.">
+        <defs>
+          <marker id="arw" markerWidth="9" markerHeight="9" refX="6.3" refY="3" orient="auto-start-reverse"><path d="M0,0 L6.3,3 L0,6 Z" fill="#9aa3ad"/></marker>
+          <marker id="arwp" markerWidth="9" markerHeight="9" refX="6.3" refY="3" orient="auto-start-reverse"><path d="M0,0 L6.3,3 L0,6 Z" fill="#bd8a8a"/></marker>
+        </defs>
+        <ellipse cx="215" cy="196" rx="200" ry="172" fill="none" stroke="#ece6de" stroke-width="9"/>
+        <path d="M 215,150 L 215,66" fill="none" stroke="#9aa3ad" stroke-width="1.7" marker-start="url(#arw)" marker-end="url(#arw)"/>
+        <path d="M 182,214 L 120,300" fill="none" stroke="#9aa3ad" stroke-width="1.7" marker-start="url(#arw)" marker-end="url(#arw)"/>
+        <path d="M 248,214 L 310,300" fill="none" stroke="#bd8a8a" stroke-width="2" marker-start="url(#arwp)" marker-end="url(#arwp)"/>
+        <rect x="153" y="150" width="124" height="62" rx="11" fill="#F2ECEC" stroke="#cdb9b9" stroke-width="1.6"/>
+        <text x="215" y="178" text-anchor="middle" font-family="'EB Garamond',serif" font-weight="500" font-size="17" fill="#222">Agentic AI</text>
+        <text x="215" y="195" text-anchor="middle" font-family="'Inter',sans-serif" font-size="9.5" fill="#6b7280">reads every layer,</text>
+        <text x="215" y="206" text-anchor="middle" font-family="'Inter',sans-serif" font-size="9.5" fill="#6b7280">acts across them</text>
+        <rect x="145" y="18" width="140" height="46" rx="9" fill="#fff" stroke="#E8E5E0" stroke-width="1.3"/>
+        <text x="215" y="38" text-anchor="middle" font-family="'EB Garamond',serif" font-weight="500" font-size="15" fill="#222">Information</text>
+        <text x="215" y="53" text-anchor="middle" font-family="'Inter',sans-serif" font-size="9.5" fill="#6b7280">documents, what is known</text>
+        <rect x="14" y="302" width="138" height="46" rx="9" fill="#fff" stroke="#E8E5E0" stroke-width="1.3"/>
+        <text x="83" y="322" text-anchor="middle" font-family="'EB Garamond',serif" font-weight="500" font-size="15" fill="#222">Process</text>
+        <text x="83" y="337" text-anchor="middle" font-family="'Inter',sans-serif" font-size="9.5" fill="#6b7280">how work flows</text>
+        <rect x="278" y="302" width="138" height="46" rx="9" fill="#F6EFEF" stroke="#cfa6a6" stroke-width="1.7"/>
+        <text x="347" y="322" text-anchor="middle" font-family="'EB Garamond',serif" font-weight="500" font-size="15" fill="#7a4a4a">People</text>
+        <text x="347" y="337" text-anchor="middle" font-family="'Inter',sans-serif" font-size="9" fill="#9a6a6a">trust, expertise, influence</text>
+        <text x="347" y="366" text-anchor="middle" font-family="'EB Garamond',serif" font-style="italic" font-size="11.5" fill="#bd8a8a">the layer most AI skips</text>
+      </svg>
+      <figcaption>The Organizational Intelligence Loop.</figcaption>
+    </figure>
   </div>
 
   <!-- LBM -->
@@ -366,6 +399,10 @@
         <span class="val">Cross-company transfer is the promising result: frozen representations pretrained across nine real companies already predict seniority in a tenth it never saw at about r = 0.50 (about 0.25 net of activity volume). The next step is to deepen it with design partners, testing on real organizations and training across more companies.</span>
       </li>
     </ul>
+    <figure class="project-fig">
+      <img src="lbm-influence-gap.png" alt="Scatter plot of peer-perceived value versus formal seniority, highlighting hidden experts and empty suits">
+      <figcaption>The Influence Gap: hidden experts (high peer value, lower title) versus empty suits (high title, low peer value). LBM reads the earned influence that titles miss.</figcaption>
+    </figure>
   </div>
 
   <!-- Multi-agent -->
