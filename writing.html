@@ -76,6 +76,18 @@
     .sub-btn svg { width: 15px; height: 15px; }
     .substack-badge { display: inline-flex; align-items: center; gap: 4px; font-size: 10.5px; font-weight: 600; color: #FF6719; border: 1px solid #ffd5be; background: #fff5ef; padding: 1px 7px 1px 5px; border-radius: 5px; vertical-align: middle; }
     .substack-badge svg { width: 10px; height: 10px; }
+    /* AI POWER MAP PROJECT */
+    .powermap { display: flex; gap: 30px; align-items: flex-start; background: var(--warm); border: 1px solid var(--border); border-radius: 12px; padding: 26px 28px; }
+    .pm-img { width: 260px; height: 165px; object-fit: cover; border-radius: 8px; background: #fff; display: block; flex-shrink: 0; }
+    .pm-body { flex: 1; }
+    .pm-title { font-family: 'EB Garamond', serif; font-size: 26px; font-weight: 500; line-height: 1.2; letter-spacing: -0.2px; margin: 6px 0 10px; }
+    .pm-title a { text-decoration: none; color: var(--text); transition: color 0.2s; }
+    .pm-title a:hover { color: var(--text-light); }
+    .pm-desc { font-size: 14.5px; line-height: 1.75; color: var(--text-light); }
+    .pm-stats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .pm-stats span { font-size: 12px; color: var(--text); background: #fff; border: 1px solid var(--border); border-radius: 999px; padding: 3px 11px; }
+    .pm-cta { font-size: 13px; color: var(--text); text-decoration: none; border-bottom: 1px solid var(--text-light); padding-bottom: 2px; }
+    @media (max-width: 700px) { .powermap { flex-direction: column; gap: 18px; } .pm-img { width: 100%; height: 180px; } }
     /* FOOTER */
     footer { max-width: 860px; margin: 0 auto; padding: 40px 24px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-faint); border-top: 1px solid var(--border); }
     footer a { color: var(--text-faint); text-decoration: none; transition: color 0.2s; }
@@ -140,19 +152,33 @@
 
 <div class="divider"><hr></div>
 
+<!-- PROJECT: THE AI POWER MAP -->
+<section class="section">
+  <div class="section-label" data-section="featured">Project</div>
+  <div class="powermap">
+    <a href="https://map.behaviorgraph.com/" target="_blank"><img class="pm-img" src="https://map.behaviorgraph.com/og-card.png" alt="The AI Power Map"></a>
+    <div class="pm-body">
+      <div class="fp-cat">Book, interactive atlas, and original research</div>
+      <h2 class="pm-title"><a href="https://map.behaviorgraph.com/" target="_blank">The AI Power Map</a></h2>
+      <p class="pm-desc">I built The AI Power Map by using AI agents to collect and verify public data at scale, then applying network-science analysis to turn it into an interactive map and a ~70,000-word book. It maps 420 people and 1,724 sourced relationships to show how power, capital, talent, and trust move through the AI industry, and where outsiders may find entry points. I designed it as a research artifact that makes influence visible through evidence, structure, and network patterns.</p>
+      <div class="pm-stats">
+        <span>420 people</span>
+        <span>1,724 sourced relationships</span>
+        <span>~70,000 words</span>
+        <span>EN / 中文</span>
+      </div>
+      <p style="margin-top:16px;">
+        <a href="https://map.behaviorgraph.com/" target="_blank" class="pm-cta">Explore the map and book &rarr;</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
 <!-- FEATURED -->
 <section class="section">
   <div class="section-label" data-section="featured">Featured</div>
-
-  <div class="featured-post">
-    <img class="fp-img" src="https://map.behaviorgraph.com/og-card.png" alt="The AI Power Map">
-    <div class="fp-body">
-      <div class="fp-cat">Book + Interactive Atlas</div>
-      <h2 class="fp-title"><a href="https://map.behaviorgraph.com/" target="_blank">The AI Power Map</a></h2>
-      <p class="fp-excerpt">A 70,000-word book paired with an interactive atlas of 420 people and 1,700+ public ties across the AI industry: how influence, trust, talent, and capital actually move, from the labs and VCs to academia and safety.</p>
-      <div class="fp-meta">2026 · Book + Interactive</div>
-    </div>
-  </div>
 
   <div class="featured-post">
     <img class="fp-img" src="https://i.imgur.com/EHhwuBs.jpeg" alt="The Layer Every Enterprise AI Platform Is Missing">
