@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Writing · Yumi A.W. Kimura</title>
+  <meta name="description" content="Essays by Yumi A.W. Kimura on human-centered AI, organizational intelligence, multi-agent systems, people analytics, and building enterprise AI that works inside real organizations.">
+  <meta property="og:title" content="Writing · Yumi A.W. Kimura">
+  <meta property="og:description" content="Essays on human-centered AI, organizational intelligence, agents, and enterprise AI.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.yumiwillems.com/writing.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #FEFDFB; --text: #222; --text-light: #666; --text-faint: #999;
+      --border: #E8E5E0; --accent: #333; --warm: #F7F5F2;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.65;
+      -webkit-font-smoothing: antialiased; font-size: 15px;
+    }
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(254,253,251,0.92); backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid transparent; transition: border-color 0.3s; }
+    nav.scrolled { border-bottom-color: var(--border); }
+    .nav-inner { max-width: 860px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 18px 24px; }
+    .nav-name { font-family: 'EB Garamond', serif; font-size: 20px; font-weight: 500; color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--text-light); font-size: 13px; font-weight: 400; letter-spacing: 0.3px; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--text); }
+    /* PAGE HEADER */
+    .page-header { max-width: 860px; margin: 0 auto; padding: 130px 24px 48px; }
+    .page-header h1 { font-family: 'EB Garamond', serif; font-size: 36px; font-weight: 500; letter-spacing: -0.3px; margin-bottom: 12px; }
+    .page-header p { font-size: 15px; color: var(--text-light); max-width: 600px; line-height: 1.7; }
+    /* DIVIDER */
+    .divider { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+    .divider hr { border: none; border-top: 1px solid var(--border); }
+    /* SECTION */
+    .section { max-width: 860px; margin: 0 auto; padding: 52px 24px; }
+    .section-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.8px; color: var(--text-faint); margin-bottom: 26px; padding-left: 12px; border-left: 3px solid var(--text-faint); }
+    .section-label[data-section="featured"] { color: #6d28d9; border-left-color: #6d28d9; }
+    .section-label[data-section="ai"]       { color: #0f766e; border-left-color: #0f766e; }
+    .section-label[data-section="practice"] { color: #1d4ed8; border-left-color: #1d4ed8; }
+    .section-label[data-section="essays"]   { color: #b45309; border-left-color: #b45309; }
+    /* FEATURED POST */
+    .featured-post { display: flex; gap: 28px; align-items: flex-start; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--border); }
+    .featured-post:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .fp-img { width: 200px; height: 140px; border-radius: 6px; object-fit: cover; flex-shrink: 0; background: var(--warm); }
+    .fp-body { flex: 1; }
+    .fp-cat { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 1.2px; color: var(--text-faint); margin-bottom: 8px; }
+    .fp-title { font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 500; line-height: 1.35; margin-bottom: 8px; letter-spacing: -0.2px; }
+    .fp-title a { text-decoration: none; color: var(--text); transition: color 0.2s; }
+    .fp-title a:hover { color: var(--text-light); }
+    .fp-excerpt { font-size: 14px; line-height: 1.7; color: var(--text-light); }
+    .fp-meta { margin-top: 10px; font-size: 12px; color: var(--text-faint); }
+    /* POST LIST */
+    .post-list { list-style: none; }
+    .post-list li { padding: 15px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+    .post-list li:last-child { border-bottom: none; }
+    .post-list a { font-family: 'EB Garamond', serif; font-size: 18px; font-weight: 400; text-decoration: none; color: var(--text); transition: color 0.2s; line-height: 1.4; }
+    .post-list a:hover { color: var(--text-light); }
+    .post-list .pl-meta { font-size: 12px; color: var(--text-faint); white-space: nowrap; }
+    /* SUBSTACK */
+    .substack-cta { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; background: var(--warm); border: 1px solid var(--border); border-radius: 10px; padding: 22px 26px; }
+    .substack-cta .sc-text { font-size: 14.5px; color: var(--text-light); max-width: 520px; line-height: 1.6; }
+    .substack-cta .sc-text strong { display: block; color: var(--text); font-weight: 500; font-family: 'EB Garamond', serif; font-size: 18px; margin-bottom: 3px; }
+    .sub-btn { display: inline-flex; align-items: center; gap: 8px; background: #FF6719; color: #fff; font-size: 13px; font-weight: 500; text-decoration: none; padding: 11px 17px; border-radius: 7px; white-space: nowrap; transition: opacity 0.2s; }
+    .sub-btn:hover { opacity: 0.88; }
+    .sub-btn svg { width: 15px; height: 15px; }
+    .substack-badge { display: inline-flex; align-items: center; gap: 4px; font-size: 10.5px; font-weight: 600; color: #FF6719; border: 1px solid #ffd5be; background: #fff5ef; padding: 1px 7px 1px 5px; border-radius: 5px; vertical-align: middle; }
+    .substack-badge svg { width: 10px; height: 10px; }
+    /* FOOTER */
+    footer { max-width: 860px; margin: 0 auto; padding: 40px 24px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-faint); border-top: 1px solid var(--border); }
+    footer a { color: var(--text-faint); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--text-light); }
+    .footer-links { display: flex; gap: 20px; }
+    @media (max-width: 700px) {
+      .page-header h1 { font-size: 28px; }
+      .featured-post { flex-direction: column; }
+      .fp-img { width: 100%; height: 180px; }
+      .post-list li { flex-direction: column; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-name">Yumi A.W. Kimura</a>
+    <div class="nav-links">
+      <a href="research.html">Research</a>
+      <a href="writing.html" class="active">Writing</a>
+      <a href="achievements.html">Public Work</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <h1>Writing</h1>
+  <p>Essays on human-centered AI, organizational intelligence, multi-agent systems, and what it actually takes to make enterprise AI work inside real organizations. Most of it starts as a question I cannot find a good answer to.</p>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- SUBSTACK CTA -->
+<section class="section" style="padding-bottom: 10px;">
+  <div class="substack-cta">
+    <div class="sc-text"><strong>The Agentic Enterprise</strong>New essays on organizational intelligence and enterprise AI. Read them first on Substack.</div>
+    <a class="sub-btn" href="https://kimura.yumiwillems.com/" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>Subscribe on Substack</a>
+  </div>
+</section>
+
+<!-- ON SUBSTACK -->
+<section class="section" style="padding-top: 26px;">
+  <div class="section-label" style="color:#FF6719; border-left-color:#FF6719;">On Substack</div>
+  <ul class="post-list">
+    <li>
+      <a href="https://kimura.yumiwillems.com/p/your-agent-is-still-a-hardcoded-workflow" target="_blank">Your Agent Is Still a Hardcoded Workflow. It Is Not a Digital Employee Yet.</a>
+      <span class="pl-meta"><span class="substack-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>Substack</span></span>
+    </li>
+    <li>
+      <a href="https://kimura.yumiwillems.com/p/the-missing-layer-between-ai-pilots" target="_blank">The Missing Layer Between AI Pilots and Enterprise Scale</a>
+      <span class="pl-meta"><span class="substack-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>Substack</span></span>
+    </li>
+    <li>
+      <a href="https://kimura.yumiwillems.com/p/why-ais-biggest-deals-price-assets" target="_blank">Why AI's Biggest Deals Price Assets Before Revenue</a>
+      <span class="pl-meta"><span class="substack-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>Substack</span></span>
+    </li>
+  </ul>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- FEATURED -->
+<section class="section">
+  <div class="section-label" data-section="featured">Featured</div>
+
+  <div class="featured-post">
+    <img class="fp-img" src="https://i.imgur.com/EHhwuBs.jpeg" alt="The Layer Every Enterprise AI Platform Is Missing">
+    <div class="fp-body">
+      <div class="fp-cat">Enterprise AI · Market Landscape</div>
+      <h2 class="fp-title"><a href="https://www.behaviorgraph.com/blog/posts/landscape-missing-layer.html">The Layer Every Enterprise AI Platform Is Missing</a></h2>
+      <p class="fp-excerpt">How every major enterprise AI category converges on the same blind spot, and why closing that gap represents an entirely new product category.</p>
+      <div class="fp-meta">Mar 2026 · 18 min read</div>
+    </div>
+  </div>
+
+  <div class="featured-post">
+    <img class="fp-img" src="https://www.behaviorgraph.com/static/blog-context-layer-feedback-loop.png" alt="Your AI Agents Route to the Wrong Person">
+    <div class="fp-body">
+      <div class="fp-cat">Enterprise AI · Technical</div>
+      <h2 class="fp-title"><a href="https://www.behaviorgraph.com/blog/posts/graphrag-behavioral-layer.html">Your AI Agents Route to the Wrong Person. Here's the Missing Layer.</a></h2>
+      <p class="fp-excerpt">Why agents fail at routing despite solid retrieval systems, and how behavioral context is the overlooked solution to organizational intelligence gaps.</p>
+      <div class="fp-meta">Apr 2026 · 10 min read</div>
+    </div>
+  </div>
+
+  <div class="featured-post">
+    <img class="fp-img" src="https://static.wixstatic.com/media/2af2f1_bed2fdbaad40419eb4f57383999b8695~mv2.png/v1/fill/w_1000,h_545,al_c,q_90,usm_0.66_1.00_0.01/2af2f1_bed2fdbaad40419eb4f57383999b8695~mv2.png" alt="Designing an AI-Agent Marketing Team">
+    <div class="fp-body">
+      <div class="fp-cat">AI Agents · Orchestration</div>
+      <!-- AT-RISK LINK: lives on the Wix blog (yumiwillems.com/post/...). Update when the blog moves. -->
+      <h2 class="fp-title"><a href="https://www.yumiwillems.com/post/designing-an-ai-agent-marketing-team-what-actually-works">Designing an AI-Agent Marketing Team: What Actually Works</a></h2>
+      <p class="fp-excerpt">How I built and scaled a team of AI agents for real operations using OpenClaw. Ten design principles, and why building an agent system feels more like organizational design than programming.</p>
+      <div class="fp-meta">Mar 2026 · 6 min read</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- AI & ORGANIZATIONS -->
+<section class="section">
+  <div class="section-label" data-section="ai">AI &amp; Organizations</div>
+  <ul class="post-list">
+    <li>
+      <a href="https://www.behaviorgraph.com/blog/posts/large-behavior-model-ai-governance-agent-orchestration.html">A Large Behavior Model for AI Governance and Agent Orchestration</a>
+      <span class="pl-meta">behaviorgraph.com</span>
+    </li>
+    <li>
+      <a href="https://www.behaviorgraph.com/blog/posts/harnesses-run-agents-organizational-context.html">Agent Orchestration for AI Engineers: Harnesses, Context, and the Layer Most Teams Barely Thought Of</a>
+      <span class="pl-meta">Apr 2026</span>
+    </li>
+    <!-- AT-RISK LINKS BELOW: live on the Wix blog (yumiwillems.com/post/...). Update when the blog moves. -->
+    <li>
+      <a href="https://www.yumiwillems.com/post/the-organizational-intelligence-loop-oil-a-framework-for-adaptive-enterprise-ai">The Organizational Intelligence Loop (OIL): A Framework for Adaptive Enterprise AI</a>
+      <span class="pl-meta">Jan 2026</span>
+    </li>
+    <li>
+      <a href="https://www.yumiwillems.com/post/people-analytics-ona-and-the-missing-people-side-km-layer-for-enterprise-genai">People Analytics, ONA, and the Missing People-Side KM Layer for Enterprise GenAI</a>
+      <span class="pl-meta">Essay</span>
+    </li>
+  </ul>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- PRACTICE & LEADERSHIP -->
+<section class="section">
+  <div class="section-label" data-section="practice">Practice &amp; Leadership</div>
+  <ul class="post-list">
+    <!-- AT-RISK LINKS: live on the Wix blog (yumiwillems.com/post/...). Update when the blog moves. -->
+    <li>
+      <a href="https://www.yumiwillems.com/post/beyond-vibes-how-change-leaders-can-measure-test-and-shift-culture-for-innovation">Beyond "Vibes": How Change Leaders Can Measure, Test, and Shift Culture</a>
+      <span class="pl-meta">Jan 2026</span>
+    </li>
+    <li>
+      <a href="https://www.yumiwillems.com/post/from-vision-to-reality-my-founding-story-of-lead-in-the-hr-tech-revolution">From Vision to Reality: My Founding Story of LEAD</a>
+      <span class="pl-meta">Founding story</span>
+    </li>
+  </ul>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ESSAYS -->
+<section class="section">
+  <div class="section-label" data-section="essays">Essays</div>
+  <p style="font-size:14px; color:var(--text-light); max-width:620px; margin:-8px 0 22px;">Less about work, more about how I think.</p>
+  <ul class="post-list">
+    <!-- AT-RISK LINKS: live on the Wix blog (yumiwillems.com/post/...). Update when the blog moves. -->
+    <li>
+      <a href="https://www.yumiwillems.com/post/self-consciousness-identity-and-the-architecture-of-reality">Self-Consciousness, Identity, and the Architecture of Reality</a>
+      <span class="pl-meta">Essay</span>
+    </li>
+    <li>
+      <a href="https://www.yumiwillems.com/post/what-if-ai-could-forecast-your-life-like-it-forecasts-a-star-s-orbit">What If AI Could Forecast Your Life Like It Forecasts a Star's Orbit?</a>
+      <span class="pl-meta">Essay</span>
+    </li>
+  </ul>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>&copy; 2026 Yumi A.W. Kimura</span>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="https://kimura.yumiwillems.com/">Substack</a>
+    <a href="https://github.com/yumik20">GitHub</a>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 10);
+  });
+</script>
+
+</body>
+</html>

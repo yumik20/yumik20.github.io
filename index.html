@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yumi A.W. Kimura — Cofounder of LEAD.bot & BehaviorGraph</title>
-  <meta name="description" content="Cofounder of LEAD.bot and BehaviorGraph. Recognized contributor to OpenClaw. Researcher at Columbia University. LinkedIn Top HR Voice.">
+  <title>Yumi A.W. Kimura: Cofounder of LEAD.bot & BehaviorGraph</title>
+  <meta name="description" content="Cofounder of LEAD.bot and BehaviorGraph. Recognized contributor to OpenClaw. Researcher at Columbia University.">
   <meta property="og:title" content="Yumi A.W. Kimura">
-  <meta property="og:description" content="Cofounder of LEAD.bot and BehaviorGraph. Recognized contributor to OpenClaw. Researcher at Columbia University. LinkedIn Top HR Voice.">
+  <meta property="og:description" content="Cofounder of LEAD.bot and BehaviorGraph. Recognized contributor to OpenClaw. Researcher at Columbia University.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.yumiwillems.com/">
   <meta property="og:image" content="https://static.wixstatic.com/media/2af2f1_20429695556c4f1eb0e785380cb9282c~mv2.png">
@@ -155,6 +155,7 @@
     .section-label[data-section="press"]       { color: #1d4ed8; border-left-color: #1d4ed8; }
     .section-label[data-section="elsewhere"]   { color: #b45309; border-left-color: #b45309; }
     .section-label[data-section="about"]       { color: #334155; border-left-color: #334155; }
+    .section-label[data-section="research"]    { color: #6d28d9; border-left-color: #6d28d9; }
 
     /* ---- PHOTO STRIP (new) ---- */
     .photo-strip {
@@ -412,9 +413,9 @@
   <div class="nav-inner">
     <a href="index.html" class="nav-name">Yumi A.W. Kimura</a>
     <div class="nav-links">
-      <a href="#writing" class="active">Writing</a>
-      <a href="achievements.html">Achievements</a>
-      <a href="#connect">Elsewhere</a>
+      <a href="research.html">Research</a>
+      <a href="writing.html">Writing</a>
+      <a href="achievements.html">Public Work</a>
     </div>
   </div>
 </nav>
@@ -425,7 +426,7 @@
 <div class="hero-content">
       <h1>I've spent my career studying how organizations actually work. Now I build the AI layer for it.</h1>
       <p class="bio">
-        From 18, I was already running a business, studying law, and doing HR consulting, M&A, and VC work — trying to understand organizations from every angle at once. That foundation took me to Meitu Japan as founding Country Manager, then into building: I cofounded <a href="https://www.behaviorgraph.com">BehaviorGraph</a> and <a href="https://www.lead.app">LEAD.bot</a> to turn real organizational behavior into infrastructure enterprise AI can use. At Columbia, I formalized the theory. Recognized contributor to <a href="https://github.com/openclaw">OpenClaw</a>. LinkedIn Top HR Voice.
+        From 18, I was already running a business, studying law, and doing M&A and VC work, trying to understand organizations from every angle at once. That foundation took me to Meitu Japan as founding Country Manager, then into building: I cofounded <a href="https://www.behaviorgraph.com">BehaviorGraph</a> and <a href="https://www.lead.app">LEAD.bot</a> to turn real organizational behavior into infrastructure enterprise AI can use. At Columbia, I formalized the theory. Recognized contributor to <a href="https://github.com/openclaw">OpenClaw</a>.
       </p>
       <div class="hero-links">
         <a href="https://kimura.yumiwillems.com/">
@@ -468,6 +469,36 @@
 <div style="height: 56px;"></div>
 <div class="divider"><hr></div>
 
+<!-- RESEARCH (teaser, links to full research.html) -->
+<section class="section" id="research" style="padding-bottom: 0;">
+  <div class="section-label" data-section="research">Research</div>
+  <p style="font-family:'EB Garamond',serif; font-size:23px; font-weight:500; line-height:1.4; letter-spacing:-0.2px; max-width:660px; margin-bottom:8px;">
+    Researcher and builder in human-centered AI for organizations.
+  </p>
+  <p style="font-size:15px; line-height:1.75; color:var(--text-light); max-width:620px; margin:0 0 24px;">
+    I research how AI can learn and act on the real organization, the expertise, trust, and influence that actually move work, without turning people into surveillance scores. The questions come from roughly seven years building real systems at scale, and these projects are where I answer them.
+  </p>
+  <ul class="post-list">
+    <li>
+      <a href="research.html#projects">Organizational Intelligence Loop (OIL)</a>
+      <span class="pl-meta">Socio-technical framework</span>
+    </li>
+    <li>
+      <a href="research.html#projects">Large Behavior Model</a>
+      <span class="pl-meta">Simulator + learned representation</span>
+    </li>
+    <li>
+      <a href="research.html#projects">Multi-Agent Orchestration Testbed</a>
+      <span class="pl-meta">Coordination + human oversight</span>
+    </li>
+  </ul>
+  <p style="margin-top:22px;">
+    <a href="research.html" style="font-size:13px; color:var(--text); text-decoration:none; border-bottom:1px solid var(--text-light); padding-bottom:2px;">Read the research &rarr;</a>
+  </p>
+</section>
+
+<div class="divider"><hr></div>
+
 <!-- FEATURED WRITING -->
 <section class="section" id="writing">
   <div class="section-label" data-section="writing">Selected Writing</div>
@@ -502,127 +533,29 @@
     </div>
   </div>
 
-  <div class="featured-post">
-    <img class="fp-img" src="https://static.wixstatic.com/media/2af2f1_8c8448522f6e4860a35d2ce4e8a044ec~mv2.png" alt="The Organizational Intelligence Loop (OIL)">
-    <div class="fp-body">
-      <div class="fp-cat" data-type="research">Knowledge Management · Research</div>
-      <h2 class="fp-title"><a href="https://www.yumiwillems.com/post/the-organizational-intelligence-loop-oil-a-framework-for-adaptive-enterprise-ai">The Organizational Intelligence Loop (OIL): A Framework for Adaptive Enterprise AI</a></h2>
-      <p class="fp-excerpt">A founder's take on why enterprise GenAI needs an organizational layer and how the OIL framework uses behavioral graphs and influence signals to make AI adoptable.</p>
-      <div class="fp-meta">Jan 2026 &middot; 6 min read</div>
-    </div>
-  </div>
+  <p style="margin-top:4px;">
+    <a href="writing.html" style="font-size:13px; color:var(--text); text-decoration:none; border-bottom:1px solid var(--text-light); padding-bottom:2px;">Read all writing &rarr;</a>
+  </p>
 
-  <div class="featured-post">
-    <img class="fp-img" src="https://static.wixstatic.com/media/2af2f1_bed2fdbaad40419eb4f57383999b8695~mv2.png/v1/fill/w_1000,h_545,al_c,q_90,usm_0.66_1.00_0.01/2af2f1_bed2fdbaad40419eb4f57383999b8695~mv2.png" alt="AI Agent Marketing Team Architecture">
-    <div class="fp-body">
-      <div class="fp-cat" data-type="agents">AI Agents · Orchestration</div>
-      <h2 class="fp-title"><a href="https://www.yumiwillems.com/post/designing-an-ai-agent-marketing-team-what-actually-works">Designing an AI-Agent Marketing Team: What Actually Works</a></h2>
-      <p class="fp-excerpt">How I built and scaled a team of AI agents for real operations using OpenClaw. Ten design principles from structure over intelligence to anti-spam safeguards, and why building an agent system feels more like organizational design than programming.</p>
-      <div class="fp-meta">Mar 2026 &middot; 6 min read</div>
-    </div>
-  </div>
-
-</section>
-
-<!-- MORE POSTS -->
-<section class="section" style="padding-top: 0;">
-  <div class="section-label" data-section="more">More Writing</div>
-  <ul class="post-list">
-    <li>
-      <a href="https://www.behaviorgraph.com/blog/posts/harnesses-run-agents-organizational-context.html">Agent Orchestration for AI Engineers: Harnesses, Context, and the Layer Most Teams Barely Thought Of</a>
-      <span class="pl-meta">Apr 2026</span>
-    </li>
-    <li>
-      <a href="https://www.yumiwillems.com/post/beyond-vibes-how-change-leaders-can-measure-test-and-shift-culture-for-innovation">Beyond "Vibes": How Change Leaders Can Measure, Test, and Shift Culture</a>
-      <span class="pl-meta">Jan 2026</span>
-    </li>
-  </ul>
 </section>
 
 <div class="divider"><hr></div>
 
-<!-- A16Z RECOGNITION -->
-<section class="section" style="padding-bottom: 0;">
-  <div class="section-label" data-section="recognition">Recognition</div>
-  <div class="featured-post">
-    <img class="fp-img" src="meitu-a16z.png" alt="Meitu ranked #26 on A16Z Top 50 Gen AI Mobile Apps" style="object-fit: contain; background: var(--warm);">
-    <div class="fp-body">
-      <div class="fp-cat" data-type="recognition">Andreessen Horowitz · A16Z</div>
-      <h2 class="fp-title"><a href="https://a16z.com/100-gen-ai-apps-6/">Meitu (美图) Ranked #26: A16Z Top 50 Gen AI Mobile Apps</a></h2>
-      <p class="fp-excerpt">During my time as founding Country Manager of Meitu (美图) Japan, Meitu (美图) was selected by A16Z as one of the Top 50 Gen AI mobile apps globally by monthly active users, alongside ChatGPT, Gemini, and other leading AI consumer apps.</p>
-      <div class="fp-meta">Selected by Andreessen Horowitz &middot; Former employer</div>
-    </div>
-  </div>
+<!-- PUBLIC WORK TEASER -->
+<section class="section">
+  <div class="section-label" data-section="recognition">Public Work</div>
+  <p style="font-family:'EB Garamond',serif; font-size:23px; font-weight:500; line-height:1.4; letter-spacing:-0.2px; max-width:660px; margin-bottom:8px;">
+    Talks, press, and recognition.
+  </p>
+  <p style="font-size:15px; line-height:1.75; color:var(--text-light); max-width:620px; margin:0 0 18px;">
+    A product I led ranked #26 on a16z's Top 50 Gen AI apps. Features in Nikkei, NHK, and TechCrunch Japan. Talks at Wharton, Washington University Olin, and the Beyond the Frontier summit at Microsoft NYC.
+  </p>
+  <p>
+    <a href="achievements.html" style="font-size:13px; color:var(--text); text-decoration:none; border-bottom:1px solid var(--text-light); padding-bottom:2px;">See public work &rarr;</a>
+  </p>
 </section>
 
-<div class="divider"><hr></div>
 
-<!-- PRESS -->
-<section class="section" id="press">
-  <div class="section-label" data-section="press">Press & Speaking</div>
-  <ul class="press-grid">
-    <li>
-      <a href="https://youtu.be/FltcktwjfP0">JA-GA Futures Forum: Featured Guest Speaker</a>
-      <span class="pl-meta">Feb 2026 · University of North Georgia</span>
-    </li>
-    <li>
-      <span class="pg-title">Enterprise AI & Knowledge Management Panel at Beyond the Frontier Summit</span>
-      <span class="pl-meta">2025 · Microsoft NYC</span>
-    </li>
-    <li>
-      <a href="https://xtrend.nikkei.com/atcl/contents/18/00859/00006/">Nikkei (日経新聞) X Trend: Silicon Valley Entrepreneur Career Profile</a>
-      <span class="pl-meta">Aug 2024 · Japanese · Feature</span>
-    </li>
-    <li>
-      <span class="pg-title">Leading in the Era of AI: Generative AI and Workforce</span>
-      <span class="pl-meta">Wharton People Analytics · University of Pennsylvania</span>
-    </li>
-    <li>
-      <span class="pg-title">Washington University Olin Business School, Guest Lecturer</span>
-      <span class="pl-meta">Speaking</span>
-    </li>
-    <li>
-      <a href="https://sps.columbia.edu/news/how-information-knowledge-strategy-shaped-my-approach-enterprise-knowledge-management">Columbia IKNS: Enterprise Knowledge Management</a>
-      <span class="pl-meta">Columbia University</span>
-    </li>
-    <li>
-      <a href="https://insightssuccess.com/yumi-alyssa-kimura-rising-beyond-discrimination/">Insight Success: Rising Beyond Discrimination</a>
-      <span class="pl-meta">Feature</span>
-    </li>
-    <li>
-      <span class="pg-title">NHK 日本のジレンマ, New Year's Eve Commentator</span>
-      <span class="pl-meta">2018</span>
-    </li>
-    <li>
-      <a href="https://thebridge.jp/2019/09/lead-employees-engagement-alchemist-accelerator">TechCrunch Japan & The Bridge: Alchemist Accelerator</a>
-      <span class="pl-meta">2019</span>
-    </li>
-  </ul>
-</section>
-
-<div class="divider"><hr></div>
-
-<!-- CONNECT -->
-<section class="section" id="connect">
-  <div class="section-label" data-section="elsewhere">Elsewhere</div>
-  <div class="connect-row">
-    <a class="connect-item" href="https://kimura.yumiwillems.com/">
-      <h3>Substack</h3>
-      <p>The Agentic Enterprise. Essays on organizational intelligence and enterprise AI.</p>
-      <span class="arrow">&rarr;</span>
-    </a>
-    <a class="connect-item" href="https://github.com/yumik20">
-      <h3>GitHub</h3>
-      <p>Open-source projects and research code for organizational network analysis.</p>
-      <span class="arrow">&rarr;</span>
-    </a>
-    <a class="connect-item" href="https://dx.doi.org/10.2139/ssrn.6096787">
-      <h3>Academic Papers</h3>
-      <p>Published research on OIL, behavioral knowledge graphs, and trust density.</p>
-      <span class="arrow">&rarr;</span>
-    </a>
-  </div>
-</section>
 
 <div class="divider"><hr></div>
 
@@ -643,10 +576,10 @@
     </div>
     <div>
       <p>
-        LinkedIn named me a Top HR Voice in 2023. I've spoken at the Beyond the Frontier Summit at Microsoft NYC, Wharton People Analytics, the JA-GA Futures Forum at University of North Georgia, Washington University Olin Business School, and the North American Chinese HR Forum. I've been featured in NHK, TechCrunch Japan, Nikkei (日経新聞) X Trend, and Nihon TV.
+        I've spoken at the Beyond the Frontier Summit at Microsoft NYC, Wharton People Analytics, the JA-GA Futures Forum at University of North Georgia, and Washington University Olin Business School. I've been featured in NHK, TechCrunch Japan, Nikkei (日経新聞) X Trend, and Nihon TV.
       </p>
       <p>
-        I write about knowledge management, people analytics, and what it takes to make enterprise AI work inside real organizations. Most of what I publish starts as a question I can't find a good answer to.
+        I write about organizational intelligence, AI agents, and what it takes to make enterprise AI work inside real organizations. Most of what I publish starts as a question I can't find a good answer to.
       </p>
     </div>
   </div>

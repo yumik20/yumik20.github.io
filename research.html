@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yumi A.W. Kimura: Research</title>
+  <meta name="description" content="Researcher and builder in human-centered AI for organizations. Research on how AI systems can learn and act on organizational context responsibly, without reducing people to surveillance scores.">
+  <meta property="og:title" content="Yumi A.W. Kimura: Research">
+  <meta property="og:description" content="Researcher and builder in human-centered AI for organizations. How AI systems can learn and act on organizational context responsibly, without reducing people to surveillance scores.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.yumiwillems.com/research.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #FEFDFB;
+      --text: #222;
+      --text-light: #666;
+      --text-faint: #999;
+      --border: #E8E5E0;
+      --accent: #333;
+      --link: #444;
+      --warm: #F7F5F2;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      font-size: 15px;
+    }
+
+    /* ---- NAV ---- */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(254,253,251,0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+    nav.scrolled { border-bottom-color: var(--border); }
+    .nav-inner {
+      max-width: 860px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 24px;
+    }
+    .nav-name {
+      font-family: 'EB Garamond', serif;
+      font-size: 20px; font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a {
+      text-decoration: none; color: var(--text-light);
+      font-size: 13px; font-weight: 400;
+      letter-spacing: 0.3px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--text); }
+
+    /* ---- HERO ---- */
+    .hero {
+      max-width: 860px; margin: 0 auto;
+      padding: 140px 24px 56px;
+    }
+    .hero-content { text-align: center; }
+    .hero-content h1 {
+      font-family: 'EB Garamond', serif;
+      font-size: 34px; font-weight: 500;
+      line-height: 1.3;
+      letter-spacing: -0.3px;
+      margin-bottom: 18px;
+      max-width: 680px;
+      margin-left: auto; margin-right: auto;
+    }
+    .hero-content .bio {
+      font-size: 15px; line-height: 1.75;
+      color: var(--text-light);
+      max-width: 600px;
+      margin-left: auto; margin-right: auto;
+    }
+    .hero-links {
+      margin-top: 24px;
+      display: flex; gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .hero-links a {
+      font-size: 13px; color: var(--text-light);
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: color 0.2s;
+      padding-bottom: 1px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-links a:hover { color: var(--text); border-bottom-color: var(--text); }
+    .hero-links svg { width: 14px; height: 14px; }
+
+    /* ---- DIVIDER ---- */
+    .divider {
+      max-width: 860px; margin: 0 auto;
+      padding: 0 24px;
+    }
+    .divider hr {
+      border: none; border-top: 1px solid var(--border);
+    }
+
+    /* ---- SECTION ---- */
+    .section {
+      max-width: 860px; margin: 0 auto;
+      padding: 56px 24px;
+    }
+    .section-label {
+      font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 1.8px;
+      color: var(--text-faint);
+      margin-bottom: 28px;
+      padding-left: 12px;
+      border-left: 3px solid var(--text-faint);
+    }
+    .section-label[data-section="statement"] { color: #334155; border-left-color: #334155; }
+    .section-label[data-section="projects"]  { color: #6d28d9; border-left-color: #6d28d9; }
+    .section-label[data-section="grounding"] { color: #0f766e; border-left-color: #0f766e; }
+    .section-label[data-section="focus"]     { color: #b45309; border-left-color: #b45309; }
+    .section-label[data-section="bring"]     { color: #0e7490; border-left-color: #0e7490; }
+    .section-label[data-section="manuscripts"] { color: #334155; border-left-color: #334155; }
+    .section-label[data-section="media"]     { color: #1d4ed8; border-left-color: #1d4ed8; }
+
+    /* ---- STATEMENT ---- */
+    .statement p {
+      font-size: 16px; line-height: 1.85;
+      color: var(--text);
+      max-width: 720px;
+    }
+    .statement p + p { margin-top: 18px; }
+
+    /* ---- PROJECT CARD ---- */
+    .project {
+      padding-bottom: 40px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    .project:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .project-cat {
+      font-size: 11px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 1.2px;
+      color: var(--text-faint);
+      margin-bottom: 8px;
+    }
+    .project h3 {
+      font-family: 'EB Garamond', serif;
+      font-size: 24px; font-weight: 500;
+      line-height: 1.3;
+      letter-spacing: -0.2px;
+      margin-bottom: 18px;
+    }
+    .qmen { list-style: none; }
+    .qmen li {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 20px;
+      padding: 10px 0;
+      border-top: 1px solid var(--border);
+    }
+    .qmen li:first-child { border-top: none; }
+    .qmen .label {
+      font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--text-faint);
+      padding-top: 3px;
+    }
+    .qmen .val {
+      font-size: 14.5px; line-height: 1.7;
+      color: var(--text-light);
+    }
+    .qmen .val strong { color: var(--text); font-weight: 500; }
+    .placeholder {
+      color: #b45309;
+      font-style: italic;
+      background: #fdf6ec;
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+
+    /* ---- PLAIN NOTE ---- */
+    .note {
+      font-size: 15.5px; line-height: 1.8;
+      color: var(--text-light);
+      max-width: 720px;
+    }
+    .note strong { color: var(--text); font-weight: 500; }
+
+    /* ---- MEDIA LIST ---- */
+    .medialist { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+    .medialist li { padding: 12px 24px 12px 0; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 3px; }
+    .medialist li:nth-child(-n+2) { border-top: none; }
+    .medialist a, .medialist .mt { font-size: 13.5px; color: var(--text); text-decoration: none; line-height: 1.45; }
+    .medialist a { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--border); transition: text-decoration-color 0.2s, color 0.2s; }
+    .medialist a:hover { color: var(--text-light); text-decoration-color: var(--text-light); }
+    .medialist .mmeta { font-size: 11.5px; color: var(--text-faint); }
+    @media (max-width: 700px) { .medialist { grid-template-columns: 1fr; } .medialist li:nth-child(2) { border-top: 1px solid var(--border); } }
+
+    /* ---- FOOTER ---- */
+    footer {
+      max-width: 860px; margin: 0 auto;
+      padding: 40px 24px;
+      display: flex; justify-content: space-between;
+      align-items: center;
+      font-size: 12px; color: var(--text-faint);
+    }
+    footer a {
+      color: var(--text-faint); text-decoration: none;
+      transition: color 0.2s;
+    }
+    footer a:hover { color: var(--text-light); }
+    .footer-links { display: flex; gap: 20px; }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 700px) {
+      .hero-content h1 { font-size: 26px; }
+      .qmen li { grid-template-columns: 1fr; gap: 4px; }
+      .qmen .label { padding-top: 0; }
+      .hero-links { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-name">Yumi A.W. Kimura</a>
+    <div class="nav-links">
+      <a href="research.html" class="active">Research</a>
+      <a href="writing.html">Writing</a>
+      <a href="achievements.html">Public Work</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Researcher and builder in human-centered AI.</h1>
+    <p class="bio">
+      I work where AI systems meet real organizations: multi-agent systems, AI governance and evaluation, the behavioral context of how work actually happens, and the human oversight that keeps it accountable. I build these as a founder and study them as a researcher. The model is not the blocker. The organization around it is.
+    </p>
+    <div class="hero-links">
+      <a href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        Home
+      </a>
+      <a href="https://github.com/yumik20">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <a href="https://academiccommons.columbia.edu/doi/10.7916/9da8-c532">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+        OIL Manuscript
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- RESEARCH STATEMENT -->
+<section class="section statement">
+  <div class="section-label" data-section="statement">Research Statement</div>
+  <p>
+    My work starts from one conviction: in enterprise AI, the model is not the hardest deployment problem. The harder problem is the organization around it: trust, reliance, knowledge flow, accountability, and human oversight.
+  </p>
+  <p>
+    I build and study AI systems where they meet real organizations, and I keep seeing the same gap between formal records and operating reality. Org charts show structure, but not how decisions actually move. Documents record outcomes, but not whose judgment mattered.
+  </p>
+  <p>
+    My research makes that invisible structure measurable enough for AI systems to act on, and governable enough for humans to remain accountable. It sits at the intersection of multi-agent systems, AI governance and evaluation, organizational behavior, and human oversight. I came to this work from building systems inside real organizations for seven years, which taught me to treat organizations as living systems, not just datasets.
+  </p>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- WHAT I BRING -->
+<section class="section" id="bring">
+  <div class="section-label" data-section="bring">Operator &amp; Researcher</div>
+  <ul class="qmen">
+    <li>
+      <span class="label">Deployed</span>
+      <span class="val">For seven years I have built BehaviorGraph and LEAD, organizational-intelligence tooling used by more than 2,000 organizations. This gives me research questions that come from live systems, not only prepared datasets.</span>
+    </li>
+    <li>
+      <span class="label">Operating experience</span>
+      <span class="val">At Meitu (美图) Japan I was the founding country manager and helped build the local operation: incorporation, hiring, and operations, along with adding a B2B line to the B2C product, shipping new product features, product algorithm work, and building the local brand. Meitu itself ranked #26 on a16z's Top 50 Gen AI Mobile Apps by monthly active users. Working across Japan, China, and the United States taught me to build AI that respects language, culture, and organizational context.</span>
+    </li>
+    <li>
+      <span class="label">Builder + researcher</span>
+      <span class="val">I know how to turn an idea into a working system, and how to test it with held-out, leakage-controlled evaluation. My work connects product reality with research rigor.</span>
+    </li>
+  </ul>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- RESEARCH PROJECTS -->
+<section class="section" id="projects">
+  <div class="section-label" data-section="projects">Research Projects</div>
+  <p class="note" style="margin-bottom:30px;">Three places I have taken this from idea to working system, spanning behavioral context, evaluation, multi-agent systems, and oversight.</p>
+
+  <!-- OIL -->
+  <div class="project">
+    <div class="project-cat">Framework · Behavioral Context</div>
+    <h3>Organizational Intelligence Loop (OIL)</h3>
+    <ul class="qmen">
+      <li>
+        <span class="label">Question</span>
+        <span class="val">Enterprise AI plateaus because it lacks a grounded representation of the organization it operates in. What socio-technical layer is needed for an AI system to use organizational context responsibly?</span>
+      </li>
+      <li>
+        <span class="label">Method</span>
+        <span class="val">An 86-page Columbia IKNS manuscript that converts research in organizational networks, knowledge management, and AI adoption into an implementation-ready framework for enterprise AI. It treats nonresponse and behavioral silence as meaningful context about work patterns, decision flow, and trust.</span>
+      </li>
+      <li>
+        <span class="label">Evidence</span>
+        <span class="val">The framework defines five constructs: <strong>trust density</strong>, <strong>knowledge latency</strong>, <strong>interaction stability</strong>, <strong>nonresponse-aware signal integration</strong>, and <strong>cross-signal confidence</strong>. These measure confirmed trust, the observed speed of help and decisions, relationship continuity, patterned silence, and confidence when separate signals agree. Its reporting layer favors aggregate patterns and expertise maps, which helps teams assess contribution fairly across roles and communication norms.</span>
+      </li>
+      <li>
+        <span class="label">Next step</span>
+        <span class="val">OIL provides a practical, fairness-centered language for organizational context. It became the foundation for the Large Behavior Model below.</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- LBM -->
+  <div class="project">
+    <div class="project-cat">Behavioral Context · Evaluation</div>
+    <h3>Large Behavior Model</h3>
+    <ul class="qmen">
+      <li>
+        <span class="label">Question</span>
+        <span class="val">The org chart explains authority. It does not explain how work actually moves. As companies make operations queryable by AI, dumping meetings, documents, and email into retrieval misses the behavioral facts agents need: which document is treated as true, who teams actually rely on, who owns the latest answer, and where key-person risk sits. LBM asks how to read that operating layer from behavior, with privacy protection and bias controls built in.</span>
+      </li>
+      <li>
+        <span class="label">Method</span>
+        <span class="val">LBM is a foundation model for organizational behavior, built from scratch and currently an MVP. It learns one reusable representation of people and teams from permissioned metadata, not message content, using real and simulated company activity. Its validation holds out companies and time periods, with privacy and bias controls throughout.</span>
+      </li>
+      <li>
+        <span class="label">Evidence</span>
+        <span class="val">On held-out organizations, LBM's Influence Gap identifies earned influence (the expert a team actually relies on) over positional influence at <strong>0.885</strong>, while network-structure metrics stay at chance (<strong>0.500</strong>). It predicts document source-of-truth at <strong>0.88 AUC</strong> and attrition early warning at <strong>0.94 AUC</strong>. On the public Enron corpus, held out with no outcome labels, it ranks the later-indicted insiders at <strong>2.12x</strong> the base rate. In a never-seen 900-person technology company, from calendar and Slack activity alone, it rebuilt the operating map: about 70 go-to experts, about 100 hidden experts whose expertise shows up in work patterns rather than titles, about 35 key-person risks, about 70 percent backup coverage, and about 25 critical roles with no backup. Other reads, such as expertise and informal influence, are promising and still improving as training continues.</span>
+      </li>
+      <li>
+        <span class="label">Next step</span>
+        <span class="val">Cross-company transfer is the promising result: frozen representations pretrained across nine real companies already predict seniority in a tenth it never saw at about r = 0.50 (about 0.25 net of activity volume). The next step is to deepen it with design partners, testing on real organizations and training across more companies.</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Multi-agent -->
+  <div class="project">
+    <div class="project-cat">Multi-Agent Systems · Human Oversight</div>
+    <h3>Multi-Agent Orchestration Testbed</h3>
+    <p class="note" style="margin-bottom:16px;">A multi-agent system I designed, built, and run, used as a testbed for agent coordination, failure modes, and human oversight: where agents drift over long horizons, what monitoring catches it before it fails silently, and what belongs in deterministic code versus model reasoning.</p>
+    <p>
+      <a href="https://github.com/yumik20/multi-agent-orchestration" target="_blank" style="font-size:13px; color:var(--text); text-decoration:none; border-bottom:1px solid var(--text-light); padding-bottom:2px;">Code and README on GitHub &rarr;</a>
+    </p>
+  </div>
+
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- WRITING -->
+<section class="section" id="manuscripts">
+  <div class="section-label" data-section="manuscripts">Manuscripts</div>
+  <p class="note" style="margin-bottom:24px;">Research write-ups and work in progress. Essays and articles live on the <a href="writing.html" style="color:var(--text); text-decoration:underline; text-underline-offset:2px;">Writing</a> page.</p>
+  <ul class="qmen">
+    <li>
+      <span class="label">Manuscript</span>
+      <span class="val"><strong>The Organizational Intelligence Loop (OIL): A Socio-Technical Framework for Adaptive Enterprise AI Adoption.</strong> Independent study, Columbia IKNS, 86 pages. <a href="https://academiccommons.columbia.edu/doi/10.7916/9da8-c532" style="color:var(--text); text-decoration:underline; text-underline-offset:2px;">Read it</a>.</span>
+    </li>
+  </ul>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- FOOTER -->
+<footer>
+  <span>&copy; 2026 Yumi A.W. Kimura</span>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="https://github.com/yumik20">GitHub</a>
+    <a href="https://academiccommons.columbia.edu/doi/10.7916/9da8-c532">Papers</a>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 10);
+  });
+</script>
+
+</body>
+</html>
