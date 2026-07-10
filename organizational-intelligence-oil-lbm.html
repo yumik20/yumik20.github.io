@@ -10,11 +10,11 @@
   <meta property="og:title" content="What We Built From a Billion Workplace Interactions">
   <meta property="og:description" content="The enterprise keeps a second record in behavior. The Large Behavior Model learns from it; OIL defines how the reading should be governed.">
   <meta property="og:url" content="https://yumik20.github.io/organizational-intelligence-oil-lbm.html">
-  <meta property="og:image" content="https://yumik20.github.io/organizational-intelligence-oil-lbm-og.png">
+  <meta property="og:image" content="https://yumik20.github.io/organizational-intelligence-oil-lbm-illustration.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="What We Built From a Billion Workplace Interactions">
   <meta name="twitter:description" content="The enterprise keeps a second record in behavior. The Large Behavior Model learns from it; OIL defines how the reading should be governed.">
-  <meta name="twitter:image" content="https://yumik20.github.io/organizational-intelligence-oil-lbm-og.png">
+  <meta name="twitter:image" content="https://yumik20.github.io/organizational-intelligence-oil-lbm-illustration.jpg">
   <link rel="canonical" href="https://yumik20.github.io/organizational-intelligence-oil-lbm.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -217,6 +217,12 @@
       transform: translateX(-50%);
     }
     figure { margin-top: 40px; margin-bottom: 42px; }
+    .article-illustration img {
+      display: block;
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
     figcaption {
       margin-top: 13px;
       color: var(--muted);
@@ -819,7 +825,7 @@
     "datePublished": "2026-07-09",
     "dateModified": "2026-07-10",
     "author": {"@type": "Person", "name": "Yumi Kimura"},
-    "image": "https://yumik20.github.io/organizational-intelligence-oil-lbm-og.png",
+    "image": "https://yumik20.github.io/organizational-intelligence-oil-lbm-illustration.jpg",
     "mainEntityOfPage": "https://yumik20.github.io/organizational-intelligence-oil-lbm.html"
   }
   </script>
@@ -864,6 +870,11 @@
         <li><span class="point-id">03</span><span><b>The stack is converging.</b> Search, workflow, workforce intelligence, graphs, and governance are all moving toward live organizational context.<span class="ja" lang="ja"><b>スタックは収束しつつある。</b>検索、ワークフロー、ワークフォース・インテリジェンス、グラフ、ガバナンスは、いずれもリアルタイムの組織コンテキストへ向かっている。</span></span></li>
       </ul>
 
+      <figure class="wide article-illustration" aria-labelledby="records-caption">
+        <img src="organizational-intelligence-oil-lbm-illustration.jpg" alt="Editorial illustration contrasting the enterprise's formal written record with its living behavioral network, connected through a model lens and governance loop" decoding="async">
+        <figcaption id="records-caption"><span class="fig-num">Fig. 1</span> The enterprise writes a formal record and produces a behavioral record through action. The Large Behavior Model reads the second; OIL governs how that intelligence enters decisions.<span class="ja" lang="ja">企業は正式な記録を書き残す一方、日々の行動を通じて行動の記録も生み出している。Large Behavior Modelは後者を読み、OILはそこから得られる知能が意思決定に入るまでを統制する。</span></figcaption>
+      </figure>
+
       <h2>The model came before the category name<span class="ja" lang="ja">カテゴリ名が生まれる前に、モデルはすでに存在した</span></h2>
 
       <p>LEAD began as an employee networking product inside Slack and Microsoft Teams. Since 2020, it has made more than two million introductions across 2,000+ deployments. In roughly 1,400 deployments, we received authorization to use suitable data for model development. That permissioned, longitudinal history captured how networks formed, where expertise was sought, which ties crossed teams, and where collaboration stalled. Recurring patterns across organizations became the substrate for a model that learns beyond local tools, titles, and workflows.<span class="ja" lang="ja">LEADは、SlackとMicrosoft Teams上の社内ネットワーキング製品として始まった。2020年の提供開始以来、2,000件を超える導入で200万件以上の出会いを生み出してきた。このうち約1,400件では、モデル開発に適したデータの利用許可を得ている。そこに蓄積されたのは、社内ネットワークがどう形成され、専門知識がどこで求められ、どのつながりが部門を越え、どこで協働が滞るかを示す長期的な記録だ。組織を越えて繰り返し現れるパターンが、ツールや役職、ワークフローの違いに左右されないモデルの基盤になった。</span></p>
@@ -879,7 +890,7 @@
           <div class="origin-step"><small>Model<span class="ja" lang="ja">モデル</span></small><b>Large Behavior Model is pretrained<span class="ja" lang="ja">Large Behavior Modelを事前学習</span></b><span>Our own cross-company model learns reusable representations of how organizations operate.<span class="ja" lang="ja">独自の企業横断モデルが、組織の動き方を示す再利用可能な表現を学習する。</span></span></div>
           <div class="origin-step"><small>Research<span class="ja" lang="ja">研究</span></small><b>OIL defines the system<span class="ja" lang="ja">OILがシステムを定義</span></b><span>People, Information, Process, and Agentic AI Design establish how model-supported signals should be governed.<span class="ja" lang="ja">People、Information、Process、Agentic AI Designが、モデル由来のシグナルをどう統制するかを定める。</span></span></div>
         </div>
-        <figcaption id="origin-caption"><span class="fig-num">Fig. 1</span> The model emerged from authorized data generated through LEAD: operating problem, longitudinal corpus, cross-company pretraining, then a formal research architecture around its use.<span class="ja" lang="ja">モデルは、LEADを通じて生成された許可済みデータから生まれた。運用課題、時系列コーパス、企業横断の事前学習を経て、その利用を支える正式な研究アーキテクチャへと進んだ。</span></figcaption>
+        <figcaption id="origin-caption"><span class="fig-num">Fig. 2</span> The model emerged from authorized data generated through LEAD: operating problem, longitudinal corpus, cross-company pretraining, then a formal research architecture around its use.<span class="ja" lang="ja">モデルは、LEADを通じて生成された許可済みデータから生まれた。運用課題、時系列コーパス、企業横断の事前学習を経て、その利用を支える正式な研究アーキテクチャへと進んだ。</span></figcaption>
       </figure>
 
       <h2>What had to exist before the model<span class="ja" lang="ja">モデルを支えた四つの蓄積資産</span></h2>
@@ -981,7 +992,7 @@
             </ul>
           </section>
         </div>
-        <figcaption id="system-caption"><span class="fig-num">Fig. 2</span> A research-level view of observable inputs, model-supported signals, and evaluated enterprise application targets.<span class="ja" lang="ja">観測可能な入力、モデルが支援するシグナル、評価済みの企業向け応用対象を研究レベルで示した図。</span></figcaption>
+        <figcaption id="system-caption"><span class="fig-num">Fig. 3</span> A research-level view of observable inputs, model-supported signals, and evaluated enterprise application targets.<span class="ja" lang="ja">観測可能な入力、モデルが支援するシグナル、評価済みの企業向け応用対象を研究レベルで示した図。</span></figcaption>
       </figure>
 
       <p>Consider an engineering agent that routes an incident to the person on the formal schedule. The schedule is valid, but the organization relies on a different specialist for this failure. A language model retrieves the runbook; a workflow engine follows the rule. Organizational intelligence adds the real dependency and recommends a governed escalation within existing permissions.<span class="ja" lang="ja">たとえば、エンジニアリング・エージェントが正式な当番表どおりにインシデントを割り当てたとする。当番表は正しくても、その障害について組織が実際に頼っているのは別の専門家かもしれない。言語モデルはランブックを取得し、ワークフローは規則に従う。組織知能は、そこに実際の依存関係を加え、既存の権限内で適切なエスカレーションを提案する。</span></p>
@@ -1084,7 +1095,7 @@
             <span data-label="Interpretation" role="cell">Surfaces plausible backup coverage for succession and operating resilience.<span class="ja" lang="ja">後継者計画と業務継続性のために、妥当なバックアップ候補を提示する。</span></span>
           </div>
         </div>
-        <figcaption id="proof-caption"><span class="fig-num">Fig. 3</span> Published Large Behavior Model results spanning real external, real transfer, and controlled evaluation tiers.<span class="ja" lang="ja">実外部評価、実転移評価、統制評価の各層にまたがるLarge Behavior Modelの公開結果。</span></figcaption>
+        <figcaption id="proof-caption"><span class="fig-num">Fig. 4</span> Published Large Behavior Model results spanning real external, real transfer, and controlled evaluation tiers.<span class="ja" lang="ja">実外部評価、実転移評価、統制評価の各層にまたがるLarge Behavior Modelの公開結果。</span></figcaption>
       </figure>
 
       <div class="case-studies" aria-label="Published Large Behavior Model case studies">
