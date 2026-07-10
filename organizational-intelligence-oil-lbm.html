@@ -1401,17 +1401,47 @@
   </footer>
   <script>
     (() => {
+      const supportedLanguages = new Set(["ja", "zh"]);
+      const requestedLanguages = new Set(
+        new URLSearchParams(window.location.search)
+          .getAll("lang")
+          .flatMap((value) => value.toLowerCase().split(","))
+          .filter((language) => supportedLanguages.has(language))
+      );
+
+      const updateShareUrl = () => {
+        const url = new URL(window.location.href);
+        const visibleLanguages = ["ja", "zh"].filter((language) =>
+          document.body.classList.contains(`show-${language}`)
+        );
+
+        if (visibleLanguages.length) {
+          url.searchParams.set("lang", visibleLanguages.join(","));
+        } else {
+          url.searchParams.delete("lang");
+        }
+
+        window.history.replaceState({}, "", url);
+      };
+
       document.querySelectorAll(".language-toggle").forEach((toggle) => {
         const language = toggle.dataset.language;
         const label = toggle.querySelector(".language-toggle-label");
         if (!language || !label) return;
 
-        toggle.addEventListener("click", () => {
-          const isVisible = document.body.classList.toggle(`show-${language}`);
+        const setLanguageState = (isVisible) => {
+          document.body.classList.toggle(`show-${language}`, isVisible);
           const languageName = language === "ja" ? "Japanese" : "Chinese";
           toggle.setAttribute("aria-pressed", String(isVisible));
           toggle.setAttribute("aria-label", `${isVisible ? "Hide" : "Show"} ${languageName} translation for this article`);
           label.textContent = isVisible ? toggle.dataset.hideLabel : toggle.dataset.showLabel;
+        };
+
+        setLanguageState(requestedLanguages.has(language));
+
+        toggle.addEventListener("click", () => {
+          setLanguageState(!document.body.classList.contains(`show-${language}`));
+          updateShareUrl();
         });
       });
     })();
