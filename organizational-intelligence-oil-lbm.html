@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What We Built From a Billion Workplace Interactions | Yumi A.W. Kimura</title>
+  <meta name="description" content="How authorized behavioral signals accumulated through LEAD became a cross-company Large Behavior Model and the OIL research architecture for governed agent management.">
+  <meta name="author" content="Yumi A.W. Kimura">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="What We Built From a Billion Workplace Interactions">
+  <meta property="og:description" content="The enterprise keeps a second record in behavior. The Large Behavior Model learns from it; OIL defines how the reading should be governed.">
+  <meta property="og:url" content="https://yumik20.github.io/organizational-intelligence-oil-lbm.html">
+  <meta property="og:image" content="https://yumik20.github.io/organizational-intelligence-oil-lbm-og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="What We Built From a Billion Workplace Interactions">
+  <meta name="twitter:description" content="The enterprise keeps a second record in behavior. The Large Behavior Model learns from it; OIL defines how the reading should be governed.">
+  <meta name="twitter:image" content="https://yumik20.github.io/organizational-intelligence-oil-lbm-og.png">
+  <link rel="canonical" href="https://yumik20.github.io/organizational-intelligence-oil-lbm.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add("js");</script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: #fbfcfa;
+      color: #1c2522;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.78;
+      -webkit-font-smoothing: antialiased;
+    }
+    :root {
+      --ink: #16211e;
+      --text: #303b37;
+      --muted: #68736f;
+      --faint: #8a9490;
+      --line: #d8ded9;
+      --paper: #fbfcfa;
+      --soft: #f1f4f0;
+      --green: #126b57;
+      --green-soft: #e5f0ec;
+      --blue: #315f84;
+      --blue-soft: #e7eef4;
+      --rust: #a44d2f;
+      --rust-soft: #f4e9e3;
+      --measure: 730px;
+    }
+    a { color: var(--green); text-underline-offset: 3px; }
+    a:hover { color: #0a4d3e; }
+    .skip-link {
+      position: absolute;
+      top: -48px;
+      left: 16px;
+      z-index: 1000;
+      padding: 8px 12px;
+      background: var(--ink);
+      color: #fff;
+      text-decoration: none;
+    }
+    .skip-link:focus { top: 12px; }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(251, 252, 250, 0.95);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .nav-inner {
+      width: min(1040px, calc(100% - 32px));
+      min-height: 58px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .nav-name {
+      color: var(--ink);
+      font-family: "EB Garamond", Georgia, serif;
+      font-size: 20px;
+      font-weight: 500;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+    .nav-links a {
+      color: var(--muted);
+      font-size: 13px;
+      text-decoration: none;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .article-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    .article-toolbar .eyebrow { margin: 0; }
+    .language-toggle {
+      display: none;
+      min-height: 32px;
+      padding: 5px 11px;
+      border: 1px solid #c8d0cb;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+      font-size: 12px;
+      line-height: 1;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .js .language-toggle { display: inline-flex; align-items: center; }
+    .language-toggle:hover {
+      border-color: #9eaaa4;
+      background: var(--soft);
+      color: var(--ink);
+    }
+    .language-toggle[aria-pressed="true"] {
+      border-color: #a7c7bd;
+      background: var(--green-soft);
+      color: var(--green);
+    }
+    .language-toggle:focus-visible {
+      outline: 3px solid rgba(18, 107, 87, 0.24);
+      outline-offset: 2px;
+    }
+    article {
+      width: min(var(--measure), calc(100% - 40px));
+      margin: 0 auto;
+      padding: 72px 0 56px;
+    }
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    h1, h2 {
+      color: var(--ink);
+      font-family: "EB Garamond", Georgia, serif;
+      font-weight: 500;
+    }
+    h1 {
+      max-width: 700px;
+      margin: 0 0 20px;
+      font-size: 52px;
+      line-height: 1.08;
+    }
+    .dek {
+      margin: 0 0 28px;
+      color: #4d5b56;
+      font-family: "EB Garamond", Georgia, serif;
+      font-size: 23px;
+      font-style: italic;
+      line-height: 1.48;
+    }
+    .byline {
+      margin: 0 0 42px;
+      padding-bottom: 26px;
+      border-bottom: 1px solid var(--line);
+      color: var(--faint);
+      font-size: 13px;
+    }
+    .byline strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+    p { margin: 0 0 22px; }
+    .lead {
+      color: #25312d;
+      font-size: 19px;
+      line-height: 1.72;
+    }
+    .lead::first-letter {
+      float: left;
+      margin: 7px 10px 0 0;
+      color: var(--green);
+      font-family: "EB Garamond", Georgia, serif;
+      font-size: 64px;
+      line-height: 0.72;
+    }
+    h2 {
+      margin: 54px 0 18px;
+      font-size: 31px;
+      line-height: 1.2;
+    }
+    h3 {
+      margin: 30px 0 10px;
+      color: var(--ink);
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .triad {
+      margin: 34px 0;
+      padding: 5px 0 5px 22px;
+      border-left: 3px solid var(--rust);
+      color: var(--ink);
+      font-family: "EB Garamond", Georgia, serif;
+      font-size: 26px;
+      line-height: 1.42;
+    }
+    .wide {
+      width: min(980px, calc(100vw - 32px));
+      margin-left: 50%;
+      transform: translateX(-50%);
+    }
+    figure { margin-top: 40px; margin-bottom: 42px; }
+    figcaption {
+      margin-top: 13px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .fig-num {
+      color: var(--rust);
+      font-weight: 600;
+    }
+    .framework {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin: 34px 0 38px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .framework div {
+      min-width: 0;
+      padding: 18px 16px;
+      border-left: 1px solid var(--line);
+    }
+    .framework div:first-child { border-left: 0; }
+    .framework b {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
+      font-size: 13px;
+    }
+    .framework span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+    .origin-flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .origin-step {
+      position: relative;
+      min-width: 0;
+      padding: 20px;
+      border-left: 1px solid var(--line);
+    }
+    .origin-step:first-child { border-left: 0; }
+    .origin-step::after {
+      content: "\2192";
+      position: absolute;
+      top: 50%;
+      right: -9px;
+      z-index: 2;
+      width: 18px;
+      margin-top: -12px;
+      background: var(--paper);
+      color: var(--faint);
+      text-align: center;
+    }
+    .origin-step:last-child::after { display: none; }
+    .origin-step small {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--rust);
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .origin-step b {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--ink);
+      font-family: "EB Garamond", Georgia, serif;
+      font-size: 19px;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+    .origin-step span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .system-visual {
+      display: grid;
+      grid-template-columns: 1fr 44px 1fr 44px 1fr;
+      align-items: stretch;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #f7f9f6;
+    }
+    .system-block {
+      min-height: 220px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      background: #fff;
+    }
+    .system-block .label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--faint);
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .system-block h3 {
+      margin: 0 0 12px;
+      font-family: "EB Garamond", Georgia, serif;
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+    .system-block ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .system-block li {
+      padding: 5px 0;
+      border-bottom: 1px solid #edf0ed;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .system-block li:last-child { border-bottom: 0; }
+    .system-block.inputs { border-top: 4px solid var(--blue); }
+    .system-block.model { border-top: 4px solid var(--green); }
+    .system-block.outcomes { border-top: 4px solid var(--rust); }
+    .flow-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--faint);
+      font-size: 24px;
+    }
+    .network-mini {
+      width: 100%;
+      height: 62px;
+      margin: 4px 0 10px;
+    }
+    .capabilities {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin: 28px 0 40px;
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+    .capability {
+      min-height: 118px;
+      padding: 18px 20px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .capability b {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--ink);
+      font-size: 14px;
+    }
+    .capability span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .landscape {
+      margin-top: 30px;
+      margin-bottom: 42px;
+      border-top: 1px solid var(--line);
+    }
+    .landscape-row {
+      display: grid;
+      grid-template-columns: 190px 270px minmax(0, 1fr);
+      gap: 20px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .landscape-row b {
+      color: var(--ink);
+      font-size: 13px;
+    }
+    .landscape-row .names {
+      color: var(--blue);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .landscape-row .motion {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .landscape-head {
+      padding: 10px 0;
+      color: var(--faint);
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .landscape-note {
+      margin: -26px 0 42px;
+      color: var(--faint);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+    .thesis-points {
+      margin: 32px 0 40px;
+      padding: 0;
+      border-top: 1px solid var(--line);
+      list-style: none;
+    }
+    .thesis-points li {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .thesis-points .point-id {
+      color: var(--rust);
+      font-family: "EB Garamond", Georgia, serif;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+    .thesis-points b {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--ink);
+      font-size: 14px;
+    }
+    .thesis-points span:last-child {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .scope-list {
+      margin: 26px 0 34px;
+      padding: 0;
+      border-top: 1px solid var(--line);
+      list-style: none;
+    }
+    .scope-list li {
+      padding: 15px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .scope-list b { color: var(--ink); }
+    .ip-note {
+      margin: 26px 0 30px;
+      padding: 15px 18px;
+      border-left: 3px solid #a7b2ad;
+      background: var(--soft);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+    .ip-note strong { color: var(--ink); font-weight: 600; }
+    .proof-summary {
+      margin-top: 30px;
+      margin-bottom: 34px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .proof-summary-head {
+      padding: 16px 0 14px;
+      border-bottom: 1px solid var(--line);
+    }
+    .proof-summary-head small {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--rust);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .proof-summary-head h3 {
+      margin: 0;
+      font-family: "EB Garamond", Georgia, serif;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.25;
+    }
+    .proof-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .proof-item {
+      min-width: 0;
+      padding: 20px 22px 22px;
+      border-left: 1px solid var(--line);
+    }
+    .proof-item:first-child { border-left: 0; }
+    .proof-item small {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .proof-value {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--green);
+      font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+    .proof-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+    .evidence-table {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .evidence-row {
+      display: grid;
+      grid-template-columns: 1.05fr 1.35fr 1.35fr;
+      gap: 20px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: start;
+    }
+    .evidence-table.four-col .evidence-row {
+      grid-template-columns: 1fr 0.85fr 1.2fr 1.25fr;
+    }
+    .evidence-row:last-child { border-bottom: 0; }
+    .evidence-head {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .evidence-row b {
+      color: var(--ink);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .evidence-row span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .evidence-row .result {
+      color: var(--green);
+      font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .case-studies {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin: 34px 0 42px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .case-study {
+      min-width: 0;
+      padding: 24px;
+      border-left: 1px solid var(--line);
+    }
+    .case-study:first-child { border-left: 0; }
+    .case-study small {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--rust);
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .case-study h3 {
+      margin: 0 0 10px;
+      font-family: "EB Garamond", Georgia, serif;
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+    .case-study p,
+    .case-study li {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .case-study p { margin-bottom: 12px; }
+    .case-study ul { margin: 0; padding-left: 18px; }
+    .case-study li { margin-bottom: 7px; }
+    .sources {
+      margin-top: 56px;
+      padding-top: 26px;
+      border-top: 1px solid var(--line);
+    }
+    .sources h2 {
+      margin: 0 0 16px;
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .sources ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .sources li {
+      margin: 0 0 11px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .author-note {
+      margin-top: 42px;
+      padding: 22px 24px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--soft);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+    .author-note strong { color: var(--ink); }
+    .ja {
+      display: block;
+      margin-top: 10px;
+      color: #4f5b57;
+      font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+      font-size: 0.92em;
+      font-style: normal;
+      font-weight: 400;
+      letter-spacing: 0;
+      line-height: 1.8;
+      text-transform: none;
+    }
+    html.js body:not(.show-ja) .ja { display: none; }
+    html.js body.show-ja .ja { display: block; }
+    h1 .ja {
+      margin-top: 12px;
+      font-size: 0.46em;
+      line-height: 1.5;
+    }
+    h2 .ja {
+      margin-top: 8px;
+      font-size: 0.54em;
+      line-height: 1.6;
+    }
+    h3 .ja { font-size: 0.78em; line-height: 1.65; }
+    .eyebrow .ja { margin-top: 3px; font-size: 0.9em; }
+    .dek .ja { font-size: 0.72em; line-height: 1.85; }
+    .lead .ja { font-size: 0.88em; }
+    .triad .ja {
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+      font-size: 0.7em;
+      line-height: 1.75;
+    }
+    .thesis-points span.ja,
+    .scope-list .ja,
+    .case-study .ja,
+    .sources .ja,
+    .author-note .ja { margin-top: 7px; font-size: 0.9em; line-height: 1.75; }
+    .framework span.ja,
+    .origin-step span.ja,
+    .system-block span.ja,
+    .system-block li .ja,
+    .capability span.ja,
+    .evidence-row span.ja,
+    .landscape-row span.ja {
+      margin-top: 6px;
+      color: #66716d;
+      font-size: 0.9em;
+      line-height: 1.65;
+    }
+    .origin-step b .ja,
+    .framework b .ja,
+    .capability b .ja,
+    .evidence-row b .ja,
+    .landscape-row b .ja {
+      margin-top: 5px;
+      color: #52605b;
+      font-size: 0.88em;
+      line-height: 1.6;
+    }
+    figcaption .ja,
+    .landscape-note .ja { margin-top: 5px; font-size: 0.92em; }
+    footer {
+      width: min(var(--measure), calc(100% - 40px));
+      margin: 0 auto;
+      padding: 36px 0 62px;
+      border-top: 1px solid var(--line);
+      color: var(--faint);
+      font-size: 12px;
+    }
+    @media (max-width: 800px) {
+      article { padding-top: 52px; }
+      h1 { font-size: 42px; }
+      .wide { width: min(100%, calc(100vw - 32px)); }
+      .framework { grid-template-columns: 1fr 1fr; }
+      .framework div:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); }
+      .framework div:nth-child(4) { border-top: 1px solid var(--line); }
+      .origin-flow { grid-template-columns: 1fr 1fr; }
+      .origin-step:nth-child(3) { border-top: 1px solid var(--line); border-left: 0; }
+      .origin-step:nth-child(4) { border-top: 1px solid var(--line); }
+      .origin-step::after { display: none; }
+      .system-visual { grid-template-columns: 1fr; }
+      .flow-arrow { min-height: 42px; transform: rotate(90deg); }
+      .system-block { min-height: 0; }
+      .case-studies { grid-template-columns: 1fr; }
+      .case-study {
+        border-top: 1px solid var(--line);
+        border-left: 0;
+      }
+      .case-study:first-child { border-top: 0; }
+      .landscape-row { grid-template-columns: 150px 1fr; }
+      .landscape-row .motion { grid-column: 2; }
+    }
+    @media (max-width: 560px) {
+      .nav-inner { min-height: 54px; }
+      .nav-links { gap: 14px; }
+      .nav-links a:first-child,
+      .nav-links a:nth-child(2) { display: none; }
+      .language-toggle { min-height: 30px; padding: 5px 9px; font-size: 11px; }
+      article { width: min(100% - 32px, var(--measure)); }
+      h1 { font-size: 36px; }
+      .dek { font-size: 20px; }
+      .lead { font-size: 18px; }
+      h2 { margin-top: 46px; font-size: 28px; }
+      .triad { font-size: 23px; }
+      .framework { grid-template-columns: 1fr; }
+      .framework div,
+      .framework div:first-child,
+      .framework div:nth-child(3),
+      .framework div:nth-child(4) {
+        border-top: 1px solid var(--line);
+        border-left: 0;
+      }
+      .framework div:first-child { border-top: 0; }
+      .origin-flow { grid-template-columns: 1fr; }
+      .origin-step,
+      .origin-step:nth-child(3),
+      .origin-step:nth-child(4) {
+        border-top: 1px solid var(--line);
+        border-left: 0;
+      }
+      .origin-step:first-child { border-top: 0; }
+      .system-visual { padding: 16px; }
+      .capabilities { grid-template-columns: 1fr; }
+      .capability { min-height: 0; }
+      .landscape-row { grid-template-columns: 1fr; gap: 5px; }
+      .landscape-row .motion { grid-column: auto; }
+      .landscape-head { display: none; }
+      .proof-summary-grid { grid-template-columns: 1fr; }
+      .proof-item,
+      .proof-item:first-child {
+        border-top: 1px solid var(--line);
+        border-left: 0;
+      }
+      .proof-item:first-child { border-top: 0; }
+    }
+    @media print {
+      nav, .skip-link { display: none; }
+      article { padding-top: 20px; }
+      figure, .landscape-row { break-inside: avoid; }
+      a { color: inherit; }
+    }
+    @media (max-width: 700px) {
+      .evidence-row,
+      .evidence-table.four-col .evidence-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        padding: 16px 0;
+      }
+      .evidence-head { display: none; }
+      .evidence-row [data-label]::before {
+        content: attr(data-label);
+        display: block;
+        margin-bottom: 2px;
+        color: var(--faint);
+        font-family: "Inter", sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What We Built From a Billion Workplace Interactions",
+    "description": "How authorized behavioral signals accumulated through LEAD became a cross-company Large Behavior Model and the OIL research architecture for governed agent management.",
+    "datePublished": "2026-07-09",
+    "dateModified": "2026-07-10",
+    "author": {"@type": "Person", "name": "Yumi Kimura"},
+    "image": "https://yumik20.github.io/organizational-intelligence-oil-lbm-og.png",
+    "mainEntityOfPage": "https://yumik20.github.io/organizational-intelligence-oil-lbm.html"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to article</a>
+  <nav aria-label="Primary">
+    <div class="nav-inner">
+      <a class="nav-name" href="index.html">Yumi A.W. Kimura</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="writing.html">Writing</a>
+        <a href="achievements.html">Public Work</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <article id="article-content">
+      <header>
+        <div class="article-toolbar">
+          <p class="eyebrow">Organizational Intelligence<span class="ja" lang="ja">組織知能</span></p>
+          <button class="language-toggle" type="button" aria-pressed="false" aria-controls="article-content" aria-label="Show Japanese translation for this article">
+            <span class="language-toggle-label">日本語訳を表示</span>
+          </button>
+        </div>
+        <h1>What We Built From a Billion Workplace Interactions<span class="ja" lang="ja">10億件を超える職場の行動記録から、私たちが構築したもの</span></h1>
+        <p class="dek">Enterprise AI can read the record a company writes down. Every company also produces a second record through action. The Large Behavior Model learns from that second record. OIL governs how the resulting intelligence enters decisions.<span class="ja" lang="ja">企業AIは、企業が書き残す記録を読むことができる。同時に、あらゆる企業は行動を通じて第二の記録を生み出している。Large Behavior Modelはその第二の記録から学習し、OILはそこから得られる知能が意思決定にどう組み込まれるかを統制する。</span></p>
+        <p class="byline"><strong>Yumi Kimura</strong> &nbsp;&middot;&nbsp; July 9, 2026 &nbsp;&middot;&nbsp; 10 min read</p>
+      </header>
+
+      <p class="lead">Every enterprise keeps two records of itself. One is written down: org charts, documents, tickets, policies. The other is produced by action: who people consult, which handoffs repeat, where work stalls, and whose involvement changes an outcome. The first record describes the organization on paper. The second records how it operates.<span class="ja" lang="ja">あらゆる企業は、自らについて二つの記録を持っている。一つは、組織図、文書、チケット、ポリシーとして書き残された記録。もう一つは、人々が誰に相談するか、どの引き継ぎが繰り返されるか、どこで仕事が滞るか、誰の関与が結果を変えるかという、行動から生まれる記録である。第一の記録は紙面上の組織を示し、第二の記録は組織が実際にどう動いているかを示す。</span></p>
+
+      <p>Enterprise software was built around the first record because it was legible. Search can retrieve it. Graphs can connect it. Agents can act on it. Execution, however, depends on more than retrieving a valid artifact. A team can select an outdated source, route work to the wrong expert, miss the internal stakeholder needed to advance an initiative, or assign a critical step to someone already at capacity. When a key contributor changes roles or leaves, a project can stall even while every document and workflow still appears correct. The second record reveals where execution actually gains or loses momentum.<span class="ja" lang="ja">企業向けソフトウェアは、読み取りやすい第一の記録を中心に構築されてきた。検索はそれを取得し、グラフはそれを結び、エージェントはそれに基づいて行動できる。しかし、実行に必要なのは、有効な成果物を取得することだけではない。チームが古い情報源を選び、仕事を別の専門家に振り分け、施策を前進させるために必要な社内ステークホルダーを見落とし、すでに対応能力の上限に達している人へ重要な工程を割り当てることがある。主要メンバーが異動または退職すれば、文書やワークフローが正しく見える状態でもプロジェクトは停滞する。第二の記録は、実行が実際にどこで勢いを得て、どこで失うのかを明らかにする。</span></p>
+
+      <p class="triad">Behavior reveals structure. Permission governs use. Organizational intelligence connects the two.<span class="ja" lang="ja">行動は構造を明らかにする。権限は利用を統制する。組織知能はその二つを結びつける。</span></p>
+
+      <ul class="thesis-points" aria-label="The article's argument in three parts">
+        <li><span class="point-id">01</span><span><b>Behavior has become a model substrate.</b> Chronological actions contain learnable structure that is different from text and complementary to it.<span class="ja" lang="ja"><b>行動はモデルの基盤になった。</b>時系列の行動には、テキストとは異なりながら相互補完する、学習可能な構造が含まれている。</span></span></li>
+        <li><span class="point-id">02</span><span><b>A complete system joins model and governance.</b> Enterprise use depends on provenance, permissions, escalation, and human judgment.<span class="ja" lang="ja"><b>完全なシステムは、モデルとガバナンスを結びつける。</b>企業での利用には、来歴、権限、エスカレーション、人間の判断が必要になる。</span></span></li>
+        <li><span class="point-id">03</span><span><b>The stack is converging.</b> Search, workflow, workforce intelligence, graphs, and governance are all moving toward live organizational context.<span class="ja" lang="ja"><b>スタックは収束しつつある。</b>検索、ワークフロー、ワークフォース・インテリジェンス、グラフ、ガバナンスは、いずれもリアルタイムの組織コンテキストへ向かっている。</span></span></li>
+      </ul>
+
+      <h2>The model came before the category name<span class="ja" lang="ja">カテゴリ名が生まれる前に、モデルはすでに存在した</span></h2>
+
+      <p>LEAD began as an employee networking product inside Slack and Microsoft Teams. Since 2020, it has made more than two million introductions across 2,000+ deployments. In roughly 1,400 deployments, we received authorization to use suitable data for model development. That permissioned, longitudinal history captured how networks formed, where expertise was sought, which ties crossed teams, and where collaboration stalled. Recurring patterns across organizations became the substrate for a model that learns beyond local tools, titles, and workflows.<span class="ja" lang="ja">LEADは、SlackとMicrosoft Teams上の社内ネットワーキング製品として始まった。2020年の提供開始以来、2,000件を超える導入で200万件以上の出会いを生み出してきた。このうち約1,400件では、モデル開発に適したデータの利用許可を得ている。そこに蓄積されたのは、社内ネットワークがどう形成され、専門知識がどこで求められ、どのつながりが部門を越え、どこで協働が滞るかを示す長期的な記録だ。組織を越えて繰り返し現れるパターンが、ツールや役職、ワークフローの違いに左右されないモデルの基盤になった。</span></p>
+
+      <p>Before any record enters model development, the pipeline removes sensitive information, minimizes and pseudonymizes personal data, and retains only authorized signals tied to approved purposes. Encryption, role-based access, deletion workflows, audit controls, and data-subject rights protect the lifecycle. The process is designed around GDPR and CCPA requirements and LEAD's certified Data Privacy Framework commitments.<span class="ja" lang="ja">データをモデル開発に用いる前に、機微情報を除去し、個人データを最小化・仮名化したうえで、承認された目的に必要なシグナルだけを残す。暗号化、ロールベースのアクセス制御、削除手続き、監査統制、データ主体の権利によってライフサイクル全体を保護する。この設計は、GDPRとCCPAの要件、およびLEADが認証を受けるData Privacy Framework上のコミットメントに基づいている。</span></p>
+
+      <p>The sequence matters: an operating problem produced a longitudinal, cross-organization corpus; that evidence made pretraining possible. The result is our own organizational model, with representations reusable across expertise, influence, knowledge, routing, risk, and change.<span class="ja" lang="ja">重要なのは、この順序だ。現場の課題から組織横断の長期コーパスが生まれ、その蓄積が事前学習を可能にした。その結果、専門性、影響力、知識、ルーティング、リスク、変化といった複数の課題に再利用できる、独自の組織モデルが生まれた。</span></p>
+
+      <figure class="wide" aria-labelledby="origin-caption">
+        <div class="origin-flow" aria-label="How the Large Behavior Model emerged from authorized signals generated through LEAD deployments">
+          <div class="origin-step"><small>2020</small><b>LEAD launches<span class="ja" lang="ja">LEADをローンチ</span></b><span>Employee networking programs in Slack and Teams begin producing permissioned longitudinal signals.<span class="ja" lang="ja">SlackとTeams上の従業員ネットワーキング・プログラムから、許可済みの時系列シグナルが生まれ始める。</span></span></div>
+          <div class="origin-step"><small>Corpus<span class="ja" lang="ja">コーパス</span></small><b>Behavior compounds<span class="ja" lang="ja">行動データが蓄積する</span></b><span>1B+ authorized behavioral records across roughly 1,400 organizational deployments create cross-company depth.<span class="ja" lang="ja">約1,400件の組織導入から得た10億件超の許可済み行動記録が、企業横断の深さを生み出す。</span></span></div>
+          <div class="origin-step"><small>Model<span class="ja" lang="ja">モデル</span></small><b>Large Behavior Model is pretrained<span class="ja" lang="ja">Large Behavior Modelを事前学習</span></b><span>Our own cross-company model learns reusable representations of how organizations operate.<span class="ja" lang="ja">独自の企業横断モデルが、組織の動き方を示す再利用可能な表現を学習する。</span></span></div>
+          <div class="origin-step"><small>Research<span class="ja" lang="ja">研究</span></small><b>OIL defines the system<span class="ja" lang="ja">OILがシステムを定義</span></b><span>People, Information, Process, and Agentic AI Design establish how model-supported signals should be governed.<span class="ja" lang="ja">People、Information、Process、Agentic AI Designが、モデル由来のシグナルをどう統制するかを定める。</span></span></div>
+        </div>
+        <figcaption id="origin-caption"><span class="fig-num">Fig. 1</span> The model emerged from authorized data generated through LEAD: operating problem, longitudinal corpus, cross-company pretraining, then a formal research architecture around its use.<span class="ja" lang="ja">モデルは、LEADを通じて生成された許可済みデータから生まれた。運用課題、時系列コーパス、企業横断の事前学習を経て、その利用を支える正式な研究アーキテクチャへと進んだ。</span></figcaption>
+      </figure>
+
+      <h2>What had to exist before the model<span class="ja" lang="ja">モデルを支えた四つの蓄積資産</span></h2>
+
+      <p>Authorized work events form longitudinal behavioral sequences; a cross-company model learns reusable representations; evaluations test them on unseen organizations and periods, independent network assessments, controlled settings, and public outcomes. Four accumulated assets make that concise description possible.<span class="ja" lang="ja">許可を得た業務イベントを時系列の行動シーケンスにし、企業横断モデルが再利用可能な表現を学ぶ。その表現を、未知の組織や期間、独立したネットワーク評価、統制環境、公開データの結果で検証する。この仕組みを可能にしたのが、次の四つの蓄積資産だ。</span></p>
+
+      <div class="evidence-table" role="table" aria-label="What makes the Large Behavior Model difficult to reproduce">
+        <div class="evidence-row evidence-head" role="row">
+          <span role="columnheader">Accumulated layer<span class="ja" lang="ja">蓄積された層</span></span>
+          <span role="columnheader">What is public<span class="ja" lang="ja">公開情報</span></span>
+          <span role="columnheader">Accumulated advantage<span class="ja" lang="ja">蓄積による優位性</span></span>
+        </div>
+        <div class="evidence-row" role="row">
+          <b role="cell">Longitudinal time<span class="ja" lang="ja">長期的な時間軸</span></b>
+          <span data-label="Public description" role="cell">Signals have accumulated through real product use since LEAD launched in 2020.<span class="ja" lang="ja">2020年のLEADローンチ以来、実際の製品利用を通じてシグナルが蓄積されてきた。</span></span>
+          <span data-label="Accumulated advantage" role="cell">A multi-year record captures organizational change across successive teams, roles, and workflows.<span class="ja" lang="ja">複数年の記録が、チーム、役割、ワークフローの変遷に伴う組織変化を捉える。</span></span>
+        </div>
+        <div class="evidence-row" role="row">
+          <b role="cell">Cross-organization variation<span class="ja" lang="ja">組織横断の多様性</span></b>
+          <span data-label="Public description" role="cell">The authorized training base spans roughly 1,400 organizational deployments and more than a billion behavioral records.<span class="ja" lang="ja">許可済みの学習基盤は、約1,400件の組織導入と10億件超の行動記録に及ぶ。</span></span>
+          <span data-label="Accumulated advantage" role="cell">Breadth across companies separates repeatable organizational structure from local quirks.<span class="ja" lang="ja">企業横断の広がりによって、再現性のある組織構造と各社固有の特徴を分離できる。</span></span>
+        </div>
+        <div class="evidence-row" role="row">
+          <b role="cell">A trained representation<span class="ja" lang="ja">学習済み表現</span></b>
+          <span data-label="Public description" role="cell">One pretrained model supports expertise, routing, influence, knowledge, risk, and change tasks.<span class="ja" lang="ja">一つの事前学習済みモデルが、専門性、ルーティング、影響力、知識、リスク、変化に関するタスクを支える。</span></span>
+          <span data-label="Accumulated advantage" role="cell">The learned representation carries the training history and evaluation discipline into each new task.<span class="ja" lang="ja">学習済み表現が、学習履歴と評価規律を新しい各タスクへ引き継ぐ。</span></span>
+        </div>
+        <div class="evidence-row" role="row">
+          <b role="cell">Operational interpretation<span class="ja" lang="ja">運用上の解釈</span></b>
+          <span data-label="Public description" role="cell">OIL connects People, Information, Process, and Agentic AI Design.<span class="ja" lang="ja">OILはPeople、Information、Process、Agentic AI Designを結びつける。</span></span>
+          <span data-label="Accumulated advantage" role="cell">Experience accumulated through LEAD informs interpretation across roles, cultures, permissions, and workflows.<span class="ja" lang="ja">LEADを通じて蓄積した経験が、役割、文化、権限、ワークフローを越えた解釈を支える。</span></span>
+        </div>
+      </div>
+
+      <h2>The category has two halves<span class="ja" lang="ja">カテゴリーを成り立たせる二つの層</span></h2>
+
+      <p>My <a href="https://academiccommons.columbia.edu/doi/10.7916/9da8-c532">Organizational Intelligence Loop research paper</a> asked why technically capable AI stalls inside real organizations. Its answer was to connect four forms of context that work already depends on.<span class="ja" lang="ja">私の<a href="https://academiccommons.columbia.edu/doi/10.7916/9da8-c532">Organizational Intelligence Loop研究論文</a>は、技術的には優れたAIが、なぜ実際の組織に入ると機能しなくなるのかを問うた。答えは、仕事がすでに依存している四つのコンテキストを結びつけることにあった。</span></p>
+
+      <div class="framework" aria-label="The four dimensions of the Organizational Intelligence Loop">
+        <div><b>People<span class="ja" lang="ja">人</span></b><span>Who knows what, who is trusted, who influences outcomes.<span class="ja" lang="ja">誰が何を知り、誰が信頼され、誰が結果に影響するか。</span></span></div>
+        <div><b>Information<span class="ja" lang="ja">情報</span></b><span>What is current, owned, validated, and permissioned.<span class="ja" lang="ja">何が最新で、誰が所有し、検証され、許可されているか。</span></span></div>
+        <div><b>Process<span class="ja" lang="ja">プロセス</span></b><span>How work moves, where decisions stall, and who carries the handoff.<span class="ja" lang="ja">仕事がどう進み、意思決定がどこで滞り、誰が引き継ぎを担うか。</span></span></div>
+        <div><b>Agentic AI Design<span class="ja" lang="ja">エージェント型AI設計</span></b><span>What an agent may do, when it escalates, and how action stays governed.<span class="ja" lang="ja">エージェントが何を実行でき、いつエスカレーションし、行動をどう統制し続けるか。</span></span></div>
+      </div>
+
+      <p>The Large Behavior Model reads authorized work signals and produces useful organizational representations. OIL connects those signals to information quality, workflow state, permissions, escalation, and human oversight. One reads the organization; the other governs how that reading is used.<span class="ja" lang="ja">Large Behavior Modelは、許可された業務シグナルを読み、組織に役立つ表現へ変換する。OILは、そのシグナルを情報の品質、ワークフローの状態、権限、エスカレーション、人間の監督へ接続する。一方が組織を読み、もう一方がその読み取りの使い方を統制する。</span></p>
+
+      <h3>The agent-management layer<span class="ja" lang="ja">エージェント管理レイヤー</span></h3>
+
+      <p>The OIL patent family treats AI agents as accountable organizational participants. Each agent has an identity, purpose, role, permitted data and actions, and accountable human authority. Organizational context guides routing and handoffs; provenance follows outputs; policy and human review govern exceptions. The result is an agent-management layer that can be reviewed and audited across enterprise systems.<span class="ja" lang="ja">OILの特許ファミリーは、AIエージェントを組織の中で説明責任を負う参加者として扱う。各エージェントに、アイデンティティ、目的、役割、利用できるデータと行動、責任を持つ人間をひもづける。組織コンテキストがルーティングと引き継ぎを導き、出力には来歴が残り、例外はポリシーと人間のレビューで統制される。こうして、企業システムを横断して確認・監査できるエージェント管理レイヤーが成立する。</span></p>
+
+      <figure class="wide" aria-labelledby="system-caption">
+        <div class="system-visual">
+          <section class="system-block inputs" aria-label="Authorized enterprise signals">
+            <span class="label">Authorized signals<span class="ja" lang="ja">許可済みシグナル</span></span>
+            <h3>Work leaves a trail<span class="ja" lang="ja">仕事は痕跡を残す</span></h3>
+            <svg class="network-mini" viewBox="0 0 240 62" role="img" aria-label="Conceptual organizational network">
+              <g stroke="#a8b9b2" stroke-width="1.5">
+                <line x1="28" y1="32" x2="83" y2="14"/><line x1="28" y1="32" x2="78" y2="49"/>
+                <line x1="83" y1="14" x2="121" y2="31"/><line x1="78" y1="49" x2="121" y2="31"/>
+                <line x1="121" y1="31" x2="169" y2="13"/><line x1="121" y1="31" x2="174" y2="49"/>
+                <line x1="169" y1="13" x2="214" y2="31"/><line x1="174" y1="49" x2="214" y2="31"/>
+              </g>
+              <g fill="#315f84">
+                <circle cx="28" cy="32" r="6"/><circle cx="83" cy="14" r="5"/><circle cx="78" cy="49" r="5"/>
+              </g>
+              <circle cx="121" cy="31" r="8" fill="#126b57"/>
+              <g fill="#a44d2f">
+                <circle cx="169" cy="13" r="5"/><circle cx="174" cy="49" r="5"/><circle cx="214" cy="31" r="6"/>
+              </g>
+            </svg>
+            <ul>
+              <li>Communication and meeting metadata<span class="ja" lang="ja">コミュニケーションと会議のメタデータ</span></li>
+              <li>Work items and knowledge artifacts<span class="ja" lang="ja">作業項目と知識成果物</span></li>
+              <li>Active network and peer signals<span class="ja" lang="ja">アクティブなネットワークとピア・シグナル</span></li>
+              <li>Privacy-filtered, authorized signals<span class="ja" lang="ja">プライバシー処理済みの許可されたシグナル</span></li>
+            </ul>
+          </section>
+          <div class="flow-arrow" aria-hidden="true">&rarr;</div>
+          <section class="system-block model" aria-label="Large Behavior Model and Organizational Intelligence Loop">
+            <span class="label">Model + research architecture<span class="ja" lang="ja">モデル＋研究アーキテクチャ</span></span>
+            <h3>Large Behavior Model + OIL<span class="ja" lang="ja">Large Behavior Model＋OIL</span></h3>
+            <ul>
+              <li>Read expertise and informal influence<span class="ja" lang="ja">専門性と非公式な影響力を読み取る</span></li>
+              <li>Surface bottlenecks and key-person risk<span class="ja" lang="ja">ボトルネックとキーパーソン・リスクを可視化する</span></li>
+              <li>Connect signals to information and process<span class="ja" lang="ja">シグナルを情報とプロセスへ接続する</span></li>
+              <li>Define agent identity, scope, routing, and human oversight<span class="ja" lang="ja">エージェントのアイデンティティ、範囲、ルーティング、人間の監督を定義する</span></li>
+            </ul>
+          </section>
+          <div class="flow-arrow" aria-hidden="true">&rarr;</div>
+          <section class="system-block outcomes" aria-label="Evaluated enterprise application targets">
+            <span class="label">Application targets<span class="ja" lang="ja">応用対象</span></span>
+            <h3>Context at work<span class="ja" lang="ja">業務に生きるコンテキスト</span></h3>
+            <ul>
+              <li>Expert routing and governed escalation<span class="ja" lang="ja">専門家へのルーティングと統制されたエスカレーション</span></li>
+              <li>Knowledge source-of-truth checks<span class="ja" lang="ja">正しい知識源の確認</span></li>
+              <li>Succession and change planning<span class="ja" lang="ja">後継者計画と変革計画</span></li>
+              <li>Agent escalation and governance support<span class="ja" lang="ja">エージェントのエスカレーションとガバナンス支援</span></li>
+            </ul>
+          </section>
+        </div>
+        <figcaption id="system-caption"><span class="fig-num">Fig. 2</span> A research-level view of observable inputs, model-supported signals, and evaluated enterprise application targets.<span class="ja" lang="ja">観測可能な入力、モデルが支援するシグナル、評価済みの企業向け応用対象を研究レベルで示した図。</span></figcaption>
+      </figure>
+
+      <p>Consider an engineering agent that routes an incident to the person on the formal schedule. The schedule is valid, but the organization relies on a different specialist for this failure. A language model retrieves the runbook; a workflow engine follows the rule. Organizational intelligence adds the real dependency and recommends a governed escalation within existing permissions.<span class="ja" lang="ja">たとえば、エンジニアリング・エージェントが正式な当番表どおりにインシデントを割り当てたとする。当番表は正しくても、その障害について組織が実際に頼っているのは別の専門家かもしれない。言語モデルはランブックを取得し、ワークフローは規則に従う。組織知能は、そこに実際の依存関係を加え、既存の権限内で適切なエスカレーションを提案する。</span></p>
+
+      <h2>The patent work follows the architecture<span class="ja" lang="ja">アーキテクチャから生まれた二つの特許ファミリー</span></h2>
+
+      <p>The patent work grew from translating OIL into a pre-commercial prototype, treating the behavioral model and organizational-governance layers as one coherent system.<span class="ja" lang="ja">特許開発は、OILをプレコマーシャルなプロトタイプへ落とし込む過程から生まれた。行動モデル層と組織ガバナンス層を、切り離せない一つのシステムとして扱っている。</span></p>
+
+      <ul class="scope-list" aria-label="Patent-pending scope at a public category level">
+        <li><b>Behavioral foundation-model family.</b> The model layer: learning useful organizational representations from authorized behavioral records.<span class="ja" lang="ja"><b>行動基盤モデル・ファミリー。</b>許可済みの行動記録から有用な組織表現を学習するモデル層。</span></li>
+        <li><b>Organizational-governance and agent-management family.</b> The operating layer: keeping human and agent action connected to organizational identity, provenance, permissions, workflow state, escalation, audit, and human oversight.<span class="ja" lang="ja"><b>組織ガバナンスおよびエージェント管理ファミリー。</b>人間とエージェントの行動を、組織アイデンティティ、来歴、権限、ワークフロー状態、エスカレーション、監査、人間の監督へ接続し続ける運用層。</span></li>
+      </ul>
+
+      <aside class="ip-note"><strong>IP status.</strong> LEAD is the commercial product in this history. The Large Behavior Model and OIL architecture are confidential, pre-commercial research assets covered by two filed non-provisional patent applications. Both families remain patent pending; the filings were the assets' first disclosure to a patent office.<span class="ja" lang="ja"><strong>知的財産の状況。</strong>この沿革の中で商用展開されているのはLEADである。Large Behavior ModelとOILアーキテクチャは、二件のnon-provisional特許出願の対象となる、機密かつプレコマーシャルな研究資産である。いずれも特許出願中であり、これらの出願が当該資産の特許庁への最初の開示となった。</span></aside>
+
+      <p>An 81-reference prior-art review found active filing across Microsoft, IBM, LinkedIn, Salesforce, Eightfold, Humanyze, Praisidio, and others. It also surfaced a <a href="https://research.unboxai.com/large-behavioral-models.html">2026 position paper on Large Behavioral Models</a> and a subsequent <a href="https://arxiv.org/abs/2606.05257">scaling-law preprint</a> by Rickard Br&uuml;el Gabrielsson. Together, that activity points to organizational behavior as an emerging foundation-model frontier. Our position is grounded in a longitudinal enterprise corpus, a trained cross-company model, and the governance architecture around its use.<span class="ja" lang="ja">81件の文献を対象にした先行技術調査では、Microsoft、IBM、LinkedIn、Salesforce、Eightfold、Humanyze、Praisidioなどによる活発な出願が確認された。同時に、Rickard Br&uuml;el Gabrielssonによる<a href="https://research.unboxai.com/large-behavioral-models.html">Large Behavioral Modelsの2026年ポジションペーパー</a>と、その後の<a href="https://arxiv.org/abs/2606.05257">スケーリング則プレプリント</a>にも行き着いた。こうした動きは、組織行動が基盤モデルの新たな領域になりつつあることを示している。私たちの位置づけを支えるのは、企業の長期コーパス、学習済みの企業横断モデル、そしてその利用を統制するアーキテクチャだ。</span></p>
+
+      <h2 id="evaluations">What the evaluations show<span class="ja" lang="ja">評価結果が示すこと</span></h2>
+
+      <p>The model is trained on 1B+ authorized behavioral records across roughly 1,400 organizational deployments. The public evaluation surface includes real tickets, an unseen company, Enron, and controlled settings with known hidden states. Methods and results are open to scrutiny at <a href="https://www.behaviorgraph.com/lbm/">behaviorgraph.com/lbm</a>; the learned representation remains proprietary.<span class="ja" lang="ja">モデルは、約1,400件の組織導入から得た10億件超の許可済み行動記録で学習している。公開している評価には、実際のチケット、学習対象外の企業、Enron、正解となる隠れた状態が既知の統制環境が含まれる。評価方法と結果は<a href="https://www.behaviorgraph.com/lbm/">behaviorgraph.com/lbm</a>で検証できる一方、学習済み表現は独自資産として保持している。</span></p>
+
+      <section class="proof-summary wide" aria-labelledby="proof-summary-title">
+        <div class="proof-summary-head">
+          <small>Proof summary<span class="ja" lang="ja">主要な実証結果</span></small>
+          <h3 id="proof-summary-title">The three strongest results come from real work, external outcomes, and transfer.<span class="ja" lang="ja">まず見るべきは、実業務・外部結果・未知企業への転移を示す三つの結果だ。</span></h3>
+        </div>
+        <div class="proof-summary-grid">
+          <div class="proof-item">
+            <small>Real ticket routing<span class="ja" lang="ja">実際のチケットルーティング</span></small>
+            <span class="proof-value">0.80 Recall@10</span>
+            <p>Across roughly 5,000 tickets, the correct resolver appears in the top ten four times out of five.<span class="ja" lang="ja">約5,000件のチケットで、正しい解決担当者が5回に4回トップ10へ入った。</span></p>
+          </div>
+          <div class="proof-item">
+            <small>External outcome · Enron<span class="ja" lang="ja">外部結果・Enron</span></small>
+            <span class="proof-value">2.12&times; chance</span>
+            <p>Communication structure surfaces later-indicted insiders at more than twice the chance rate.<span class="ja" lang="ja">コミュニケーション構造だけで、後に起訴された内部関係者を偶然の2倍を超える割合で上位に捉えた。</span></p>
+          </div>
+          <div class="proof-item">
+            <small>Unseen-company transfer<span class="ja" lang="ja">未知企業への転移</span></small>
+            <span class="proof-value">r &asymp; 0.50</span>
+            <p>Zero-shot transfer preserves useful organizational structure in a company absent from training.<span class="ja" lang="ja">学習に含まれない企業でも、ゼロショットで有用な組織構造を捉えた。</span></p>
+          </div>
+        </div>
+      </section>
+
+      <figure class="wide" aria-labelledby="proof-caption">
+        <div class="evidence-table four-col" role="table" aria-label="Published evaluation results for the Large Behavior Model">
+          <div class="evidence-row evidence-head" role="row">
+            <span role="columnheader">Capability<span class="ja" lang="ja">能力</span></span>
+            <span role="columnheader">Published result<span class="ja" lang="ja">公開結果</span></span>
+            <span role="columnheader">Validation surface<span class="ja" lang="ja">検証対象</span></span>
+            <span role="columnheader">Interpretation<span class="ja" lang="ja">解釈</span></span>
+          </div>
+          <div class="evidence-row" role="row">
+            <b role="cell">Agent routing<span class="ja" lang="ja">エージェント・ルーティング</span></b>
+            <span class="result" data-label="Published result" role="cell">0.80 Recall@10</span>
+            <span data-label="Validation" role="cell">Real external: roughly 5,000 tickets<span class="ja" lang="ja">実外部評価：約5,000件のチケット</span></span>
+            <span data-label="Interpretation" role="cell">The right resolver appears in the top ten four times out of five; recent expertise outperforms seniority.<span class="ja" lang="ja">適切な解決担当者が5回中4回トップ10に入り、直近の専門性が勤続年数を上回る。</span></span>
+          </div>
+          <div class="evidence-row" role="row">
+            <b role="cell">Hidden influence beyond title<span class="ja" lang="ja">役職を越えた隠れた影響力</span></b>
+            <span class="result" data-label="Published result" role="cell">2.12&times; chance</span>
+            <span data-label="Validation" role="cell">Real external: Enron<span class="ja" lang="ja">実外部評価：Enron</span></span>
+            <span data-label="Interpretation" role="cell">Communication structure alone surfaces later-indicted insiders at more than twice the chance rate.<span class="ja" lang="ja">コミュニケーション構造だけで、後に起訴された内部関係者を偶然の2倍を超える精度で浮かび上がらせる。</span></span>
+          </div>
+          <div class="evidence-row" role="row">
+            <b role="cell">New-company transfer<span class="ja" lang="ja">新規企業への転移</span></b>
+            <span class="result" data-label="Published result" role="cell">r &asymp; 0.50</span>
+            <span data-label="Validation" role="cell">Real transfer: company absent from training<span class="ja" lang="ja">実転移評価：学習対象外の企業</span></span>
+            <span data-label="Interpretation" role="cell">Zero-shot transfer preserves useful organizational structure on a new company.<span class="ja" lang="ja">ゼロショット転移でも、新しい企業における有用な組織構造を保持する。</span></span>
+          </div>
+          <div class="evidence-row" role="row">
+            <b role="cell">Attrition early warning<span class="ja" lang="ja">離職の早期警告</span></b>
+            <span class="result" data-label="Published result" role="cell">0.94 AUC</span>
+            <span data-label="Validation" role="cell">Controlled evaluation<span class="ja" lang="ja">統制評価</span></span>
+            <span data-label="Interpretation" role="cell">Likely departures become detectable before they appear in standard reporting.<span class="ja" lang="ja">標準レポートに現れる前に、離職の可能性を検知できる。</span></span>
+          </div>
+          <div class="evidence-row" role="row">
+            <b role="cell">Org-shape robustness<span class="ja" lang="ja">組織形態への堅牢性</span></b>
+            <span class="result" data-label="Published result" role="cell">0.94 flat / 0.94 steep</span>
+            <span data-label="Validation" role="cell">Controlled: two organizational shapes<span class="ja" lang="ja">統制評価：二つの組織形態</span></span>
+            <span data-label="Interpretation" role="cell">A shared pretrained representation reads both flat and hierarchical organizations.<span class="ja" lang="ja">共有の事前学習済み表現が、フラット型と階層型の両方の組織を読み取る。</span></span>
+          </div>
+          <div class="evidence-row" role="row">
+            <b role="cell">Knowledge source of truth<span class="ja" lang="ja">信頼できる知識源</span></b>
+            <span class="result" data-label="Published result" role="cell">0.88 AUC</span>
+            <span data-label="Validation" role="cell">Controlled evaluation<span class="ja" lang="ja">統制評価</span></span>
+            <span data-label="Interpretation" role="cell">Surfaces the document teams treat as operationally current and relates it to formal status.<span class="ja" lang="ja">チームが実務上の最新版として扱う文書を特定し、正式なステータスとの関係を示す。</span></span>
+          </div>
+          <div class="evidence-row" role="row">
+            <b role="cell">Quiet disengagement<span class="ja" lang="ja">静かなエンゲージメント低下</span></b>
+            <span class="result" data-label="Published result" role="cell">0.83 AUC</span>
+            <span data-label="Validation" role="cell">Controlled evaluation<span class="ja" lang="ja">統制評価</span></span>
+            <span data-label="Interpretation" role="cell">Detects withdrawal as a graded behavioral change ahead of a binary outcome.<span class="ja" lang="ja">二値の結果に先立ち、離脱を段階的な行動変化として検知する。</span></span>
+          </div>
+          <div class="evidence-row" role="row">
+            <b role="cell">Role-cover recommendation<span class="ja" lang="ja">役割カバーの推奨</span></b>
+            <span class="result" data-label="Published result" role="cell">3.2&times; chance</span>
+            <span data-label="Validation" role="cell">Controlled evaluation<span class="ja" lang="ja">統制評価</span></span>
+            <span data-label="Interpretation" role="cell">Surfaces plausible backup coverage for succession and operating resilience.<span class="ja" lang="ja">後継者計画と業務継続性のために、妥当なバックアップ候補を提示する。</span></span>
+          </div>
+        </div>
+        <figcaption id="proof-caption"><span class="fig-num">Fig. 3</span> Published Large Behavior Model results spanning real external, real transfer, and controlled evaluation tiers.<span class="ja" lang="ja">実外部評価、実転移評価、統制評価の各層にまたがるLarge Behavior Modelの公開結果。</span></figcaption>
+      </figure>
+
+      <div class="case-studies" aria-label="Published Large Behavior Model case studies">
+        <section class="case-study">
+          <small>Case study 01 · Real external<span class="ja" lang="ja">ケーススタディ01・実外部評価</span></small>
+          <h3>Enron: outcome-anchored external evaluation<span class="ja" lang="ja">Enron：結果に紐づく外部評価</span></h3>
+          <p>About 517,000 emails, roughly 170 mapped employees, and court-documented outcomes from 1999 to 2002. The model's communication-pattern rankings were evaluated against later charges and convictions.<span class="ja" lang="ja">約51万7,000通のメール、マッピングされた約170人の従業員、1999年から2002年までの裁判記録に基づく結果を用いた。モデルによるコミュニケーション・パターンの順位を、その後の起訴・有罪判決と照合して評価した。</span></p>
+          <ul>
+            <li>Indicted insiders ranked at more than twice the chance rate.<span class="ja" lang="ja">起訴された内部関係者は、偶然の2倍を超える順位に入った。</span></li>
+            <li>The trading desk hardened into an insular ring during the California energy crisis, then dissolved afterward.<span class="ja" lang="ja">トレーディングデスクはカリフォルニア電力危機の最中に閉鎖的な集団へと固まり、その後解消した。</span></li>
+            <li>Internal code names tied to the fraud surfaced around a year before public exposure, clustered around employees later convicted.<span class="ja" lang="ja">不正に関連する社内コードネームは、公になる約1年前から現れ、後に有罪判決を受けた従業員の周辺に集中していた。</span></li>
+          </ul>
+        </section>
+        <section class="case-study">
+          <small>Case study 02 · Real transfer<span class="ja" lang="ja">ケーススタディ02・実転移評価</span></small>
+          <h3>A 900-person technology company<span class="ja" lang="ja">従業員900人のテクノロジー企業</span></h3>
+          <p>The model transferred zero-shot to a company absent from training. Reading permissioned calendar and Slack metadata, it rebuilt an operating map and compared selected outputs with reserved validation facts.<span class="ja" lang="ja">モデルは、学習対象外の企業へゼロショットで転移した。許可済みのカレンダーとSlackメタデータを読み、実際の運用マップを再構築し、選択した出力を評価用に保持していた事実と比較した。</span></p>
+          <ul>
+            <li>About 70 go-to experts and about 100 hidden experts whose titles understated their role.<span class="ja" lang="ja">頼られる専門家を約70人、役職名では実際の役割が見えにくい隠れた専門家を約100人特定した。</span></li>
+            <li>About 35 key-person risks; roughly 25 critical roles relied on a single incumbent.<span class="ja" lang="ja">約35件のキーパーソン・リスクを特定し、約25の重要役割が一人の担当者に依存していた。</span></li>
+            <li>About 85 cross-team bridges and about seven clusters at risk of isolation.<span class="ja" lang="ja">チーム横断の橋渡し役を約85人、孤立リスクのあるクラスターを約7つ特定した。</span></li>
+            <li>Independent checks used job function and later departures as outcome anchors.<span class="ja" lang="ja">独立した検証では、職務機能とその後の離職を結果の基準として用いた。</span></li>
+          </ul>
+        </section>
+      </div>
+
+      <h2>What the research system has demonstrated<span class="ja" lang="ja">研究システムで実証した能力</span></h2>
+
+      <p>Evaluation and pre-commercial research environments have demonstrated six capability groups. A privacy-preserving API and MCP interface support controlled testing; raw identities and model weights remain inside the governed boundary.<span class="ja" lang="ja">評価環境とプレコマーシャルな研究環境で、六つの能力群を実証してきた。プライバシー保護型APIとMCPインターフェースによって統制されたテストを行い、元の個人識別情報とモデル重みは管理境界の内側に保持する。</span></p>
+
+      <div class="capabilities">
+        <div class="capability"><b>Expertise and informal influence<span class="ja" lang="ja">専門性と非公式な影響力</span></b><span>Find the people colleagues rely on when titles and profiles are incomplete.<span class="ja" lang="ja">役職やプロフィールだけでは見えない、同僚が実際に頼る人を見つける。</span></span></div>
+        <div class="capability"><b>Knowledge source of truth<span class="ja" lang="ja">信頼できる知識源</span></b><span>Connect artifacts to ownership, maintenance, usage, and credible human review.<span class="ja" lang="ja">成果物を所有者、保守、利用状況、信頼できる人間のレビューへ接続する。</span></span></div>
+        <div class="capability"><b>Routing and escalation<span class="ja" lang="ja">ルーティングとエスカレーション</span></b><span>Recommend the right person, backup, or review path within formal permissions.<span class="ja" lang="ja">正式な権限内で、適切な担当者、バックアップ、レビュー経路を推奨する。</span></span></div>
+        <div class="capability"><b>Bottleneck and key-person risk<span class="ja" lang="ja">ボトルネックとキーパーソン・リスク</span></b><span>Surface concentrated dependencies, fragile handoffs, isolated teams, and missing coverage.<span class="ja" lang="ja">依存の集中、脆弱な引き継ぎ、孤立したチーム、カバー不足を可視化する。</span></span></div>
+        <div class="capability"><b>Change and adoption<span class="ja" lang="ja">変革と定着</span></b><span>Observe how new practices spread through trusted networks and where activation stalls.<span class="ja" lang="ja">新しい実務が信頼ネットワークを通じてどう広がり、どこで定着が滞るかを観測する。</span></span></div>
+        <div class="capability"><b>Organizational change and succession<span class="ja" lang="ja">組織変革と後継者計画</span></b><span>Compare formal structure with operating reality before reorganization or leadership transition.<span class="ja" lang="ja">組織再編やリーダー交代の前に、正式な構造と運用実態を比較する。</span></span></div>
+      </div>
+
+      <p>Purpose-specific access, aggregation, subgroup testing, provenance, and human review turn those outputs into governed decision support from the first signal through final review.<span class="ja" lang="ja">目的別アクセス、集約、サブグループテスト、来歴、人間によるレビューを通じて、最初のシグナルから最終確認までを統制された意思決定支援へつなげる。</span></p>
+
+      <h2>The stack is converging from five directions<span class="ja" lang="ja">五つの市場が同じレイヤーへ収束する</span></h2>
+
+      <p>This category now spans five adjacent markets moving toward organizational behavior from different starting points. Each already owns a legitimate part of the enterprise AI stack.<span class="ja" lang="ja">このカテゴリーは現在、異なる出発点から組織行動へ向かう五つの隣接市場にまたがっている。それぞれが、企業AIスタックの重要な一部をすでに担っている。</span></p>
+
+      <div class="landscape wide" role="table" aria-label="Organizational intelligence market landscape">
+        <div class="landscape-row landscape-head" role="row">
+          <span role="columnheader">Market<span class="ja" lang="ja">市場</span></span>
+          <span role="columnheader">Examples<span class="ja" lang="ja">企業例</span></span>
+          <span role="columnheader">Role in the emerging stack<span class="ja" lang="ja">新しいスタックでの役割</span></span>
+        </div>
+        <div class="landscape-row" role="row">
+          <b role="cell">Behavioral foundation models<span class="ja" lang="ja">行動基盤モデル</span></b>
+          <span class="names" role="cell"><a href="https://www.synerise.com/products/basemodel">Synerise / BaseModel</a></span>
+          <span class="motion" role="cell">Establish chronological action as a foundation-model substrate for reusable behavioral intelligence.<span class="ja" lang="ja">時系列の行動を、再利用可能な行動知能のための基盤モデル素材として確立する。</span></span>
+        </div>
+        <div class="landscape-row" role="row">
+          <b role="cell">Organizational networks and workforce intelligence<span class="ja" lang="ja">組織ネットワークとワークフォース・インテリジェンス</span></b>
+          <span class="names" role="cell"><a href="https://learn.microsoft.com/en-us/viva/insights/advanced/analyst/network-collaboration-insights">Microsoft Viva</a> &middot; <a href="https://www.worklytics.co/ona-data-analytics-software-worklytics">Worklytics</a> &middot; <a href="https://www.visier.com/">Visier</a></span>
+          <span class="motion" role="cell">Make collaboration structure, silos, brokers, expertise, and workforce patterns visible.<span class="ja" lang="ja">協働構造、サイロ、橋渡し役、専門性、ワークフォースのパターンを可視化する。</span></span>
+        </div>
+        <div class="landscape-row" role="row">
+          <b role="cell">Enterprise knowledge and graph infrastructure<span class="ja" lang="ja">企業知識とグラフ・インフラ</span></b>
+          <span class="names" role="cell"><a href="https://www.glean.com/platform">Glean</a> &middot; <a href="https://www.box.com/ai">Box</a> &middot; <a href="https://neo4j.com/product/">Neo4j</a></span>
+          <span class="motion" role="cell">Connect content, permissions, entities, and processes so models can retrieve and reason over enterprise context.<span class="ja" lang="ja">コンテンツ、権限、エンティティ、プロセスを接続し、モデルが企業コンテキストを取得して推論できるようにする。</span></span>
+        </div>
+        <div class="landscape-row" role="row">
+          <b role="cell">Agent and workflow platforms<span class="ja" lang="ja">エージェントとワークフローのプラットフォーム</span></b>
+          <span class="names" role="cell"><a href="https://www.salesforce.com/platform/agentforce-platform">Salesforce</a> &middot; <a href="https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-launches-Autonomous-Workforce-that-thinks-and-acts-adds-Moveworks-to-the-ServiceNow-AI-Platform/default.aspx">ServiceNow</a> &middot; <a href="https://help.sap.com/docs/WALKME">SAP / WalkMe</a> &middot; <a href="https://newsroom.workday.com/2026-05-28-Workday-and-Google-Cloud-Expand-Strategic-Partnership-to-Bring-AI-Agents-for-HR-and-Finance-Into-Employees-Daily-Workflows">Workday / Google Cloud</a></span>
+          <span class="motion" role="cell">Turn business data and deterministic workflows into agent actions inside daily work.<span class="ja" lang="ja">業務データと決定論的ワークフローを、日常業務の中でエージェントが実行する行動へ変換する。</span></span>
+        </div>
+        <div class="landscape-row" role="row">
+          <b role="cell">Identity, security, and AI governance<span class="ja" lang="ja">アイデンティティ、セキュリティ、AIガバナンス</span></b>
+          <span class="names" role="cell"><a href="https://newsroom.servicenow.com/press-releases/details/2025/ServiceNow-to-Expand-Security-Portfolio-With-Acquisition-of-Vezas-Leading-AI-native-Identity-Security-Platform/default.aspx">ServiceNow / Veza</a> &middot; <a href="https://www.credal.ai/products/agent-registry">Credal</a> &middot; <a href="https://www.credo.ai/">Credo AI</a> &middot; <a href="https://www.checkpoint.com/press-releases/check-point-acquires-lakera-to-deliver-end-to-end-ai-security-for-enterprises/">Check Point / Lakera</a></span>
+          <span class="motion" role="cell">Control access, agent identity, policy, risk, and auditability at runtime.<span class="ja" lang="ja">実行時のアクセス、エージェントID、ポリシー、リスク、監査可能性を統制する。</span></span>
+        </div>
+      </div>
+      <p class="landscape-note">Market structure and product ownership reviewed July 2026.<span class="ja" lang="ja">市場構造と製品所有関係は2026年7月時点で確認。</span></p>
+
+      <h2>The strategic question is where the layer belongs<span class="ja" lang="ja">問われているのは、このレイヤーをどこに置くか</span></h2>
+
+      <p>It is tempting to classify organizational behavior as workforce analytics. That is too narrow. The same signal changes which document search should trust, where a workflow should route, when an agent should escalate, and which human has standing to review an answer. The architectural question is whether that context remains trapped in a dashboard or becomes a governed service shared across enterprise systems.<span class="ja" lang="ja">組織行動をワークフォース分析に分類したくなるが、それでは狭すぎる。同じシグナルが、検索がどの文書を信頼すべきか、ワークフローをどこへ送るべきか、エージェントがいつエスカレーションすべきか、誰が回答をレビューする正当性を持つかを変える。アーキテクチャ上の問いは、そのコンテキストをダッシュボード内に閉じ込めるのか、企業システム間で共有される統制済みサービスにするのかである。</span></p>
+
+      <ul class="scope-list" aria-label="Three architectural tests for organizational behavioral context">
+        <li><b>Shared.</b> The same organizational reading should support knowledge, workflow, workforce, security, and agent surfaces through a consistent governed truth.<span class="ja" lang="ja"><b>共有。</b>同じ組織の読み取りが、一貫して統制された事実を通じて、知識、ワークフロー、ワークフォース、セキュリティ、エージェントの各領域を支える。</span></li>
+        <li><b>Governed.</b> Every use should remain permission-aware, purpose-limited, reviewable, and subordinate to human authority.<span class="ja" lang="ja"><b>統制。</b>すべての利用が、権限を認識し、目的を限定し、レビュー可能で、人間の権限に従う。</span></li>
+        <li><b>Evaluated.</b> Scale, transfer, external outcomes, subgroup behavior, drift, and failure modes should remain distinct, measurable claims.<span class="ja" lang="ja"><b>評価。</b>規模、転移、外部結果、サブグループの挙動、ドリフト、失敗モードを、それぞれ独立して測定可能な主張として扱う。</span></li>
+      </ul>
+
+      <h2>The second record<span class="ja" lang="ja">第二の記録</span></h2>
+
+      <p>Every enterprise already keeps a second record in calendars, channels, and handoffs. Since 2020, we have been learning how to read it: pretraining a foundation model on more than a billion behavioral records and formalizing the loop that governs its use. Enterprise AI will work in practice when it can see both records while preserving authority, permissions, and human judgment.<span class="ja" lang="ja">あらゆる企業は、カレンダー、チャネル、引き継ぎの中に、すでに「第二の記録」を持っている。私たちは2020年以来、その読み方を学んできた。10億件を超える行動記録で基盤モデルを事前学習し、その読み取りをどう使うかを統制するループを形式化してきた。企業AIが実務で機能するのは、正式な権限、アクセス許可、人間の判断を守りながら、二つの記録を同時に見られるときだ。</span></p>
+
+      <section class="sources" aria-labelledby="sources-title">
+        <h2 id="sources-title">Primary reading<span class="ja" lang="ja">主要文献</span></h2>
+        <ul>
+          <li><a href="https://academiccommons.columbia.edu/doi/10.7916/9da8-c532">Yumi Kimura, &ldquo;The Organizational Intelligence Loop&rdquo;</a><span class="ja" lang="ja">Yumi Kimura「組織知能ループ」</span></li>
+          <li><a href="https://www.behaviorgraph.com/blog/posts/large-behavior-model-ai-governance-agent-orchestration.html">BehaviorGraph, &ldquo;The Large Behavior Model, Governance, and Agent Orchestration&rdquo;</a><span class="ja" lang="ja">BehaviorGraph「Large Behavior Model、ガバナンス、エージェント・オーケストレーション」</span></li>
+        </ul>
+      </section>
+
+      <aside class="author-note">
+        <strong>Yumi Kimura</strong> is the founder of LEAD and BehaviorGraph. She authored the Organizational Intelligence Loop at Columbia and is building the Large Behavior Model, a foundation model for organizational behavior. Both sit within two patent-pending families. She writes <a href="https://kimura.yumiwillems.com/">The Agentic Enterprise</a>.<span class="ja" lang="ja"><strong>Yumi Kimura</strong>はLEADとBehaviorGraphの創業者。ColumbiaでOrganizational Intelligence Loopを執筆し、組織行動の基盤モデルであるLarge Behavior Modelを構築している。両者は二つの特許出願中ファミリーに含まれる。<a href="https://kimura.yumiwillems.com/">The Agentic Enterprise</a>を執筆。</span>
+      </aside>
+    </article>
+  </main>
+
+  <footer>
+    © 2026 Yumi A.W. Kimura · <a href="index.html">yumik20.github.io</a>
+  </footer>
+  <script>
+    (() => {
+      const toggle = document.querySelector(".language-toggle");
+      const label = toggle?.querySelector(".language-toggle-label");
+      if (!toggle || !label) return;
+
+      toggle.addEventListener("click", () => {
+        const isVisible = document.body.classList.toggle("show-ja");
+        toggle.setAttribute("aria-pressed", String(isVisible));
+        toggle.setAttribute("aria-label", isVisible ? "Hide Japanese translation for this article" : "Show Japanese translation for this article");
+        label.textContent = isVisible ? "日本語訳を非表示" : "日本語訳を表示";
+      });
+    })();
+  </script>
+</body>
+</html>
