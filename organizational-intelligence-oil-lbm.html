@@ -173,9 +173,7 @@
       line-height: 1.48;
     }
     .byline {
-      margin: 0 0 42px;
-      padding-bottom: 26px;
-      border-bottom: 1px solid var(--line);
+      margin: 0;
       color: var(--faint);
       font-size: 13px;
     }
@@ -183,6 +181,57 @@
       color: var(--text);
       font-weight: 500;
     }
+    .name-guide {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 16px;
+      align-items: baseline;
+      margin-top: 24px;
+      margin-bottom: 36px;
+      padding: 11px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .name-guide > small {
+      color: var(--rust);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .name-guide p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.6;
+    }
+    .name-guide b { color: var(--ink); font-weight: 600; }
+    .market-bullets {
+      margin: -6px 0 24px;
+      padding: 0;
+      border-top: 1px solid var(--line);
+      list-style: none;
+    }
+    .market-bullets li {
+      position: relative;
+      padding: 10px 0 10px 18px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .market-bullets li::before {
+      content: "";
+      position: absolute;
+      top: 20px;
+      left: 2px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--rust);
+    }
+    .market-bullets b { color: var(--ink); }
     p { margin: 0 0 22px; }
     .lead {
       color: #25312d;
@@ -288,7 +337,7 @@
     }
     .oil-principles {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       margin: 20px 0 34px;
       padding: 0;
       border-top: 1px solid var(--line);
@@ -442,44 +491,368 @@
       font-size: 13px;
       line-height: 1.55;
     }
-    .landscape {
-      margin-top: 30px;
+    .strategy-use {
+      margin-top: 34px;
       margin-bottom: 42px;
-      border-top: 1px solid var(--line);
+      padding: 24px 26px 18px;
+      border-top: 2px solid var(--green);
+      border-bottom: 1px solid var(--line);
+      background: var(--soft);
     }
-    .landscape-row {
+    .strategy-use-head {
       display: grid;
-      grid-template-columns: 190px 270px minmax(0, 1fr);
-      gap: 20px;
-      padding: 18px 0;
+      grid-template-columns: minmax(220px, 0.78fr) minmax(0, 1.22fr);
+      gap: 34px;
+      align-items: start;
+      margin-bottom: 22px;
+    }
+    .strategy-use-head small {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 7px;
+    }
+    .strategy-use h3 {
+      margin: 0;
+      font-family: "EB Garamond", Georgia, serif;
+      font-size: 26px;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+    .strategy-use-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    .strategy-cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
-    .landscape-row b {
+    .strategy-card {
+      min-width: 0;
+      padding: 18px;
+      border-left: 1px solid var(--line);
+    }
+    .strategy-card:first-child { border-left: 0; }
+    .strategy-card > small {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--rust);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .strategy-card h4 {
+      margin: 0 0 16px;
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.45;
+    }
+    .strategy-effect {
+      display: inline-flex;
+      margin-bottom: 14px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    .strategy-choice {
+      display: grid;
+      grid-template-columns: 70px minmax(0, 1fr);
+      gap: 10px;
+      padding: 11px 0;
+      border-top: 1px solid #e3e7e4;
+      font-size: 11px;
+      line-height: 1.55;
+    }
+    .strategy-choice b { font-size: 10px; }
+    .strategy-choice span { color: var(--muted); }
+    .strategy-choice.helps b { color: var(--green); }
+    .strategy-choice.hurts b { color: var(--rust); }
+    .strategy-note {
+      margin: 14px 0 0;
+      color: var(--faint);
+      font-size: 10px;
+      line-height: 1.6;
+    }
+    .continuity-figure { margin-top: 26px; margin-bottom: 18px; }
+    .continuity-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+    }
+    .continuity-network {
+      padding: 22px 24px 18px;
+      border-right: 1px solid var(--line);
+      background: #f7f9f6;
+    }
+    .continuity-network-head {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    .continuity-network-head > small {
+      max-width: 260px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+    .continuity-density {
+      min-width: 145px;
+      text-align: right;
+    }
+    .continuity-density span,
+    .continuity-density small {
+      display: block;
+      color: var(--faint);
+      font-size: 9px;
+      line-height: 1.45;
+    }
+    .continuity-density b {
+      display: block;
+      margin: 2px 0;
+      color: var(--green);
+      font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+      font-size: 22px;
+      font-weight: 500;
+    }
+    .continuity-density .ja,
+    .continuity-density .zh {
+      margin-top: 2px;
+      color: inherit;
+      font-size: 0.95em;
+      line-height: 1.45;
+    }
+    .continuity-network svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 14px;
+    }
+    .continuity-reading { padding: 20px 22px 12px; }
+    .continuity-reading > small {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--rust);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .continuity-reading > h3 {
+      margin: 0 0 8px;
+      font-family: "EB Garamond", Georgia, serif;
+      font-size: 23px;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+    .rebuild-row {
+      display: grid;
+      grid-template-columns: 36px minmax(0, 1fr) 84px;
+      gap: 12px;
+      align-items: start;
+      padding: 16px 0;
+      border-top: 1px solid var(--line);
+    }
+    .rebuild-marker {
+      display: flex;
+      width: 28px;
+      height: 28px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .rebuild-row.a .rebuild-marker { background: var(--green); }
+    .rebuild-row.b .rebuild-marker { background: var(--blue); }
+    .rebuild-row.c .rebuild-marker { background: var(--rust); }
+    .rebuild-copy b {
+      display: block;
+      margin-bottom: 4px;
       color: var(--ink);
       font-size: 13px;
     }
-    .landscape-row .names {
-      color: var(--blue);
-      font-size: 13px;
-      line-height: 1.55;
-    }
-    .landscape-row .motion {
+    .rebuild-copy p {
+      margin: 0;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 11px;
       line-height: 1.55;
     }
-    .landscape-head {
-      padding: 10px 0;
+    .rebuild-range {
+      color: var(--ink);
+      font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.4;
+      text-align: right;
+    }
+    .continuity-caveat {
+      margin: 16px 0 0;
       color: var(--faint);
+      font-size: 11px;
+      line-height: 1.65;
+    }
+    .continuity-scope {
+      margin-top: 0;
+      margin-bottom: 42px;
+      padding: 24px;
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--line);
+      background: #f7f9f6;
+    }
+    .continuity-scope-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 1.35fr;
+      gap: 30px;
+      align-items: start;
+    }
+    .continuity-scope-head > div > small {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--rust);
       font-size: 10px;
       font-weight: 600;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
     }
-    .landscape-note {
-      margin: -26px 0 42px;
-      color: var(--faint);
+    .continuity-scope h3 {
+      margin: 0;
+      font-family: "EB Garamond", Georgia, serif;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+    .continuity-scope-head p {
+      margin: 0;
+      color: var(--muted);
       font-size: 12px;
-      line-height: 1.55;
+      line-height: 1.65;
+    }
+    .scope-counts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin: 20px 0 24px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .scope-count {
+      padding: 15px 16px;
+      border-left: 1px solid var(--line);
+    }
+    .scope-count:first-child { border-left: 0; }
+    .scope-count b {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--green);
+      font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+      font-size: 22px;
+      font-weight: 500;
+    }
+    .scope-count span {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 1.45;
+      text-transform: uppercase;
+    }
+    .scope-evidence {
+      display: grid;
+      grid-template-columns: minmax(210px, 0.8fr) minmax(0, 1.2fr);
+      gap: 28px;
+      align-items: start;
+    }
+    .scope-evidence-copy small {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--faint);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .scope-evidence-copy b {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--ink);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .scope-evidence-copy p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.65;
+    }
+    .scope-bars { display: grid; gap: 11px; }
+    .scope-bar-head {
+      display: flex;
+      gap: 12px;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 4px;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.4;
+    }
+    .scope-bar-head strong {
+      color: var(--ink);
+      font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+      font-size: 11px;
+    }
+    .scope-bar-track {
+      height: 7px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e5eae7;
+    }
+    .scope-bar-fill {
+      width: var(--score);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--blue);
+    }
+    .scope-bar.node .scope-bar-fill { background: #8a9b95; }
+    .scope-bar.combined .scope-bar-fill { background: var(--green); }
+    .scope-source-note {
+      margin: 16px 0 0;
+      color: var(--faint);
+      font-size: 10px;
+      line-height: 1.6;
+    }
+    .layer-pill {
+      display: inline-flex;
+      min-height: 22px;
+      padding: 3px 7px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+    .layer-pill.lbm {
+      background: #eaf1f7;
+      color: var(--blue);
+    }
+    .layer-pill.oil {
+      background: #f7ece8;
+      color: var(--rust);
     }
     .thesis-points {
       margin: 32px 0 40px;
@@ -855,9 +1228,7 @@
     .capability span.ja,
     .capability span.zh,
     .evidence-row span.ja,
-    .evidence-row span.zh,
-    .landscape-row span.ja,
-    .landscape-row span.zh {
+    .evidence-row span.zh {
       margin-top: 6px;
       color: #66716d;
       font-size: 0.9em;
@@ -870,18 +1241,14 @@
     .capability b .ja,
     .capability b .zh,
     .evidence-row b .ja,
-    .evidence-row b .zh,
-    .landscape-row b .ja,
-    .landscape-row b .zh {
+    .evidence-row b .zh {
       margin-top: 5px;
       color: #52605b;
       font-size: 0.88em;
       line-height: 1.6;
     }
     figcaption .ja,
-    figcaption .zh,
-    .landscape-note .ja,
-    .landscape-note .zh { margin-top: 5px; font-size: 0.92em; }
+    figcaption .zh { margin-top: 5px; font-size: 0.92em; }
     footer {
       width: min(var(--measure), calc(100% - 40px));
       margin: 0 auto;
@@ -912,13 +1279,26 @@
       .flow-arrow { min-height: 42px; transform: rotate(90deg); }
       .system-block { min-height: 0; }
       .case-studies { grid-template-columns: 1fr; }
+      .continuity-panel { grid-template-columns: 1fr; }
+      .strategy-use-head { grid-template-columns: 1fr; gap: 14px; }
+      .strategy-cards { grid-template-columns: 1fr; }
+      .strategy-card,
+      .strategy-card:first-child {
+        border-top: 1px solid var(--line);
+        border-left: 0;
+      }
+      .strategy-card:first-child { border-top: 0; }
+      .continuity-network {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .continuity-scope-head,
+      .scope-evidence { grid-template-columns: 1fr; }
       .case-study {
         border-top: 1px solid var(--line);
         border-left: 0;
       }
       .case-study:first-child { border-top: 0; }
-      .landscape-row { grid-template-columns: 150px 1fr; }
-      .landscape-row .motion { grid-column: 2; }
     }
     @media (max-width: 560px) {
       .nav-inner { min-height: 54px; }
@@ -926,6 +1306,7 @@
       .nav-links a:first-child,
       .nav-links a:nth-child(2) { display: none; }
       .article-toolbar { align-items: flex-start; flex-direction: column; }
+      .name-guide { grid-template-columns: 1fr; gap: 4px; }
       .translation-controls { justify-content: flex-start; }
       .language-toggle { min-height: 30px; padding: 5px 9px; font-size: 11px; }
       .ip-assets { padding: 20px 18px 16px; }
@@ -958,9 +1339,24 @@
       .system-visual { padding: 16px; }
       .capabilities { grid-template-columns: 1fr; }
       .capability { min-height: 0; }
-      .landscape-row { grid-template-columns: 1fr; gap: 5px; }
-      .landscape-row .motion { grid-column: auto; }
-      .landscape-head { display: none; }
+      .strategy-use { padding: 20px 16px 16px; }
+      .continuity-network { padding: 18px 16px 12px; }
+      .continuity-network-head { gap: 12px; }
+      .continuity-density { min-width: 112px; }
+      .continuity-reading { padding: 18px 16px 10px; }
+      .rebuild-row { grid-template-columns: 34px minmax(0, 1fr); }
+      .rebuild-range {
+        grid-column: 2;
+        text-align: left;
+      }
+      .continuity-scope { padding: 20px 16px; }
+      .scope-counts { grid-template-columns: 1fr; }
+      .scope-count,
+      .scope-count:first-child {
+        border-top: 1px solid var(--line);
+        border-left: 0;
+      }
+      .scope-count:first-child { border-top: 0; }
       .proof-summary-grid { grid-template-columns: 1fr; }
       .proof-item,
       .proof-item:first-child {
@@ -972,7 +1368,7 @@
     @media print {
       nav, .skip-link { display: none; }
       article { padding-top: 20px; }
-      figure, .landscape-row { break-inside: avoid; }
+      figure { break-inside: avoid; }
       a { color: inherit; }
     }
     @media (max-width: 700px) {
@@ -1043,6 +1439,11 @@
         <p class="byline"><strong>Yumi Kimura</strong> &nbsp;&middot;&nbsp; July 9, 2026 &nbsp;&middot;&nbsp; 10 min read</p>
       </header>
 
+      <aside class="name-guide wide" aria-label="Name guide">
+        <small>Name guide<span class="ja" lang="ja">名称ガイド</span><span class="zh" lang="zh-Hans">名词对照</span></small>
+        <p><b>LEAD</b> = original product &nbsp;&middot;&nbsp; <b>LBM</b> = model &nbsp;&middot;&nbsp; <b>OIL</b> = governance framework &nbsp;&middot;&nbsp; <b>BehaviorGraph</b> = pre-release product &nbsp;&middot;&nbsp; <b>ONA</b> = network analysis<span class="ja" lang="ja"><b>LEAD</b>＝最初のプロダクト ・ <b>LBM</b>＝モデル ・ <b>OIL</b>＝ガバナンス枠組み ・ <b>BehaviorGraph</b>＝リリース前のプロダクト ・ <b>ONA</b>＝ネットワーク分析</span><span class="zh" lang="zh-Hans"><b>LEAD</b>＝最初的产品 · <b>LBM</b>＝模型 · <b>OIL</b>＝治理框架 · <b>BehaviorGraph</b>＝尚未发布的产品 · <b>ONA</b>＝组织网络分析</span></p>
+      </aside>
+
       <p class="lead">Every enterprise keeps two records of itself. One is written down: org charts, documents, tickets, policies. The other is produced by action: who people consult, which handoffs repeat, where work stalls, and whose involvement changes an outcome. The first record describes the organization on paper. The second records how it operates.<span class="ja" lang="ja">あらゆる企業は、自らについて二つの記録を持っている。一つは、組織図、文書、チケット、ポリシーとして書き残された記録。もう一つは、人々が誰に相談するか、どの引き継ぎが繰り返されるか、どこで仕事が滞るか、誰の関与が結果を変えるかという、行動から生まれる記録である。第一の記録は紙面上の組織を示し、第二の記録は組織が実際にどう動いているかを示す。</span><span class="zh" lang="zh-Hans">每家企业都保存着关于自己的两份记录。一份是写下来的：组织架构、文档、工单和制度。另一份由行动生成：人们向谁求助、哪些交接反复发生、工作在哪里停滞，以及谁的参与会改变结果。第一份记录描述纸面上的组织；第二份记录呈现组织实际上如何运转。</span></p>
 
       <p>Enterprise software was built around the first record because it was legible. Search can retrieve it. Graphs can connect it. Agents can act on it. Execution, however, depends on more than retrieving a valid artifact. A team can select an outdated source, route work to the wrong expert, miss the internal stakeholder needed to advance an initiative, or assign a critical step to someone already at capacity. When a key contributor changes roles or leaves, a project can stall even while every document and workflow still appears correct. The second record reveals where execution actually gains or loses momentum.<span class="ja" lang="ja">企業向けソフトウェアは、読み取りやすい第一の記録を中心に構築されてきた。検索はそれを取得し、グラフはそれを結び、エージェントはそれに基づいて行動できる。しかし、実行に必要なのは、有効な成果物を取得することだけではない。チームが古い情報源を選び、仕事を別の専門家に振り分け、施策を前進させるために必要な社内ステークホルダーを見落とし、すでに対応能力の上限に達している人へ重要な工程を割り当てることがある。主要メンバーが異動または退職すれば、文書やワークフローが正しく見える状態でもプロジェクトは停滞する。第二の記録は、実行が実際にどこで勢いを得て、どこで失うのかを明らかにする。</span><span class="zh" lang="zh-Hans">企业软件一直围绕第一份记录构建，因为它清晰可读。搜索可以检索它，图谱可以连接它，智能体可以据此行动。但真正的执行远不只是找到一份有效资料。团队可能选用过时的信息源，把工作交给错误的专家，漏掉推动项目所需的内部关键人，或把关键步骤分配给已经满负荷的人。核心成员调岗或离职时，即使所有文档和流程看起来都没有问题，项目仍可能停摆。第二份记录揭示了执行究竟在哪里获得动能，又在哪里失去动能。</span></p>
@@ -1059,6 +1460,48 @@
         <img src="organizational-intelligence-oil-lbm-illustration.jpg" alt="Editorial illustration contrasting the enterprise's formal written record with its living behavioral network, connected through a model lens and governance loop" decoding="async">
         <figcaption id="records-caption"><span class="fig-num">Fig. 1</span> The enterprise writes a formal record and produces a behavioral record through action. The Large Behavior Model reads the second; OIL governs how that intelligence enters decisions.<span class="ja" lang="ja">企業は正式な記録を書き残す一方、日々の行動を通じて行動の記録も生み出している。Large Behavior Modelは後者を読み、OILはそこから得られる知能が意思決定に入るまでを統制する。</span><span class="zh" lang="zh-Hans">企业一方面写下正式记录，另一方面也在日常行动中生成行为记录。Large Behavior Model 读取后者；OIL 则约束由此产生的智能如何进入决策。</span></figcaption>
       </figure>
+
+      <section class="ip-assets wide" id="ip-status" aria-labelledby="ip-assets-title">
+        <span class="ip-assets-kicker">Intellectual property<span class="ja" lang="ja">知的財産</span><span class="zh" lang="zh-Hans">知识产权</span></span>
+        <h2 id="ip-assets-title">Two U.S. non-provisional patent applications are pending<span class="ja" lang="ja">米国のnon-provisional特許出願2件が係属中</span><span class="zh" lang="zh-Hans">两项美国非临时（non-provisional）专利申请正在申请中</span></h2>
+        <p class="ip-assets-intro">Two related but distinct research assets are covered by the pending applications. The titles below describe their subject areas in plain language.<span class="ja" lang="ja">関連しながらも異なる二つの研究資産が、出願中の特許によってカバーされている。以下のタイトルは、それぞれの対象領域を平易な言葉で示したものである。</span><span class="zh" lang="zh-Hans">两项相关但彼此独立的研究资产，分别纳入正在申请中的专利。下面的标题以通俗语言概括各自的主题领域。</span></p>
+        <div class="ip-asset-grid">
+          <article class="ip-asset ip-asset-lbm">
+            <div class="ip-asset-marker" aria-label="Patent asset 01, LBM"><span class="ip-asset-number">01</span><span class="ip-asset-code">LBM</span></div>
+            <small>Pending U.S. non-provisional · High-level title<span class="ja" lang="ja">米国non-provisional出願中・概要タイトル</span><span class="zh" lang="zh-Hans">美国非临时专利申请中 · 高层级标题</span></small>
+            <h3>Large Behavior Model: Foundation Models for Organizational Behavior<span class="ja" lang="ja">Large Behavior Model：組織行動のための基盤モデル</span><span class="zh" lang="zh-Hans">Large Behavior Model：面向组织行为的基础模型</span></h3>
+            <p>A model asset built from authorized workplace behavior and evaluated across organizations.<span class="ja" lang="ja">許可を得た職場行動データから構築し、組織をまたいで評価してきたモデル資産。</span><span class="zh" lang="zh-Hans">以经授权的职场行为数据构建，并经过跨组织评估的模型资产。</span></p>
+          </article>
+          <article class="ip-asset ip-asset-oil">
+            <div class="ip-asset-marker" aria-label="Patent asset 02, OIL"><span class="ip-asset-number">02</span><span class="ip-asset-code">OIL</span></div>
+            <small>Pending U.S. non-provisional · High-level title<span class="ja" lang="ja">米国non-provisional出願中・概要タイトル</span><span class="zh" lang="zh-Hans">美国非临时专利申请中 · 高层级标题</span></small>
+            <h3>Organizational Intelligence Loop: Governed Multi-Agent Organizational AI<span class="ja" lang="ja">Organizational Intelligence Loop：統制されたマルチエージェント組織AI</span><span class="zh" lang="zh-Hans">Organizational Intelligence Loop：受治理的多智能体组织 AI</span></h3>
+            <p>A governance asset for organizations where people and multiple AI agents work together.<span class="ja" lang="ja">人間と複数のAIエージェントが協働する組織のためのガバナンス資産。</span><span class="zh" lang="zh-Hans">面向人类与多个 AI 智能体共同工作的组织治理资产。</span></p>
+          </article>
+        </div>
+        <p class="ip-assets-note">These are plain-language subject descriptions, not application numbers, exact filed titles, or claim language. Technical implementation and claim scope are not disclosed here. LEAD is the commercial product in this history.<span class="ja" lang="ja">これは対象領域を平易に示した説明であり、出願番号、正式な出願タイトル、請求項の文言ではない。技術実装や請求項の範囲は本稿では開示しない。この沿革の中で商用展開されているのはLEADである。</span><span class="zh" lang="zh-Hans">以上内容是对主题领域的通俗说明，并非申请号、正式申请标题或权利要求文本。本文不披露技术实现或权利要求范围。这段发展历程中已经商业化的产品是 LEAD。</span></p>
+      </section>
+
+      <h2>The market is already converging around both layers<span class="ja" lang="ja">市場はすでに二つの層へ収束している</span><span class="zh" lang="zh-Hans">市场已经开始围绕这两层汇聚</span></h2>
+
+      <p>Major enterprise platforms are already building toward the capabilities that meet at LBM and OIL. This is not one settled market yet, but it is not empty space: models, organizational networks, enterprise knowledge, workflows, identity, and runtime governance are moving toward the same organizational context layer.<span class="ja" lang="ja">主要なエンタープライズ・プラットフォームは、LBMとOILが交わる能力領域へすでに動き出している。まだ一つの確立した市場ではないが、空白地帯でもない。モデル、組織ネットワーク、企業知識、ワークフロー、アイデンティティ、実行時ガバナンスが、同じ組織コンテキスト層へ向かっている。</span><span class="zh" lang="zh-Hans">主要企业平台已经在向 LBM 与 OIL 交汇的能力领域推进。它尚未形成一个边界清晰的单一市场，但也绝非空白地带：模型、组织网络、企业知识、工作流、身份与运行时治理，正在走向同一层组织上下文。</span></p>
+
+      <p>On paper, these are different businesses.<span class="ja" lang="ja">表面上、これらは異なるビジネスに見える。</span><span class="zh" lang="zh-Hans">表面上看，这是几门完全不同的生意。</span></p>
+      <ul class="market-bullets" aria-label="Different enterprise product categories">
+        <li><b>Microsoft Viva and Visier</b> sell workforce intelligence.<span class="ja" lang="ja"><b>Microsoft VivaとVisier</b>はワークフォース・インテリジェンスを提供する。</span><span class="zh" lang="zh-Hans"><b>Microsoft Viva 和 Visier</b> 卖劳动力智能。</span></li>
+        <li><b>Glean and Neo4j</b> build enterprise knowledge and graph infrastructure.<span class="ja" lang="ja"><b>GleanとNeo4j</b>は企業知識とグラフ基盤を構築する。</span><span class="zh" lang="zh-Hans"><b>Glean 和 Neo4j</b> 做企业知识与图谱基础设施。</span></li>
+        <li><b>Salesforce, ServiceNow, and SAP</b> run business workflows.<span class="ja" lang="ja"><b>Salesforce、ServiceNow、SAP</b>は業務ワークフローを動かす。</span><span class="zh" lang="zh-Hans"><b>Salesforce、ServiceNow 和 SAP</b> 运转业务工作流。</span></li>
+        <li><b>Box</b> governs content and identity.<span class="ja" lang="ja"><b>Box</b>はコンテンツとアイデンティティを統制する。</span><span class="zh" lang="zh-Hans"><b>Box</b> 治理内容与身份。</span></li>
+      </ul>
+
+      <p>Their patent filings tell a more interesting story: companies with very different products are patenting strikingly similar capabilities.<span class="ja" lang="ja">しかし各社の特許出願は、より興味深い物語を語っている。製品がまったく異なる企業が、驚くほど似た能力を特許化しようとしているのだ。</span><span class="zh" lang="zh-Hans">但它们的专利申请讲了一个更有意思的故事：产品截然不同的公司，正在为高度相似的能力申请专利。</span></p>
+      <ul class="market-bullets" aria-label="Capabilities converging across patent filings">
+        <li>Read signals from how people actually work.<span class="ja" lang="ja">人々が実際にどう働くかというシグナルを読み取る。</span><span class="zh" lang="zh-Hans">读取人们实际如何工作的信号。</span></li>
+        <li>Connect people, information, and process into one context.<span class="ja" lang="ja">人・情報・プロセスを一つのコンテキストへ接続する。</span><span class="zh" lang="zh-Hans">把人、信息、流程连成同一层上下文。</span></li>
+        <li>Control how AI acts on that context.<span class="ja" lang="ja">AIがそのコンテキストに基づいて行動する過程を統制する。</span><span class="zh" lang="zh-Hans">控制 AI 如何依据这一上下文行动。</span></li>
+      </ul>
+
+      <p>Some of those filings have already issued as granted U.S. patents. When businesses this different converge on patents this similar, it marks where the market expects the value to concentrate. That point of convergence is the layer LBM and OIL were built for: reading how an organization actually operates and governing how that intelligence enters human and agent decisions.<span class="ja" lang="ja">その一部は、すでに米国で登録特許となっている。これほど異なるビジネスが、これほど似た特許へ収束するとき、それは市場が価値の集中を見込む場所を示している。その収束点は、LBMとOILが担うために作られた層である。すなわち、組織が実際にどう動いているかを読み取り、その知能が人間とエージェントの意思決定に入る過程を統制する層だ。</span><span class="zh" lang="zh-Hans">其中一部分申请已在美国获得授权。当差异这么大的业务收敛到如此相似的专利上，它标出的正是市场预期价值将要集中的位置。而这个收敛点正是 LBM 与 OIL 为之而生的层：读懂组织实际如何运转，并治理这种智能如何进入人与智能体的决策。</span></p>
 
       <div class="section-owner section-owner-lbm" aria-label="Large Behavior Model section"><span class="section-owner-code">LBM</span><span class="section-owner-name">Large Behavior Model</span></div>
       <h2>The model came before the category name<span class="ja" lang="ja">カテゴリ名が生まれる前に、モデルはすでに存在した</span><span class="zh" lang="zh-Hans">在类别名称出现之前，模型已经存在</span></h2>
@@ -1127,12 +1570,13 @@
       <div class="section-owner section-owner-oil section-owner-subsection" aria-label="Organizational Intelligence Loop section"><span class="section-owner-code">OIL</span><span class="section-owner-name">Organizational Intelligence Loop</span></div>
       <h3 id="oil-accountability">Accountability in an agentic organization<span class="ja" lang="ja">エージェントが働く組織の説明責任</span><span class="zh" lang="zh-Hans">智能体参与组织时的责任机制</span></h3>
 
-      <p>At the public-research level, OIL asks how accountability should be preserved as human and agent work becomes intertwined. It keeps the focus on organizational context, responsible human authority, and decisions that remain reviewable.<span class="ja" lang="ja">公開研究としてのOILは、人間とエージェントの仕事が結びつく中で、説明責任をどう保つべきかを問う。焦点は、組織コンテキスト、責任を負う人間の権限、そして後から確認できる意思決定にある。</span><span class="zh" lang="zh-Hans">在公开研究层面，OIL 关注的是：当人类与智能体的工作日益交织时，如何继续保有清晰的责任机制。重点在于组织上下文、承担责任的人类权力，以及仍可复核的决策。</span></p>
+      <p>At the public-research level, OIL asks how accountability should be preserved as human work and multi-agent systems become intertwined. It keeps the focus on organizational context, responsible human authority, and decisions that remain reviewable across the agents involved.<span class="ja" lang="ja">公開研究としてのOILは、人間の仕事とマルチエージェント・システムが結びつく中で、説明責任をどう保つべきかを問う。焦点は、組織コンテキスト、責任を負う人間の権限、そして複数のエージェントが関与しても後から検証できる意思決定にある。</span><span class="zh" lang="zh-Hans">在公开研究层面，OIL 关注的是：当人的工作与多智能体系统日益交织时，如何继续保持清晰的责任机制。重点在于组织上下文、承担责任的人的权力，以及在多个智能体参与后仍可复核的决策。</span></p>
 
-      <ul class="oil-principles" aria-label="Three public principles of the Organizational Intelligence Loop">
+      <ul class="oil-principles" aria-label="Four public principles of the Organizational Intelligence Loop">
         <li><b>Organizational context<span class="ja" lang="ja">組織コンテキスト</span><span class="zh" lang="zh-Hans">组织上下文</span></b>Decisions are understood in the people, information, and process context where work happens.<span class="ja" lang="ja">意思決定を、仕事が行われる人・情報・プロセスの文脈で捉える。</span><span class="zh" lang="zh-Hans">把决策放在人、信息和流程共同构成的真实工作环境中理解。</span></li>
         <li><b>Human authority<span class="ja" lang="ja">人間の責任</span><span class="zh" lang="zh-Hans">人的责任</span></b>Responsibility remains with an accountable person, even when agents take part in the work.<span class="ja" lang="ja">エージェントが仕事に関わっても、最終的な責任は明確な人間に残る。</span><span class="zh" lang="zh-Hans">即使智能体参与工作，最终责任仍由明确的人承担。</span></li>
         <li><b>Reviewability<span class="ja" lang="ja">レビュー可能性</span><span class="zh" lang="zh-Hans">可复核性</span></b>Decisions remain open to review and correction as organizational conditions change.<span class="ja" lang="ja">組織の状況が変われば、意思決定を見直し、修正できる状態を保つ。</span><span class="zh" lang="zh-Hans">当组织条件发生变化时，决策仍可被检查和修正。</span></li>
+        <li><b>Multi-agent governance<span class="ja" lang="ja">マルチエージェント・ガバナンス</span><span class="zh" lang="zh-Hans">多智能体治理</span></b>When multiple agents contribute, their outputs remain bounded by organizational context, review, and human authority.<span class="ja" lang="ja">複数のエージェントが関与しても、その出力を組織コンテキスト、レビュー、人間の権限の範囲内に保つ。</span><span class="zh" lang="zh-Hans">当多个智能体共同参与时，其输出仍受到组织上下文、审核机制与人的最终权力约束。</span></li>
       </ul>
 
       <figure class="wide" aria-labelledby="system-caption">
@@ -1170,7 +1614,7 @@
               <li>Read expertise and informal influence<span class="ja" lang="ja">専門性と非公式な影響力を読み取る</span><span class="zh" lang="zh-Hans">识别专业能力与非正式影响力</span></li>
               <li>Surface bottlenecks and key-person risk<span class="ja" lang="ja">ボトルネックとキーパーソン・リスクを可視化する</span><span class="zh" lang="zh-Hans">发现瓶颈和关键人员风险</span></li>
               <li>Connect signals to information and process<span class="ja" lang="ja">シグナルを情報とプロセスへ接続する</span><span class="zh" lang="zh-Hans">把信号连接到信息与流程</span></li>
-              <li>Keep agent use aligned with organizational context<span class="ja" lang="ja">エージェントの利用を組織コンテキストに沿わせる</span><span class="zh" lang="zh-Hans">让智能体的使用与组织上下文保持一致</span></li>
+              <li>Keep multi-agent decisions aligned with organizational context<span class="ja" lang="ja">マルチエージェントの意思決定を組織コンテキストに沿わせる</span><span class="zh" lang="zh-Hans">让多智能体决策与组织上下文保持一致</span></li>
             </ul>
           </section>
           <div class="flow-arrow" aria-hidden="true">&rarr;</div>
@@ -1189,27 +1633,6 @@
       </figure>
 
       <p>Consider an engineering agent that routes an incident to the person on the formal schedule. The schedule is valid, but the organization relies on a different specialist for this failure. A language model retrieves the runbook; a workflow engine follows the rule. Organizational intelligence adds the real dependency and recommends a governed escalation within existing permissions.<span class="ja" lang="ja">たとえば、エンジニアリング・エージェントが正式な当番表どおりにインシデントを割り当てたとする。当番表は正しくても、その障害について組織が実際に頼っているのは別の専門家かもしれない。言語モデルはランブックを取得し、ワークフローは規則に従う。組織知能は、そこに実際の依存関係を加え、既存の権限内で適切なエスカレーションを提案する。</span><span class="zh" lang="zh-Hans">设想一个工程智能体按照正式值班表分派故障。值班表本身没有错，但对于这一类故障，组织实际上一直依赖另一位专家。语言模型可以检索运行手册，工作流引擎也可以照规则执行。组织智能补充了真实依赖关系的证据，并在现有权限内建议受治理的升级路径。</span></p>
-
-      <section class="ip-assets wide" id="ip-status" aria-labelledby="ip-assets-title">
-        <span class="ip-assets-kicker">Intellectual property<span class="ja" lang="ja">知的財産</span><span class="zh" lang="zh-Hans">知识产权</span></span>
-        <h2 id="ip-assets-title">Two U.S. non-provisional patent applications are pending<span class="ja" lang="ja">米国のnon-provisional特許出願2件が係属中</span><span class="zh" lang="zh-Hans">两项美国非临时（non-provisional）专利申请正在申请中</span></h2>
-        <p class="ip-assets-intro">Two related but distinct research assets are covered by the pending applications. The titles below describe their subject areas in plain language.<span class="ja" lang="ja">関連しながらも異なる二つの研究資産が、出願中の特許によってカバーされている。以下のタイトルは、それぞれの対象領域を平易な言葉で示したものである。</span><span class="zh" lang="zh-Hans">两项相关但彼此独立的研究资产，分别纳入正在申请中的专利。下面的标题以通俗语言概括各自的主题领域。</span></p>
-        <div class="ip-asset-grid">
-          <article class="ip-asset ip-asset-lbm">
-            <div class="ip-asset-marker" aria-label="Patent asset 01, LBM"><span class="ip-asset-number">01</span><span class="ip-asset-code">LBM</span></div>
-            <small>Pending U.S. non-provisional · High-level title<span class="ja" lang="ja">米国non-provisional出願中・概要タイトル</span><span class="zh" lang="zh-Hans">美国非临时专利申请中 · 高层级标题</span></small>
-            <h3>Large Behavior Model: Foundation Models for Organizational Behavior<span class="ja" lang="ja">Large Behavior Model：組織行動のための基盤モデル</span><span class="zh" lang="zh-Hans">Large Behavior Model：面向组织行为的基础模型</span></h3>
-            <p>A model asset built from authorized workplace behavior and evaluated across organizations.<span class="ja" lang="ja">許可を得た職場行動データから構築し、組織をまたいで評価してきたモデル資産。</span><span class="zh" lang="zh-Hans">以经授权的职场行为数据构建，并经过跨组织评估的模型资产。</span></p>
-          </article>
-          <article class="ip-asset ip-asset-oil">
-            <div class="ip-asset-marker" aria-label="Patent asset 02, OIL"><span class="ip-asset-number">02</span><span class="ip-asset-code">OIL</span></div>
-            <small>Pending U.S. non-provisional · High-level title<span class="ja" lang="ja">米国non-provisional出願中・概要タイトル</span><span class="zh" lang="zh-Hans">美国非临时专利申请中 · 高层级标题</span></small>
-            <h3>Organizational Intelligence Loop: Governance for Human and AI-Agent Work<span class="ja" lang="ja">Organizational Intelligence Loop：人間とAIエージェントの協働を支えるガバナンス</span><span class="zh" lang="zh-Hans">Organizational Intelligence Loop：面向人类与 AI 智能体协作的治理架构</span></h3>
-            <p>A governance asset for organizations where people and AI agents work together.<span class="ja" lang="ja">人間とAIエージェントが協働する組織のためのガバナンス資産。</span><span class="zh" lang="zh-Hans">面向人类与 AI 智能体共同工作的组织治理资产。</span></p>
-          </article>
-        </div>
-        <p class="ip-assets-note">These are plain-language subject descriptions, not application numbers, exact filed titles, or claim language. Technical implementation and claim scope are not disclosed here. LEAD is the commercial product in this history.<span class="ja" lang="ja">これは対象領域を平易に示した説明であり、出願番号、正式な出願タイトル、請求項の文言ではない。技術実装や請求項の範囲は本稿では開示しない。この沿革の中で商用展開されているのはLEADである。</span><span class="zh" lang="zh-Hans">以上内容是对主题领域的通俗说明，并非申请号、正式申请标题或权利要求文本。本文不披露技术实现或权利要求范围。这段发展历程中已经商业化的产品是 LEAD。</span></p>
-      </section>
 
       <div class="section-owner section-owner-lbm" aria-label="Large Behavior Model section"><span class="section-owner-code">LBM</span><span class="section-owner-name">Large Behavior Model</span></div>
       <h2 id="evaluations">What the evaluations show<span class="ja" lang="ja">評価結果が示すこと</span><span class="zh" lang="zh-Hans">评估结果说明了什么</span></h2>
@@ -1327,53 +1750,155 @@
         <div class="capability"><b>Organizational change and succession<span class="ja" lang="ja">組織変革と後継者計画</span><span class="zh" lang="zh-Hans">组织变革与继任</span></b><span>Compare formal structure with operating reality before reorganization or leadership transition.<span class="ja" lang="ja">組織再編やリーダー交代の前に、正式な構造と運用実態を比較する。</span><span class="zh" lang="zh-Hans">在组织重组或领导层交接之前，对比正式结构与真实运营状态。</span></span></div>
       </div>
 
+      <aside class="strategy-use wide" aria-labelledby="internal-execution-title">
+        <div class="strategy-use-head">
+          <div>
+            <small><span class="layer-pill lbm">LBM</span><span class="layer-pill oil">OIL</span></small>
+            <h3 id="internal-execution-title">Foresight needs an internal execution model<span class="ja" lang="ja">フォーサイトには社内実行力のモデルも必要だ</span><span class="zh" lang="zh-Hans">前瞻判断还需要一套内部执行模型</span></h3>
+          </div>
+          <p>Corporate Planning and Foresight can model external change; M&amp;A and Operations can plan the response. But execution still depends on the internal network. A low-visibility role may carry scarce expertise or peer influence across teams. When enough of those paths are delayed or blocked, a plausible strategy can fall below its scenario-specific execution band. LBM can diagnose the dependency pattern; OIL can govern how that evidence informs intervention.<span class="ja" lang="ja">Corporate PlanningやForesightは外部環境の変化をモデル化し、M&amp;AやOperationsは対応策を設計できる。しかし実行力は社内ネットワークに左右される。目立たない役割が、希少な専門性や部門横断の影響力を担っていることもある。そうした経路の遅延や遮断が一定以上重なると、有望な戦略でも、その組織とシナリオに固有の実行可能レンジを下回り得る。LBMは依存構造を診断し、OILはその知見を介入判断にどう使うかを統制する。</span><span class="zh" lang="zh-Hans">Corporate Planning 和 Foresight 可以推演外部环境变化，M&amp;A 与 Operations 也可以设计应对方案；但战略能否落地，仍取决于内部网络。某些不显眼的岗位，可能掌握稀缺专业能力，或在同事之间具有很高的跨团队影响力。当足够多的关键路径出现延误或阻塞时，一套看似合理的战略也可能跌破该公司、该情景下的可执行区间。LBM 用来诊断这类依赖结构；OIL 则治理这些证据如何进入干预决策。</span></p>
+        </div>
+        <div class="strategy-cards" aria-label="Plain-language reading of directional internal execution simulations">
+          <section class="strategy-card">
+            <small>M&amp;A integration<span class="ja" lang="ja">M&amp;A統合</span><span class="zh" lang="zh-Hans">并购整合</span></small>
+            <h4>Keep operating bridges on both sides of an acquisition<span class="ja" lang="ja">買収後も両社の実務をつなぐ橋を残す</span><span class="zh" lang="zh-Hans">保留并购双方的运营桥梁</span></h4>
+            <span class="strategy-effect">Stronger integration<span class="ja" lang="ja">統合が進みやすい</span><span class="zh" lang="zh-Hans">整合更顺利</span></span>
+            <div class="strategy-choice helps"><b>What helped<span class="ja" lang="ja">有効だったこと</span><span class="zh" lang="zh-Hans">有帮助</span></b><span>Keep brokers and experts from both companies connected.<span class="ja" lang="ja">両社の橋渡し役と専門家のつながりを維持する。</span><span class="zh" lang="zh-Hans">让双方的桥梁角色和专家继续保持连接。</span></span></div>
+            <div class="strategy-choice hurts"><b>What hurt<span class="ja" lang="ja">妨げたこと</span><span class="zh" lang="zh-Hans">会拖累</span></b><span>Replacing the target company's bridges weakened integration.<span class="ja" lang="ja">対象企業の橋渡し役を交代すると、統合が弱まった。</span><span class="zh" lang="zh-Hans">替换目标公司的桥梁角色，会削弱整合效果。</span></span></div>
+          </section>
+          <section class="strategy-card">
+            <small>Operating resilience<span class="ja" lang="ja">業務レジリエンス</span><span class="zh" lang="zh-Hans">运营韧性</span></small>
+            <h4>Create backup paths before the network is stressed<span class="ja" lang="ja">組織に負荷がかかる前に代替経路をつくる</span><span class="zh" lang="zh-Hans">在组织承压前建立后备路径</span></h4>
+            <span class="strategy-effect">More resilient under stress<span class="ja" lang="ja">負荷に強くなる</span><span class="zh" lang="zh-Hans">承压能力更强</span></span>
+            <div class="strategy-choice helps"><b>What helped<span class="ja" lang="ja">有効だったこと</span><span class="zh" lang="zh-Hans">有帮助</span></b><span>Give important work more than one path between teams.<span class="ja" lang="ja">重要な業務がチーム間を進む経路を複数用意する。</span><span class="zh" lang="zh-Hans">让重要工作在团队之间不只依赖一条路径。</span></span></div>
+            <div class="strategy-choice hurts"><b>What hurt<span class="ja" lang="ja">妨げたこと</span><span class="zh" lang="zh-Hans">会拖累</span></b><span>A single overloaded hub made the network fragile.<span class="ja" lang="ja">一つの過負荷なハブへの集中が、ネットワークを脆弱にした。</span><span class="zh" lang="zh-Hans">所有路径集中在一个过载枢纽，会让网络变得脆弱。</span></span></div>
+          </section>
+          <section class="strategy-card">
+            <small>External pressure<span class="ja" lang="ja">外部圧力</span><span class="zh" lang="zh-Hans">外部压力</span></small>
+            <h4>Align influential internal roles with the transition<span class="ja" lang="ja">社内の影響力を持つ役割を変革の方向にそろえる</span><span class="zh" lang="zh-Hans">让关键影响者与转型方向保持一致</span></h4>
+            <span class="strategy-effect">The strategy keeps moving<span class="ja" lang="ja">戦略を前へ進めやすい</span><span class="zh" lang="zh-Hans">战略更容易继续推进</span></span>
+            <div class="strategy-choice helps"><b>What helped<span class="ja" lang="ja">有効だったこと</span><span class="zh" lang="zh-Hans">有帮助</span></b><span>Bring high-influence, low-visibility roles into the transition early.<span class="ja" lang="ja">目立たなくても影響力の高い役割を、早い段階から変革に組み込む。</span><span class="zh" lang="zh-Hans">尽早让那些不显眼但影响力很高的岗位参与转型。</span></span></div>
+            <div class="strategy-choice hurts"><b>What hurt<span class="ja" lang="ja">妨げたこと</span><span class="zh" lang="zh-Hans">会拖累</span></b><span>When those roles resisted or stalled, execution weakened sharply.<span class="ja" lang="ja">そうした役割が抵抗したり停滞したりすると、実行力は大きく低下した。</span><span class="zh" lang="zh-Hans">当这些岗位抵触或延误时，整体执行能力会明显下降。</span></span></div>
+          </section>
+        </div>
+        <p class="strategy-note">Simplified reading of controlled, directional simulations—not forecasts or universal rules. The original work compares modeled scenarios; this public summary translates the direction of those results into plain language.<span class="ja" lang="ja">統制された方向性シミュレーションを、分かりやすく要約したものであり、予測や普遍的なルールではない。元の研究では複数のモデル化シナリオを比較しており、ここでは結果の方向性を平易な言葉に置き換えている。</span><span class="zh" lang="zh-Hans">以上是对受控方向性模拟的简化说明，并非预测或普遍规律。原始研究比较了多种模拟情景；这里仅把结果所指向的方向转化为普通读者容易理解的语言。</span></p>
+      </aside>
+
+      <h3 id="organizational-capacity-rebuild">The same departure can remove very different kinds of capacity<span class="ja" lang="ja">同じ一人の離職でも、組織が失う能力は大きく異なる</span><span class="zh" lang="zh-Hans">同样是一名员工离开，组织失去的能力可能完全不同</span></h3>
+
+      <p>LBM can combine a person's ONA position with demonstrated expertise, backup coverage, and concentrated dependency to estimate how readily the organizational capacity around a role can transfer. The useful question is not whether a person is replaceable. It is what the organization would have to rebuild if that person changed roles or left.<span class="ja" lang="ja">LBMは、ONA上の位置、行動から確認できる専門性、バックアップの厚み、依存の集中度を組み合わせ、その役割を支える組織能力をどの程度移転できるかを推定できる。問うべきは「人を取り替えられるか」ではない。その人が異動・離職したとき、組織が何を再構築しなければならないかである。</span><span class="zh" lang="zh-Hans">LBM 可以把一个人在 ONA 中的位置、由行为证据体现的专业能力、后备覆盖，以及依赖集中程度结合起来，估计围绕其岗位形成的组织能力有多容易被转移。真正要问的不是“这个人能否被替代”，而是当其转岗或离开后，组织需要重新建立什么。</span></p>
+
+      <figure class="wide continuity-figure" aria-labelledby="continuity-caption">
+        <div class="continuity-panel">
+          <div class="continuity-network">
+            <div class="continuity-network-head">
+              <small>A simplified sample from a much larger ONA network<span class="ja" lang="ja">より大規模なONAネットワークから抜き出した簡略図</span><span class="zh" lang="zh-Hans">从更大规模 ONA 网络中抽取的简化示意</span></small>
+              <div class="continuity-density"><span>Observed mean annual internal-network density<span class="ja" lang="ja">観測された社内ネットワークの平均年間密度</span><span class="zh" lang="zh-Hans">观察期内公司内部网络的年均密度</span></span><b>&asymp; 2.0%</b><small>2021&ndash;partial 2025<span class="ja" lang="ja">2021年〜2025年途中</span><span class="zh" lang="zh-Hans">2021 年至 2025 年部分时段</span></small></div>
+            </div>
+            <svg viewBox="0 0 720 350" role="img" aria-label="Simplified organizational network showing shared coverage, a specialist with partial backup, and a cross-team bridge with scarce expertise">
+              <g fill="none" stroke="#b7c2bd" stroke-width="1.6">
+                <line x1="70" y1="105" x2="145" y2="150"/><line x1="112" y1="60" x2="145" y2="150"/><line x1="188" y1="82" x2="145" y2="150"/>
+                <line x1="70" y1="105" x2="82" y2="205"/><line x1="82" y1="205" x2="145" y2="150"/><line x1="82" y1="205" x2="150" y2="238"/>
+                <line x1="145" y1="150" x2="214" y2="204"/><line x1="188" y1="82" x2="230" y2="128"/><line x1="214" y1="204" x2="230" y2="128"/>
+                <line x1="490" y1="96" x2="565" y2="153"/><line x1="548" y1="58" x2="565" y2="153"/><line x1="632" y1="90" x2="565" y2="153"/>
+                <line x1="490" y1="96" x2="486" y2="218"/><line x1="486" y1="218" x2="565" y2="153"/><line x1="486" y1="218" x2="565" y2="250"/>
+                <line x1="565" y1="153" x2="646" y2="210"/><line x1="632" y1="90" x2="670" y2="145"/><line x1="646" y1="210" x2="670" y2="145"/>
+                <line x1="300" y1="288" x2="360" y2="316"/><line x1="360" y1="316" x2="423" y2="285"/><line x1="300" y1="288" x2="423" y2="285"/>
+              </g>
+              <g fill="none" stroke="#a44d2f" stroke-width="2.2">
+                <line x1="145" y1="150" x2="358" y2="155"/><line x1="230" y1="128" x2="358" y2="155"/>
+                <line x1="358" y1="155" x2="490" y2="96"/><line x1="358" y1="155" x2="565" y2="153"/><line x1="358" y1="155" x2="486" y2="218"/>
+                <line x1="358" y1="155" x2="360" y2="316"/>
+              </g>
+              <g fill="#9aaba4">
+                <circle cx="70" cy="105" r="7"/><circle cx="112" cy="60" r="7"/><circle cx="188" cy="82" r="7"/><circle cx="82" cy="205" r="7"/><circle cx="150" cy="238" r="7"/><circle cx="214" cy="204" r="7"/><circle cx="230" cy="128" r="7"/>
+                <circle cx="490" cy="96" r="7"/><circle cx="548" cy="58" r="7"/><circle cx="632" cy="90" r="7"/><circle cx="486" cy="218" r="7"/><circle cx="565" cy="250" r="7"/><circle cx="646" cy="210" r="7"/><circle cx="670" cy="145" r="7"/>
+                <circle cx="300" cy="288" r="7"/><circle cx="360" cy="316" r="7"/><circle cx="423" cy="285" r="7"/>
+              </g>
+              <circle cx="145" cy="150" r="17" fill="#126b57"/>
+              <circle cx="565" cy="153" r="18" fill="#315f84"/>
+              <circle cx="358" cy="155" r="26" fill="none" stroke="#a44d2f" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <circle cx="358" cy="155" r="19" fill="#a44d2f"/>
+              <g fill="#fff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="700" text-anchor="middle">
+                <text x="145" y="155">A</text><text x="565" y="158">B</text><text x="358" y="160">C</text>
+              </g>
+              <g fill="#7a8581" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="10" font-weight="600" letter-spacing="0.04em">
+                <text x="42" y="278">TEAM 1</text><text x="596" y="278">TEAM 2</text><text x="325" y="342">TEAM 3</text>
+              </g>
+            </svg>
+          </div>
+          <div class="continuity-reading">
+            <small>How to read the graph<span class="ja" lang="ja">図の読み方</span><span class="zh" lang="zh-Hans">如何读图</span></small>
+            <h3>What the organization would have to rebuild<span class="ja" lang="ja">組織が再構築すべきもの</span><span class="zh" lang="zh-Hans">组织需要重新建立什么</span></h3>
+            <div class="rebuild-row a">
+              <span class="rebuild-marker">A</span>
+              <div class="rebuild-copy"><b>Shared coverage<span class="ja" lang="ja">複数人でカバー</span><span class="zh" lang="zh-Hans">多人共同覆盖</span></b><p>Nearby colleagues already carry similar paths; knowledge and authority are comparatively transferable.<span class="ja" lang="ja">近くの同僚がすでに似た経路を担っており、知識と権限を比較的移転しやすい。</span><span class="zh" lang="zh-Hans">周围同事已经承担相似路径，知识和权限相对容易转移。</span></p></div>
+              <strong class="rebuild-range">1&ndash;3 years<span class="ja" lang="ja">1〜3年</span><span class="zh" lang="zh-Hans">1–3 年</span></strong>
+            </div>
+            <div class="rebuild-row b">
+              <span class="rebuild-marker">B</span>
+              <div class="rebuild-copy"><b>Specialist with partial backup<span class="ja" lang="ja">一部バックアップがある専門家</span><span class="zh" lang="zh-Hans">有部分后备的专家</span></b><p>Expertise is visible and some coverage exists, but recurring decisions still return to one person.<span class="ja" lang="ja">専門性は見えており一部の代替もあるが、繰り返される判断は依然として一人に集中する。</span><span class="zh" lang="zh-Hans">专业能力清晰可见，也存在部分覆盖，但反复出现的关键判断仍集中在一个人身上。</span></p></div>
+              <strong class="rebuild-range">3&ndash;5 years<span class="ja" lang="ja">3〜5年</span><span class="zh" lang="zh-Hans">3–5 年</span></strong>
+            </div>
+            <div class="rebuild-row c">
+              <span class="rebuild-marker">C</span>
+              <div class="rebuild-copy"><b>Bridge with scarce expertise<span class="ja" lang="ja">希少な専門性を持つ橋渡し役</span><span class="zh" lang="zh-Hans">兼具稀缺专业能力的跨团队桥梁</span></b><p>Separate groups depend on the same person to translate, connect, and move work; no equivalent path is visible.<span class="ja" lang="ja">離れたグループが、翻訳・接続・業務推進を同じ一人に依存し、同等の経路が見当たらない。</span><span class="zh" lang="zh-Hans">多个相互分离的团队依赖同一个人完成转译、连接和推进工作，网络中看不到等价路径。</span></p></div>
+              <strong class="rebuild-range">5&ndash;7+ years<span class="ja" lang="ja">5〜7年以上</span><span class="zh" lang="zh-Hans">5–7 年以上</span></strong>
+            </div>
+          </div>
+        </div>
+        <p class="continuity-caveat">These are controlled, aggregate sensitivity bands. They estimate time to rebuild comparable network and expertise capacity&mdash;not a personnel rating, retention promise, or instruction to replace anyone.<span class="ja" lang="ja">これは統制された集計レベルの感度レンジであり、同等のネットワーク能力と専門性を再構築する時間の推定である。人事評価、在籍期間の保証、誰かを交代させる指示ではない。</span><span class="zh" lang="zh-Hans">这些区间来自受控的聚合敏感性分析，用于估计重建同等网络能力与专业能力所需的时间；它不是人员评级、留任承诺，也不是替换任何人的指令。</span></p>
+        <figcaption id="continuity-caption"><span class="fig-num">Fig. 5</span> An explanatory sample of an organizational network. Node position and expertise evidence change how quickly capacity can be rebuilt. The full observed network is not shown, and the drawing is not to density scale; mean annual internal-network density was approximately 2.0% from 2021 through partial 2025.<span class="ja" lang="ja">組織ネットワークを説明するための簡略図。ノードの位置と専門性の証拠によって、能力を再構築する速度は変わる。観測ネットワーク全体は表示しておらず、図も密度を縮尺どおりに描いたものではない。2021年から2025年途中までの社内ネットワークの平均年間密度は約2.0%だった。</span><span class="zh" lang="zh-Hans">用于解释组织网络的简化示意。节点位置与专业能力证据会改变组织重建能力的速度。图中没有展示完整网络，也未按真实密度比例绘制；2021 年至 2025 年部分时段，公司内部网络的年均密度约为 2.0%。</span></figcaption>
+      </figure>
+
+      <aside class="wide continuity-scope" aria-labelledby="continuity-scope-title">
+        <div class="continuity-scope-head">
+          <div>
+            <small>Research scope<span class="ja" lang="ja">研究範囲</span><span class="zh" lang="zh-Hans">研究范围</span></small>
+            <h3 id="continuity-scope-title">How broad was the controlled analysis?<span class="ja" lang="ja">統制分析で検証した範囲</span><span class="zh" lang="zh-Hans">受控分析覆盖了多大范围？</span></h3>
+          </div>
+          <p>Starting from one observed company network, we used parallel universes to model different plausible states of the same real organization. Fig. 5 shows one simplified single-bottleneck / scarce-bridge pattern from six architecture families. The broader work also tested many other network types that are not listed here.<span class="ja" lang="ja">観測された一つの企業ネットワークを起点に、平行宇宙を用いて同じ実在組織が取り得る異なる状態をモデル化した。Fig. 5は、6種類の構造群のうち「単一ボトルネック／希少な橋渡し」を簡略化して示した一例である。より広い研究では、ここに挙げていない多くのネットワーク類型も検証した。</span><span class="zh" lang="zh-Hans">我们从同一家真实企业的观察网络出发，通过平行宇宙模拟该组织可能出现的不同状态。Fig. 5 展示的是六类网络结构中的一种简化模式：单一瓶颈／稀缺桥梁。更广泛的研究还测试了许多未在此列出的其他网络类型。</span></p>
+        </div>
+
+        <div class="scope-counts" aria-label="Controlled research scope">
+          <div class="scope-count"><b>&asymp;53.8M</b><span>Event-row equivalents<span class="ja" lang="ja">イベント行換算</span><span class="zh" lang="zh-Hans">事件行当量</span></span></div>
+          <div class="scope-count"><b>6</b><span>Whole-network architectures<span class="ja" lang="ja">ネットワーク全体の構造</span><span class="zh" lang="zh-Hans">整体网络结构</span></span></div>
+          <div class="scope-count"><b>6</b><span>Node-level comparison cohorts<span class="ja" lang="ja">ノード単位の比較群</span><span class="zh" lang="zh-Hans">节点级对照组</span></span></div>
+        </div>
+
+        <div class="scope-evidence">
+          <div class="scope-evidence-copy">
+            <small>One of four future-network outcomes<span class="ja" lang="ja">4つの将来ネットワーク結果のうちの一例</span><span class="zh" lang="zh-Hans">四项未来网络结果中的一项</span></small>
+            <b>Future total network reach<span class="ja" lang="ja">将来のネットワーク総到達範囲</span><span class="zh" lang="zh-Hans">未来网络总触达范围</span></b>
+            <p>On a 0-to-1 out-of-sample score, structure carries most of the signal. Node role/context still improves the combined result. Across all four outcomes, it reduced the remaining unexplained error by roughly 9&ndash;12%. Both levels matter.<span class="ja" lang="ja">0〜1の外部サンプル予測スコアでは、構造が信号の大半を担う。それでもノードの役割／コンテキストを加えると結果はさらに向上し、4つの結果全体で未説明誤差を約9〜12%削減した。したがって、構造とノードの両方が重要である。</span><span class="zh" lang="zh-Hans">在 0 到 1 的样本外预测评分中，网络结构贡献了主要信号；加入节点自身的角色与上下文后，组合结果仍会进一步提升。在四项结果中，这些节点信息使剩余未解释误差减少约 9–12%。因此，结构与节点本身都重要。</span></p>
+          </div>
+          <div class="scope-bars" role="img" aria-label="Future total network reach scores: node role and context only 0.264, network structure only 0.606, structure plus node role and context 0.644">
+            <div class="scope-bar node">
+              <div class="scope-bar-head"><span>Node role/context only<span class="ja" lang="ja">ノードの役割／コンテキストのみ</span><span class="zh" lang="zh-Hans">仅节点角色／上下文</span></span><strong>0.264</strong></div>
+              <div class="scope-bar-track"><div class="scope-bar-fill" style="--score: 37.7%;"></div></div>
+            </div>
+            <div class="scope-bar structure">
+              <div class="scope-bar-head"><span>Network structure only<span class="ja" lang="ja">ネットワーク構造のみ</span><span class="zh" lang="zh-Hans">仅网络结构</span></span><strong>0.606</strong></div>
+              <div class="scope-bar-track"><div class="scope-bar-fill" style="--score: 86.6%;"></div></div>
+            </div>
+            <div class="scope-bar combined">
+              <div class="scope-bar-head"><span>Structure + node role/context<span class="ja" lang="ja">構造＋ノードの役割／コンテキスト</span><span class="zh" lang="zh-Hans">结构＋节点角色／上下文</span></span><strong>0.644</strong></div>
+              <div class="scope-bar-track"><div class="scope-bar-fill" style="--score: 92%;"></div></div>
+            </div>
+          </div>
+        </div>
+        <p class="scope-source-note">Recorded controlled research set prepared for the research project. The reported volume combines observed events from the studied company with parallel-universe events generated by multi-agent simulation of that same company. The simulations are designed to stress-test sensitivity to biases in the observed data. Results are aggregate and directional, not person-level employment scores or causal claims.<span class="ja" lang="ja">研究プロジェクトのために準備した統制研究セットの記録値。報告するデータ量には、対象企業で観測された実イベントと、同じ企業をマルチエージェントでシミュレーションして生成した平行宇宙のイベントが含まれる。シミュレーションは、観測データに含まれるバイアスに対する結果の感度をストレステストするために設計した。結果は集計された方向性のあるものであり、個人単位の雇用評価や因果主張ではない。</span><span class="zh" lang="zh-Hans">以上为研究项目准备的受控研究集记录值。数据量包含被研究公司的真实观察事件，以及由多智能体模拟生成的该公司平行宇宙事件。模拟用于压力测试结果对观察数据中偏差的敏感程度。结果是聚合且方向性的，不是个人层面的用工评分，也不构成因果结论。</span></p>
+      </aside>
+
       <p>Controlled access and human review keep these outputs within a governed research and decision-support boundary.<span class="ja" lang="ja">アクセス制御と人間によるレビューによって、これらの出力を統制された研究・意思決定支援の境界内に保つ。</span><span class="zh" lang="zh-Hans">访问控制与人工审核，使这些输出始终处于受治理的研究和决策支持边界内。</span></p>
-
-      <h2>The stack is converging from five directions<span class="ja" lang="ja">五つの市場が同じレイヤーへ収束する</span><span class="zh" lang="zh-Hans">五个市场正汇聚到同一层</span></h2>
-
-      <p>This category now spans five adjacent markets moving toward organizational behavior from different starting points. Each already owns a legitimate part of the enterprise AI stack. The examples below are selective rather than exhaustive.<span class="ja" lang="ja">このカテゴリーは現在、異なる出発点から組織行動へ向かう五つの隣接市場にまたがっている。それぞれが、企業AIスタックの重要な一部をすでに担っている。以下は網羅的な一覧ではなく、主な例を示したものである。</span><span class="zh" lang="zh-Hans">这一类别横跨五个相邻市场；它们从不同起点出发，却都在走向组织行为。每个市场都已经掌握企业 AI 技术栈中合理且重要的一部分。下表仅列出部分代表性公司，并非完整名单。</span></p>
-
-      <div class="landscape wide" role="table" aria-label="Organizational intelligence market landscape">
-        <div class="landscape-row landscape-head" role="row">
-          <span role="columnheader">Market<span class="ja" lang="ja">市場</span><span class="zh" lang="zh-Hans">市场</span></span>
-          <span role="columnheader">Selected companies<span class="ja" lang="ja">主な企業</span><span class="zh" lang="zh-Hans">部分代表性公司</span></span>
-          <span role="columnheader">Role in the emerging stack<span class="ja" lang="ja">新しいスタックでの役割</span><span class="zh" lang="zh-Hans">在新兴技术栈中的作用</span></span>
-        </div>
-        <div class="landscape-row" role="row">
-          <b role="cell">Behavioral foundation models<span class="ja" lang="ja">行動基盤モデル</span><span class="zh" lang="zh-Hans">行为基础模型</span></b>
-          <span class="names" role="cell"><a href="https://www.behaviorgraph.com/lbm/">BehaviorGraph / Large Behavior Model</a></span>
-          <span class="motion" role="cell">Establish chronological action as a foundation-model substrate for reusable behavioral intelligence.<span class="ja" lang="ja">時系列の行動を、再利用可能な行動知能のための基盤モデル素材として確立する。</span><span class="zh" lang="zh-Hans">把按时间排列的行动确立为基础模型的学习基底，从而生成可复用的行为智能。</span></span>
-        </div>
-        <div class="landscape-row" role="row">
-          <b role="cell">Organizational networks and workforce intelligence<span class="ja" lang="ja">組織ネットワークとワークフォース・インテリジェンス</span><span class="zh" lang="zh-Hans">组织网络与劳动力智能</span></b>
-          <span class="names" role="cell"><a href="https://learn.microsoft.com/en-us/viva/insights/advanced/analyst/network-collaboration-insights">Microsoft</a> &middot; <a href="https://www.visier.com/">Visier</a></span>
-          <span class="motion" role="cell">Make collaboration structure, silos, brokers, expertise, and workforce patterns visible.<span class="ja" lang="ja">協働構造、サイロ、橋渡し役、専門性、ワークフォースのパターンを可視化する。</span><span class="zh" lang="zh-Hans">呈现协作结构、信息孤岛、桥梁人物、专业能力和劳动力模式。</span></span>
-        </div>
-        <div class="landscape-row" role="row">
-          <b role="cell">Enterprise knowledge and graph infrastructure<span class="ja" lang="ja">企業知識とグラフ・インフラ</span><span class="zh" lang="zh-Hans">企业知识与图谱基础设施</span></b>
-          <span class="names" role="cell"><a href="https://www.glean.com/platform">Glean</a> &middot; <a href="https://neo4j.com/product/">Neo4j</a></span>
-          <span class="motion" role="cell">Connect content, permissions, entities, and processes so models can retrieve and reason over enterprise context.<span class="ja" lang="ja">コンテンツ、権限、エンティティ、プロセスを接続し、モデルが企業コンテキストを取得して推論できるようにする。</span><span class="zh" lang="zh-Hans">连接内容、权限、实体和流程，让模型能够检索企业上下文并在其上推理。</span></span>
-        </div>
-        <div class="landscape-row" role="row">
-          <b role="cell">Agent and workflow platforms<span class="ja" lang="ja">エージェントとワークフローのプラットフォーム</span><span class="zh" lang="zh-Hans">智能体与工作流平台</span></b>
-          <span class="names" role="cell"><a href="https://www.salesforce.com/platform/agentforce-platform">Salesforce</a> &middot; <a href="https://www.servicenow.com/">ServiceNow</a> &middot; <a href="https://www.sap.com/products/artificial-intelligence.html">SAP</a></span>
-          <span class="motion" role="cell">Turn business data and deterministic workflows into agent actions inside daily work.<span class="ja" lang="ja">業務データと決定論的ワークフローを、日常業務の中でエージェントが実行する行動へ変換する。</span><span class="zh" lang="zh-Hans">把业务数据和确定性工作流转化为智能体在日常工作中的实际行动。</span></span>
-        </div>
-        <div class="landscape-row" role="row">
-          <b role="cell">Identity, access, and runtime governance<span class="ja" lang="ja">アイデンティティ、アクセス、実行時ガバナンス</span><span class="zh" lang="zh-Hans">身份、访问与运行时治理</span></b>
-          <span class="names" role="cell"><a href="https://www.box.com/ai">Box</a></span>
-          <span class="motion" role="cell">Provide the controls and accountability needed when AI operates inside enterprise systems.<span class="ja" lang="ja">AIが企業システム内で動作する際に必要な統制と説明責任を支える。</span><span class="zh" lang="zh-Hans">为 AI 在企业系统内运行提供必要的控制与责任机制。</span></span>
-        </div>
-      </div>
-      <p class="landscape-note">Selected companies and market roles reviewed July 2026. Examples are illustrative, not exhaustive.<span class="ja" lang="ja">企業例と市場での役割は2026年7月時点で確認。網羅的な一覧ではない。</span><span class="zh" lang="zh-Hans">所列公司及其市场角色核验于 2026 年 7 月。示例仅供说明，并非完整名单。</span></p>
 
       <div class="section-owner section-owner-oil" aria-label="Organizational Intelligence Loop section"><span class="section-owner-code">OIL</span><span class="section-owner-name">Organizational Intelligence Loop</span></div>
       <h2>The strategic question is where the layer belongs<span class="ja" lang="ja">問われているのは、このレイヤーをどこに置くか</span><span class="zh" lang="zh-Hans">真正的问题是：这一层应该放在哪里</span></h2>
 
-      <p>It is tempting to classify organizational behavior as workforce analytics. That is too narrow. The same organizational evidence may matter to search, workflow, workforce planning, security, and agent systems. The strategic question is whether that context remains trapped in a dashboard or becomes reusable, governed context across enterprise systems.<span class="ja" lang="ja">組織行動をワークフォース分析に分類したくなるが、それでは狭すぎる。同じ組織の知見が、検索、ワークフロー、人員計画、セキュリティ、エージェント・システムに関わり得る。戦略上の問いは、そのコンテキストをダッシュボード内に閉じ込めるのか、企業システムを横断して再利用できる統制されたコンテキストにするのかである。</span><span class="zh" lang="zh-Hans">把组织行为归类为劳动力分析很有诱惑力，但这个定义太窄了。同一份组织证据可能同时与搜索、工作流、人员规划、安全和智能体系统有关。真正的战略问题是：这些上下文要继续困在一个仪表盘里，还是成为可在企业系统之间复用、并受到治理的组织上下文？</span></p>
+      <p>It is tempting to classify organizational behavior as workforce analytics. That is too narrow. Corporate Planning and Foresight can use the same evidence to test whether internal execution can withstand market change; M&amp;A teams can see which operating bridges an integration must preserve; Operations and Transformation teams can locate bottlenecks before a strategy depends on them. The context also matters to search, workflow, workforce planning, security, and multi-agent systems. The strategic question is whether it remains trapped in a dashboard or becomes a reusable, governed layer across enterprise decisions and systems.<span class="ja" lang="ja">組織行動をワークフォース分析に分類したくなるが、それでは狭すぎる。Corporate PlanningやForesightは、同じ知見を使って、市場変化に社内実行力が耐えられるかを検証できる。M&amp;Aチームは、統合後も維持すべき実務上の橋渡しを把握できる。OperationsやTransformationチームは、戦略が依存する前にボトルネックを見つけられる。このコンテキストは、検索、ワークフロー、人員計画、セキュリティ、マルチエージェント・システムにも関わる。戦略上の問いは、それをダッシュボード内に閉じ込めるのか、企業の意思決定とシステムを横断して再利用できる統制されたレイヤーにするのかである。</span><span class="zh" lang="zh-Hans">把组织行为归类为劳动力分析很有诱惑力，但这个定义太窄了。Corporate Planning 和 Foresight 可以用同一套证据检验内部执行能力能否承受市场变化；M&amp;A 团队可以看清整合过程中必须保留哪些实际运营桥梁；Operations 与 Transformation 团队可以在战略真正依赖某个环节之前发现瓶颈。这些上下文也与搜索、工作流、人员规划、安全和多智能体系统有关。真正的战略问题是：它要继续困在一个仪表盘里，还是成为一层可在企业决策与系统之间复用、并受到治理的组织基础？</span></p>
 
       <ul class="scope-list" aria-label="Three architectural tests for organizational behavioral context">
-        <li><b>Shared.</b> The same organizational reading should support knowledge, workflow, workforce, security, and agent surfaces through a consistent governed truth.<span class="ja" lang="ja"><b>共有。</b>同じ組織の読み取りが、一貫して統制された事実を通じて、知識、ワークフロー、ワークフォース、セキュリティ、エージェントの各領域を支える。</span><span class="zh" lang="zh-Hans"><b>共享。</b>对组织的同一套解读，应通过一致且受治理的事实，支持知识、工作流、劳动力、安全和智能体等不同界面。</span></li>
+        <li><b>Shared.</b> The same organizational reading should support planning, M&amp;A, operations, knowledge, workflow, workforce, security, and multi-agent surfaces through a consistent governed truth.<span class="ja" lang="ja"><b>共有。</b>同じ組織の読み取りが、一貫して統制された事実を通じて、計画、M&amp;A、業務運営、知識、ワークフロー、ワークフォース、セキュリティ、マルチエージェントの各領域を支える。</span><span class="zh" lang="zh-Hans"><b>共享。</b>对组织的同一套解读，应通过一致且受治理的事实，支持规划、M&amp;A、运营、知识、工作流、劳动力、安全和多智能体等不同界面。</span></li>
         <li><b>Governed.</b> Every use should remain permission-aware, purpose-limited, reviewable, and subordinate to human authority.<span class="ja" lang="ja"><b>統制。</b>すべての利用が、権限を認識し、目的を限定し、レビュー可能で、人間の権限に従う。</span><span class="zh" lang="zh-Hans"><b>治理。</b>每一种使用方式都必须识别权限、限定目的、可供审核，并服从人的最终权力。</span></li>
         <li><b>Evaluated.</b> Scale, transfer, external outcomes, subgroup behavior, drift, and failure modes should remain distinct, measurable claims.<span class="ja" lang="ja"><b>評価。</b>規模、転移、外部結果、サブグループの挙動、ドリフト、失敗モードを、それぞれ独立して測定可能な主張として扱う。</span><span class="zh" lang="zh-Hans"><b>评估。</b>规模、迁移、外部结果、子群体表现、漂移和失败模式，应始终作为彼此独立、可以测量的主张。</span></li>
       </ul>
