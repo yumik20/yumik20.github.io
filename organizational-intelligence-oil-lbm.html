@@ -481,16 +481,75 @@
       line-height: 1.6;
     }
     .scope-list b { color: var(--ink); }
-    .ip-note {
-      margin: 26px 0 30px;
-      padding: 15px 18px;
-      border-left: 3px solid #a7b2ad;
+    .ip-assets {
+      margin-top: 38px;
+      margin-bottom: 44px;
+      padding: 24px 26px 18px;
+      border-top: 2px solid var(--ink);
+      border-bottom: 1px solid var(--line);
       background: var(--soft);
+    }
+    .ip-assets-kicker {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--rust);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .ip-assets h2 {
+      margin: 0 0 8px;
+      font-size: 30px;
+    }
+    .ip-assets-intro {
+      max-width: 720px;
+      margin: 0 0 20px;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 14px;
       line-height: 1.65;
     }
-    .ip-note strong { color: var(--ink); font-weight: 600; }
+    .ip-asset-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .ip-asset {
+      min-width: 0;
+      padding: 20px 22px;
+      border-left: 1px solid var(--line);
+    }
+    .ip-asset:first-child { border-left: 0; }
+    .ip-asset small {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .ip-asset h3 {
+      margin: 0 0 9px;
+      color: var(--ink);
+      font-family: "EB Garamond", Georgia, serif;
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 1.25;
+    }
+    .ip-asset p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .ip-assets-note {
+      margin: 14px 0 0;
+      color: var(--faint);
+      font-size: 12px;
+      line-height: 1.6;
+    }
     .proof-summary {
       margin-top: 30px;
       margin-bottom: 34px;
@@ -792,6 +851,10 @@
       .article-toolbar { align-items: flex-start; flex-direction: column; }
       .translation-controls { justify-content: flex-start; }
       .language-toggle { min-height: 30px; padding: 5px 9px; font-size: 11px; }
+      .ip-assets { padding: 20px 18px 16px; }
+      .ip-asset-grid { grid-template-columns: 1fr; }
+      .ip-asset { padding: 18px 0; border-top: 1px solid var(--line); border-left: 0; }
+      .ip-asset:first-child { border-top: 0; }
       article { width: min(100% - 32px, var(--measure)); }
       h1 { font-size: 36px; }
       .dek { font-size: 20px; }
@@ -926,7 +989,7 @@
 
       <p>Before any record enters model development, the pipeline removes sensitive information, minimizes and pseudonymizes personal data, and retains only authorized signals tied to approved purposes. Encryption, role-based access, deletion workflows, audit controls, and data-subject rights protect the lifecycle. The process is designed around GDPR and CCPA requirements and LEAD's certified Data Privacy Framework commitments.<span class="ja" lang="ja">データをモデル開発に用いる前に、機微情報を除去し、個人データを最小化・仮名化したうえで、承認された目的に必要なシグナルだけを残す。暗号化、ロールベースのアクセス制御、削除手続き、監査統制、データ主体の権利によってライフサイクル全体を保護する。この設計は、GDPRとCCPAの要件、およびLEADが認証を受けるData Privacy Framework上のコミットメントに基づいている。</span><span class="zh" lang="zh-Hans">任何记录进入模型开发流程之前，管道都会移除敏感信息，尽量减少并化名化个人数据，只保留与获批用途相关的授权信号。静态与传输加密、基于角色的访问控制、删除流程、审计控制和数据主体权利共同保护整个生命周期。该设计遵循 GDPR、CCPA 的要求，以及 LEAD 在 Data Privacy Framework 认证下作出的承诺。</span></p>
 
-      <p>The sequence matters: an operating problem produced a longitudinal, cross-organization corpus; that evidence made pretraining possible. The result is our own organizational model, with representations reusable across expertise, influence, knowledge, routing, risk, and change.<span class="ja" lang="ja">重要なのは、この順序だ。現場の課題から組織横断の長期コーパスが生まれ、その蓄積が事前学習を可能にした。その結果、専門性、影響力、知識、ルーティング、リスク、変化といった複数の課題に再利用できる、独自の組織モデルが生まれた。</span><span class="zh" lang="zh-Hans">顺序很重要：真实的运营问题先产生了跨组织、长时间跨度的语料库；这些积累才让预训练成为可能。最终形成的是我们自己的组织模型，其表征可复用于专业能力、影响力、知识、路由、风险和变革等任务。</span></p>
+      <p>Inside that governed boundary, the accumulated history became more than a dataset. Years of authorized behavior across many organizations gave the model enough depth and variation to learn patterns that no single deployment could reveal. Pretraining turned that history into our own organizational model, with representations reusable across expertise, influence, knowledge, routing, risk, and change.<span class="ja" lang="ja">その管理境界の内側で、蓄積された履歴は単なるデータセット以上のものになった。多くの組織にまたがる数年分の許可済み行動データが、一つの導入だけでは見えないパターンを学ぶための深さと多様性をモデルにもたらした。事前学習によって、その履歴は私たち独自の組織モデルへと変わり、専門性、影響力、知識、ルーティング、リスク、変化に再利用できる表現になった。</span><span class="zh" lang="zh-Hans">在这条治理边界之内，长期积累不再只是一个数据集。跨越众多组织、持续多年的授权行为记录，为模型提供了足够的深度和差异，使它能够学习任何单一部署都无法呈现的模式。预训练把这段历史转化为我们自己的组织模型，其表征可以复用于专业能力、影响力、知识、路由、风险和变革。</span></p>
 
       <figure class="wide" aria-labelledby="origin-caption">
         <div class="origin-flow" aria-label="How the Large Behavior Model emerged from authorized signals generated through LEAD deployments">
@@ -1042,7 +1105,24 @@
 
       <p>Consider an engineering agent that routes an incident to the person on the formal schedule. The schedule is valid, but the organization relies on a different specialist for this failure. A language model retrieves the runbook; a workflow engine follows the rule. Organizational intelligence adds the real dependency and recommends a governed escalation within existing permissions.<span class="ja" lang="ja">たとえば、エンジニアリング・エージェントが正式な当番表どおりにインシデントを割り当てたとする。当番表は正しくても、その障害について組織が実際に頼っているのは別の専門家かもしれない。言語モデルはランブックを取得し、ワークフローは規則に従う。組織知能は、そこに実際の依存関係を加え、既存の権限内で適切なエスカレーションを提案する。</span><span class="zh" lang="zh-Hans">设想一个工程智能体按照正式值班表分派故障。值班表本身没有错，但对于这一类故障，组织实际上一直依赖另一位专家。语言模型可以检索运行手册，工作流引擎也可以照规则执行。组织智能补充了真实依赖关系的证据，并在现有权限内建议受治理的升级路径。</span></p>
 
-      <aside class="ip-note" id="ip-status"><strong>IP status.</strong> The Large Behavior Model and OIL are pre-commercial research assets covered by pending U.S. patent applications. This article describes the category, evidence, and public research context; it does not disclose technical implementation or claim scope. LEAD is the commercial product in this history.<span class="ja" lang="ja"><strong>知的財産の状況。</strong>Large Behavior ModelとOILは、米国で出願中の特許に関わるプレコマーシャルな研究資産である。本稿が扱うのはカテゴリー、検証結果、公開研究の文脈であり、技術実装や請求項の範囲は開示しない。この沿革の中で商用展開されているのはLEADである。</span><span class="zh" lang="zh-Hans"><strong>知识产权状态。</strong>Large Behavior Model 与 OIL 是纳入美国在审专利申请的商业化前研究资产。本文只讨论类别、验证结果和公开研究背景，不披露技术实现或权利要求范围。这段发展历程中已经商业化的产品是 LEAD。</span></aside>
+      <section class="ip-assets wide" id="ip-status" aria-labelledby="ip-assets-title">
+        <span class="ip-assets-kicker">Intellectual property<span class="ja" lang="ja">知的財産</span><span class="zh" lang="zh-Hans">知识产权</span></span>
+        <h2 id="ip-assets-title">Two U.S. non-provisional patent applications are pending<span class="ja" lang="ja">米国のnon-provisional特許出願2件が係属中</span><span class="zh" lang="zh-Hans">两项美国非临时（non-provisional）专利申请正在申请中</span></h2>
+        <p class="ip-assets-intro">Two related but distinct research assets are covered by the pending applications. The titles below describe their subject areas in plain language.<span class="ja" lang="ja">関連しながらも異なる二つの研究資産が、出願中の特許によってカバーされている。以下のタイトルは、それぞれの対象領域を平易な言葉で示したものである。</span><span class="zh" lang="zh-Hans">两项相关但彼此独立的研究资产，分别纳入正在申请中的专利。下面的标题以通俗语言概括各自的主题领域。</span></p>
+        <div class="ip-asset-grid">
+          <article class="ip-asset">
+            <small>Pending application 01 · High-level title<span class="ja" lang="ja">出願中01・概要タイトル</span><span class="zh" lang="zh-Hans">在审申请 01 · 高层级标题</span></small>
+            <h3>Large Behavior Model: Foundation Models for Organizational Behavior<span class="ja" lang="ja">Large Behavior Model：組織行動のための基盤モデル</span><span class="zh" lang="zh-Hans">Large Behavior Model：面向组织行为的基础模型</span></h3>
+            <p>A model asset built from authorized workplace behavior and evaluated across organizations.<span class="ja" lang="ja">許可を得た職場行動データから構築し、組織をまたいで評価してきたモデル資産。</span><span class="zh" lang="zh-Hans">以经授权的职场行为数据构建，并经过跨组织评估的模型资产。</span></p>
+          </article>
+          <article class="ip-asset">
+            <small>Pending application 02 · High-level title<span class="ja" lang="ja">出願中02・概要タイトル</span><span class="zh" lang="zh-Hans">在审申请 02 · 高层级标题</span></small>
+            <h3>Organizational Intelligence Loop: Governance for Human and AI-Agent Work<span class="ja" lang="ja">Organizational Intelligence Loop：人間とAIエージェントの協働を支えるガバナンス</span><span class="zh" lang="zh-Hans">Organizational Intelligence Loop：面向人类与 AI 智能体协作的治理架构</span></h3>
+            <p>A governance asset for organizations where people and AI agents work together.<span class="ja" lang="ja">人間とAIエージェントが協働する組織のためのガバナンス資産。</span><span class="zh" lang="zh-Hans">面向人类与 AI 智能体共同工作的组织治理资产。</span></p>
+          </article>
+        </div>
+        <p class="ip-assets-note">These are plain-language subject descriptions, not application numbers, exact filed titles, or claim language. Technical implementation and claim scope are not disclosed here. LEAD is the commercial product in this history.<span class="ja" lang="ja">これは対象領域を平易に示した説明であり、出願番号、正式な出願タイトル、請求項の文言ではない。技術実装や請求項の範囲は本稿では開示しない。この沿革の中で商用展開されているのはLEADである。</span><span class="zh" lang="zh-Hans">以上内容是对主题领域的通俗说明，并非申请号、正式申请标题或权利要求文本。本文不披露技术实现或权利要求范围。这段发展历程中已经商业化的产品是 LEAD。</span></p>
+      </section>
 
       <h2 id="evaluations">What the evaluations show<span class="ja" lang="ja">評価結果が示すこと</span><span class="zh" lang="zh-Hans">评估结果说明了什么</span></h2>
 
@@ -1232,7 +1312,7 @@
       </section>
 
       <aside class="author-note">
-        <strong>Yumi Kimura</strong> is the founder of LEAD and BehaviorGraph. She authored the Organizational Intelligence Loop at Columbia and is building the Large Behavior Model, a foundation model for organizational behavior. Both sit within two patent-pending families. She writes <a href="https://kimura.yumiwillems.com/">The Agentic Enterprise</a>.<span class="ja" lang="ja"><strong>Yumi Kimura</strong>はLEADとBehaviorGraphの創業者。ColumbiaでOrganizational Intelligence Loopを執筆し、組織行動の基盤モデルであるLarge Behavior Modelを構築している。両者は二つの特許出願中ファミリーに含まれる。<a href="https://kimura.yumiwillems.com/">The Agentic Enterprise</a>を執筆。</span><span class="zh" lang="zh-Hans"><strong>Yumi Kimura</strong> 是 LEAD 和 BehaviorGraph 的创始人。她在 Columbia 撰写了 Organizational Intelligence Loop，并正在构建面向组织行为的基础模型 Large Behavior Model。两者分别纳入两个正在申请中的专利族。她还撰写 <a href="https://kimura.yumiwillems.com/">The Agentic Enterprise</a>。</span>
+        <strong>Yumi Kimura</strong> is the founder of LEAD and BehaviorGraph. She authored the Organizational Intelligence Loop at Columbia and is building the Large Behavior Model, a foundation model for organizational behavior. The Large Behavior Model and OIL are covered by two pending U.S. non-provisional patent applications. She writes <a href="https://kimura.yumiwillems.com/">The Agentic Enterprise</a>.<span class="ja" lang="ja"><strong>Yumi Kimura</strong>はLEADとBehaviorGraphの創業者。ColumbiaでOrganizational Intelligence Loopを執筆し、組織行動の基盤モデルであるLarge Behavior Modelを構築している。Large Behavior ModelとOILは、係属中の米国non-provisional特許出願2件の対象となっている。<a href="https://kimura.yumiwillems.com/">The Agentic Enterprise</a>を執筆。</span><span class="zh" lang="zh-Hans"><strong>Yumi Kimura</strong> 是 LEAD 和 BehaviorGraph 的创始人。她在 Columbia 撰写了 Organizational Intelligence Loop，并正在构建面向组织行为的基础模型 Large Behavior Model。Large Behavior Model 与 OIL 分别纳入两项正在申请中的美国非临时（non-provisional）专利申请。她还撰写 <a href="https://kimura.yumiwillems.com/">The Agentic Enterprise</a>。</span>
       </aside>
     </article>
   </main>
