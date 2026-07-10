@@ -168,6 +168,15 @@
       letter-spacing: -0.2px;
       margin-bottom: 18px;
     }
+    /* ---- FEATURED RESEARCH NOTE ---- */
+    .featured-research { display: flex; gap: 26px; align-items: stretch; padding: 24px; margin: 0 0 42px; border: 1px solid var(--border); border-radius: 10px; background: #f8f7f4; color: inherit; text-decoration: none; transition: border-color 0.2s, background 0.2s; }
+    .featured-research:hover { border-color: #b9b4ad; background: #f5f3ef; }
+    .featured-research img { width: 208px; min-height: 148px; border-radius: 6px; object-fit: cover; background: #fff; flex-shrink: 0; }
+    .featured-research-body { display: flex; flex-direction: column; align-items: flex-start; }
+    .featured-research-kicker { font-size: 10.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.25px; color: #6d28d9; margin-bottom: 7px; }
+    .featured-research h2 { font-family: 'EB Garamond', serif; font-size: 25px; line-height: 1.2; font-weight: 500; letter-spacing: -0.2px; margin-bottom: 9px; }
+    .featured-research p { font-size: 14px; line-height: 1.7; color: var(--text-light); }
+    .featured-research-cta { margin-top: auto; padding-top: 16px; font-size: 12.5px; color: var(--text); border-bottom: 1px solid var(--text-light); padding-bottom: 2px; }
     .project-fig { margin: 26px auto 4px; max-width: 360px; }
     .project-fig img { width: 100%; border: 1px solid var(--border); border-radius: 8px; display: block; background: #fff; }
     .project-fig figcaption { font-size: 12px; line-height: 1.55; color: var(--text-faint); margin-top: 9px; }
@@ -241,6 +250,8 @@
       .qmen li { grid-template-columns: 1fr; gap: 4px; }
       .qmen .label { padding-top: 0; }
       .hero-links { flex-wrap: wrap; }
+      .featured-research { flex-direction: column; gap: 18px; padding: 18px; }
+      .featured-research img { width: 100%; min-height: 0; height: 180px; }
     }
   </style>
 </head>
@@ -278,6 +289,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
         OIL Manuscript
       </a>
+      <a href="organizational-intelligence-oil-lbm.html">Latest Research Note</a>
     </div>
   </div>
 </section>
@@ -325,6 +337,16 @@
 <section class="section" id="projects">
   <div class="section-label" data-section="projects">Research Projects</div>
   <p class="note" style="margin-bottom:30px;">Three places I have taken this from idea to working system, spanning behavioral context, evaluation, multi-agent systems, and oversight.</p>
+
+  <a class="featured-research" href="organizational-intelligence-oil-lbm.html">
+    <img src="organizational-intelligence-oil-lbm-illustration.jpg" alt="Illustration of formal enterprise records and a living behavioral network connected through a model and governance loop">
+    <div class="featured-research-body">
+      <div class="featured-research-kicker">Featured research note · July 2026</div>
+      <h2>What We Built From a Billion Workplace Interactions</h2>
+      <p>A public technical overview of the authorized longitudinal corpus, cross-company Large Behavior Model, OIL governance architecture, evaluation evidence, and two pending U.S. non-provisional patent applications.</p>
+      <span class="featured-research-cta">Read the research note &rarr;</span>
+    </div>
+  </a>
 
   <!-- OIL -->
   <div class="project">
@@ -403,9 +425,6 @@
       <img src="lbm-influence-gap.png" alt="Scatter plot of peer-perceived value versus formal seniority, highlighting hidden experts and empty suits">
       <figcaption>The Influence Gap: hidden experts (high peer value, lower title) versus empty suits (high title, low peer value). LBM reads the earned influence that titles miss.</figcaption>
     </figure>
-    <p style="margin-top:20px;">
-      <a href="organizational-intelligence-oil-lbm.html" style="font-size:13px; color:var(--text); text-decoration:none; border-bottom:1px solid var(--text-light); padding-bottom:2px;">Read the technical article and evaluation summary &rarr;</a>
-    </p>
   </div>
 
   <!-- Multi-agent -->
@@ -430,10 +449,6 @@
     <li>
       <span class="label">Manuscript</span>
       <span class="val"><strong>The Organizational Intelligence Loop (OIL): A Socio-Technical Framework for Adaptive Enterprise AI Adoption.</strong> Independent study, Columbia IKNS, 86 pages. <a href="https://academiccommons.columbia.edu/doi/10.7916/9da8-c532" style="color:var(--text); text-decoration:underline; text-underline-offset:2px;">Read it</a>.</span>
-    </li>
-    <li>
-      <span class="label">Research note</span>
-      <span class="val"><strong>What We Built From a Billion Workplace Interactions.</strong> A technical asset and evaluation overview of the authorized corpus, cross-company Large Behavior Model, OIL governance architecture, and patent-pending families. <a href="organizational-intelligence-oil-lbm.html" style="color:var(--text); text-decoration:underline; text-underline-offset:2px;">Read it</a>.</span>
     </li>
   </ul>
 </section>
