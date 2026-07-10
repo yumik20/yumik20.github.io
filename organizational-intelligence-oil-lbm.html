@@ -286,6 +286,29 @@
       font-size: 12px;
       line-height: 1.45;
     }
+    .oil-principles {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin: 20px 0 34px;
+      padding: 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      list-style: none;
+    }
+    .oil-principles li {
+      min-width: 0;
+      padding: 15px 18px;
+      border-left: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .oil-principles li:first-child { border-left: 0; }
+    .oil-principles b {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--rust);
+    }
     .origin-flow {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -625,7 +648,7 @@
     }
     .proof-summary-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
     .proof-item {
       min-width: 0;
@@ -874,6 +897,13 @@
       .framework { grid-template-columns: 1fr 1fr; }
       .framework div:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); }
       .framework div:nth-child(4) { border-top: 1px solid var(--line); }
+      .oil-principles { grid-template-columns: 1fr; }
+      .oil-principles li,
+      .oil-principles li:first-child {
+        border-top: 1px solid var(--line);
+        border-left: 0;
+      }
+      .oil-principles li:first-child { border-top: 0; }
       .origin-flow { grid-template-columns: 1fr 1fr; }
       .origin-step:nth-child(3) { border-top: 1px solid var(--line); border-left: 0; }
       .origin-step:nth-child(4) { border-top: 1px solid var(--line); }
@@ -1095,9 +1125,15 @@
       <p>Together, this research asks two public questions: what can authorized work signals reveal about an organization, and what governance is needed before that evidence informs decisions?<span class="ja" lang="ja">この研究が公に問うのは二点である。許可された業務シグナルから組織について何が分かるのか。そして、その知見を意思決定に用いる前に、どのようなガバナンスが必要なのか。</span><span class="zh" lang="zh-Hans">这项研究公开讨论两个问题：经授权的工作信号能够揭示组织的哪些信息？在这些证据进入决策之前，又需要怎样的治理？</span></p>
 
       <div class="section-owner section-owner-oil section-owner-subsection" aria-label="Organizational Intelligence Loop section"><span class="section-owner-code">OIL</span><span class="section-owner-name">Organizational Intelligence Loop</span></div>
-      <h3>Accountability in an agentic organization<span class="ja" lang="ja">エージェントが働く組織の説明責任</span><span class="zh" lang="zh-Hans">智能体参与组织时的责任机制</span></h3>
+      <h3 id="oil-accountability">Accountability in an agentic organization<span class="ja" lang="ja">エージェントが働く組織の説明責任</span><span class="zh" lang="zh-Hans">智能体参与组织时的责任机制</span></h3>
 
       <p>At the public-research level, OIL asks how accountability should be preserved as human and agent work becomes intertwined. It keeps the focus on organizational context, responsible human authority, and decisions that remain reviewable.<span class="ja" lang="ja">公開研究としてのOILは、人間とエージェントの仕事が結びつく中で、説明責任をどう保つべきかを問う。焦点は、組織コンテキスト、責任を負う人間の権限、そして後から確認できる意思決定にある。</span><span class="zh" lang="zh-Hans">在公开研究层面，OIL 关注的是：当人类与智能体的工作日益交织时，如何继续保有清晰的责任机制。重点在于组织上下文、承担责任的人类权力，以及仍可复核的决策。</span></p>
+
+      <ul class="oil-principles" aria-label="Three public principles of the Organizational Intelligence Loop">
+        <li><b>Organizational context<span class="ja" lang="ja">組織コンテキスト</span><span class="zh" lang="zh-Hans">组织上下文</span></b>Decisions are understood in the people, information, and process context where work happens.<span class="ja" lang="ja">意思決定を、仕事が行われる人・情報・プロセスの文脈で捉える。</span><span class="zh" lang="zh-Hans">把决策放在人、信息和流程共同构成的真实工作环境中理解。</span></li>
+        <li><b>Human authority<span class="ja" lang="ja">人間の責任</span><span class="zh" lang="zh-Hans">人的责任</span></b>Responsibility remains with an accountable person, even when agents take part in the work.<span class="ja" lang="ja">エージェントが仕事に関わっても、最終的な責任は明確な人間に残る。</span><span class="zh" lang="zh-Hans">即使智能体参与工作，最终责任仍由明确的人承担。</span></li>
+        <li><b>Reviewability<span class="ja" lang="ja">レビュー可能性</span><span class="zh" lang="zh-Hans">可复核性</span></b>Decisions remain open to review and correction as organizational conditions change.<span class="ja" lang="ja">組織の状況が変われば、意思決定を見直し、修正できる状態を保つ。</span><span class="zh" lang="zh-Hans">当组织条件发生变化时，决策仍可被检查和修正。</span></li>
+      </ul>
 
       <figure class="wide" aria-labelledby="system-caption">
         <div class="system-visual">
@@ -1178,19 +1214,14 @@
       <div class="section-owner section-owner-lbm" aria-label="Large Behavior Model section"><span class="section-owner-code">LBM</span><span class="section-owner-name">Large Behavior Model</span></div>
       <h2 id="evaluations">What the evaluations show<span class="ja" lang="ja">評価結果が示すこと</span><span class="zh" lang="zh-Hans">评估结果说明了什么</span></h2>
 
-      <p>The model is trained on 1B+ authorized behavioral records across roughly 1,400 organizational deployments. The public evaluation surface includes real tickets, an unseen company, Enron, and controlled settings with known hidden states. Methods and results are open to scrutiny at <a href="https://www.behaviorgraph.com/lbm/">behaviorgraph.com/lbm</a>; the learned representation remains proprietary.<span class="ja" lang="ja">モデルは、約1,400件の組織導入から得た10億件超の許可済み行動記録で学習している。公開している評価には、実際のチケット、学習対象外の企業、Enron、正解となる隠れた状態が既知の統制環境が含まれる。評価方法と結果は<a href="https://www.behaviorgraph.com/lbm/">behaviorgraph.com/lbm</a>で検証できる一方、学習済み表現は独自資産として保持している。</span><span class="zh" lang="zh-Hans">模型使用约 1,400 个组织部署产生的十亿余条授权行为记录进行训练。公开评估覆盖真实工单、训练中未出现的公司、Enron 数据集，以及已知隐藏真实状态的受控环境。评估方法与结果可在 <a href="https://www.behaviorgraph.com/lbm/">behaviorgraph.com/lbm</a> 查验；学到的表征则仍是专有资产。</span></p>
+      <p>The model is trained on 1B+ authorized behavioral records across roughly 1,400 organizational deployments. The public evaluation surface includes an unseen company, Enron, and controlled settings with known hidden states. Methods and results are open to scrutiny at <a href="https://www.behaviorgraph.com/lbm/">behaviorgraph.com/lbm</a>; the learned representation remains proprietary.<span class="ja" lang="ja">モデルは、約1,400件の組織導入から得た10億件超の許可済み行動記録で学習している。公開している評価には、学習対象外の企業、Enron、正解となる隠れた状態が既知の統制環境が含まれる。評価方法と結果は<a href="https://www.behaviorgraph.com/lbm/">behaviorgraph.com/lbm</a>で検証できる一方、学習済み表現は独自資産として保持している。</span><span class="zh" lang="zh-Hans">模型使用约 1,400 个组织部署产生的十亿余条授权行为记录进行训练。公开评估覆盖训练中未出现的公司、Enron 数据集，以及已知隐藏真实状态的受控环境。评估方法与结果可在 <a href="https://www.behaviorgraph.com/lbm/">behaviorgraph.com/lbm</a> 查验；学到的表征则仍是专有资产。</span></p>
 
       <section class="proof-summary wide" aria-labelledby="proof-summary-title">
         <div class="proof-summary-head">
           <small>Proof summary<span class="ja" lang="ja">主要な実証結果</span><span class="zh" lang="zh-Hans">核心实证结果</span></small>
-          <h3 id="proof-summary-title">The three strongest results come from real work, external outcomes, and transfer.<span class="ja" lang="ja">まず見るべきは、実業務・外部結果・未知企業への転移を示す三つの結果だ。</span><span class="zh" lang="zh-Hans">最值得先看的三项结果，分别来自真实工作、外部结果和跨企业迁移。</span></h3>
+          <h3 id="proof-summary-title">The strongest results come from external outcomes and transfer.<span class="ja" lang="ja">まず見るべきは、外部結果と未知企業への転移を示す二つの結果だ。</span><span class="zh" lang="zh-Hans">最值得先看的两项结果，分别来自外部结果和跨企业迁移。</span></h3>
         </div>
         <div class="proof-summary-grid">
-          <div class="proof-item">
-            <small>Real ticket routing<span class="ja" lang="ja">実際のチケットルーティング</span><span class="zh" lang="zh-Hans">真实工单路由</span></small>
-            <span class="proof-value">0.80 Recall@10</span>
-            <p>Across roughly 5,000 tickets, the correct resolver appears in the top ten four times out of five.<span class="ja" lang="ja">約5,000件のチケットで、正しい解決担当者が5回に4回トップ10へ入った。</span><span class="zh" lang="zh-Hans">在约 5,000 张工单中，正确的解决人员有五分之四的概率进入前十名。</span></p>
-          </div>
           <div class="proof-item">
             <small>External outcome · Enron<span class="ja" lang="ja">外部結果・Enron</span><span class="zh" lang="zh-Hans">外部结果 · Enron</span></small>
             <span class="proof-value">2.12&times; chance</span>
@@ -1211,12 +1242,6 @@
             <span role="columnheader">Published result<span class="ja" lang="ja">公開結果</span><span class="zh" lang="zh-Hans">已公开结果</span></span>
             <span role="columnheader">Validation surface<span class="ja" lang="ja">検証対象</span><span class="zh" lang="zh-Hans">验证场景</span></span>
             <span role="columnheader">Interpretation<span class="ja" lang="ja">解釈</span><span class="zh" lang="zh-Hans">解读</span></span>
-          </div>
-          <div class="evidence-row" role="row">
-            <b role="cell">Agent routing<span class="ja" lang="ja">エージェント・ルーティング</span><span class="zh" lang="zh-Hans">智能体路由</span></b>
-            <span class="result" data-label="Published result" role="cell">0.80 Recall@10</span>
-            <span data-label="Validation" role="cell">Real external: roughly 5,000 tickets<span class="ja" lang="ja">実外部評価：約5,000件のチケット</span><span class="zh" lang="zh-Hans">真实外部验证：约 5,000 张工单</span></span>
-            <span data-label="Interpretation" role="cell">The right resolver appears in the top ten four times out of five; recent expertise outperforms seniority.<span class="ja" lang="ja">適切な解決担当者が5回中4回トップ10に入り、直近の専門性が勤続年数を上回る。</span><span class="zh" lang="zh-Hans">正确的解决人员五次中有四次进入前十；近期形成的专业能力比资历更有预测力。</span></span>
           </div>
           <div class="evidence-row" role="row">
             <b role="cell">Hidden influence beyond title<span class="ja" lang="ja">役職を越えた隠れた影響力</span><span class="zh" lang="zh-Hans">头衔之外的隐性影响力</span></b>
