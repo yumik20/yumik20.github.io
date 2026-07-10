@@ -146,6 +146,7 @@
       margin: 0 auto;
       padding: 72px 0 56px;
     }
+    article [id] { scroll-margin-top: 82px; }
     .eyebrow {
       margin: 0 0 18px;
       color: var(--green);
@@ -207,6 +208,87 @@
       line-height: 1.6;
     }
     .name-guide b { color: var(--ink); font-weight: 600; }
+    .key-points {
+      margin-top: -8px;
+      margin-bottom: 38px;
+      padding: 22px 24px 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #f7f9f6;
+    }
+    .key-points-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 14px;
+    }
+    .key-points-header small {
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .key-points-header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .key-points ol {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid var(--line);
+      list-style: none;
+    }
+    .key-points li {
+      min-width: 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .key-points li:nth-child(odd) { border-right: 1px solid var(--line); }
+    .key-points li:nth-last-child(-n + 2) { border-bottom: 0; }
+    .key-points a {
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr);
+      gap: 8px;
+      min-height: 76px;
+      padding: 13px 15px 12px 0;
+      color: inherit;
+      text-decoration: none;
+    }
+    .key-points li:nth-child(even) a { padding-left: 18px; }
+    .key-points a:hover { background: rgba(18, 107, 87, 0.035); }
+    .key-points-number {
+      padding-top: 2px;
+      color: var(--rust);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+    }
+    .key-points-copy { min-width: 0; }
+    .key-points b,
+    .key-points-copy > span { display: block; }
+    .key-points b {
+      color: var(--ink);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+    .key-points-copy > span {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.45;
+    }
+    .key-points .ja,
+    .key-points .zh {
+      margin-top: 3px;
+      color: inherit;
+      font-size: 0.88em;
+      line-height: 1.5;
+    }
     .market-bullets {
       margin: -6px 0 24px;
       padding: 0;
@@ -1313,6 +1395,14 @@
       .ip-asset-grid { grid-template-columns: 1fr; }
       .ip-asset { padding: 18px 0; border-top: 1px solid var(--line); border-left: 0; }
       .ip-asset:first-child { border-top: 0; }
+      .key-points { padding: 18px; }
+      .key-points-header { display: block; }
+      .key-points-header p { margin-top: 4px; }
+      .key-points ol { grid-template-columns: 1fr; }
+      .key-points li:nth-child(odd) { border-right: 0; }
+      .key-points li:nth-last-child(-n + 2) { border-bottom: 1px solid var(--line); }
+      .key-points li:last-child { border-bottom: 0; }
+      .key-points li:nth-child(even) a { padding-left: 0; }
       article { width: min(100% - 32px, var(--measure)); }
       h1 { font-size: 36px; }
       .dek { font-size: 20px; }
@@ -1444,7 +1534,22 @@
         <p><b>LEAD</b> = original product &nbsp;&middot;&nbsp; <b>LBM</b> = model &nbsp;&middot;&nbsp; <b>OIL</b> = governance framework &nbsp;&middot;&nbsp; <b>BehaviorGraph</b> = pre-release product &nbsp;&middot;&nbsp; <b>ONA</b> = network analysis<span class="ja" lang="ja"><b>LEAD</b>＝最初のプロダクト ・ <b>LBM</b>＝モデル ・ <b>OIL</b>＝ガバナンス枠組み ・ <b>BehaviorGraph</b>＝リリース前のプロダクト ・ <b>ONA</b>＝ネットワーク分析</span><span class="zh" lang="zh-Hans"><b>LEAD</b>＝最初的产品 · <b>LBM</b>＝模型 · <b>OIL</b>＝治理框架 · <b>BehaviorGraph</b>＝尚未发布的产品 · <b>ONA</b>＝组织网络分析</span></p>
       </aside>
 
-      <p class="lead">Every enterprise keeps two records of itself. One is written down: org charts, documents, tickets, policies. The other is produced by action: who people consult, which handoffs repeat, where work stalls, and whose involvement changes an outcome. The first record describes the organization on paper. The second records how it operates.<span class="ja" lang="ja">あらゆる企業は、自らについて二つの記録を持っている。一つは、組織図、文書、チケット、ポリシーとして書き残された記録。もう一つは、人々が誰に相談するか、どの引き継ぎが繰り返されるか、どこで仕事が滞るか、誰の関与が結果を変えるかという、行動から生まれる記録である。第一の記録は紙面上の組織を示し、第二の記録は組織が実際にどう動いているかを示す。</span><span class="zh" lang="zh-Hans">每家企业都保存着关于自己的两份记录。一份是写下来的：组织架构、文档、工单和制度。另一份由行动生成：人们向谁求助、哪些交接反复发生、工作在哪里停滞，以及谁的参与会改变结果。第一份记录描述纸面上的组织；第二份记录呈现组织实际上如何运转。</span></p>
+      <nav class="key-points wide" aria-label="Key points">
+        <div class="key-points-header">
+          <small>Key points<span class="ja" lang="ja">要点から読む</span><span class="zh" lang="zh-Hans">重点速览</span></small>
+          <p>For a quick read, start with these six sections.<span class="ja" lang="ja">短時間で読むなら、次の六項目から。</span><span class="zh" lang="zh-Hans">想快速读完，可以从这六点开始。</span></p>
+        </div>
+        <ol>
+          <li><a href="#two-records"><span class="key-points-number">01</span><span class="key-points-copy"><b>The core idea: two records<span class="ja" lang="ja">核心：二つの記録</span><span class="zh" lang="zh-Hans">核心概念：两份记录</span></b><span>Formal structure versus how work actually moves.<span class="ja" lang="ja">正式な構造と、仕事が実際にどう動くかの違い。</span><span class="zh" lang="zh-Hans">正式结构与工作实际如何流动之间的差异。</span></span></span></a></li>
+          <li><a href="#ip-status"><span class="key-points-number">02</span><span class="key-points-copy"><b>Two pending U.S. applications<span class="ja" lang="ja">係属中の米国出願二件</span><span class="zh" lang="zh-Hans">两项正在申请中的美国非临时专利申请</span></b><span>One research asset for LBM, one for OIL.<span class="ja" lang="ja">LBMとOIL、それぞれに対応する研究資産。</span><span class="zh" lang="zh-Hans">分别对应 LBM 与 OIL 的两项研究资产。</span></span></span></a></li>
+          <li><a href="#model-origin"><span class="key-points-number">03</span><span class="key-points-copy"><b>How LBM was built<span class="ja" lang="ja">LBMが生まれた経路</span><span class="zh" lang="zh-Hans">LBM 如何构建</span></b><span>From LEAD's authorized corpus to cross-company pretraining.<span class="ja" lang="ja">LEADの許可済みコーパスから企業横断の事前学習へ。</span><span class="zh" lang="zh-Hans">从 LEAD 的授权语料库到跨公司预训练。</span></span></span></a></li>
+          <li><a href="#oil-accountability"><span class="key-points-number">04</span><span class="key-points-copy"><b>How LBM and OIL work together<span class="ja" lang="ja">LBMとOILの役割分担</span><span class="zh" lang="zh-Hans">LBM 与 OIL 如何协同</span></b><span>The model reads; OIL governs human and multi-agent use.<span class="ja" lang="ja">モデルが読み取り、OILが人間とマルチエージェントの利用を統制する。</span><span class="zh" lang="zh-Hans">模型负责读取；OIL 负责治理人与多智能体如何使用它。</span></span></span></a></li>
+          <li><a href="#evaluations"><span class="key-points-number">05</span><span class="key-points-copy"><b>What the evidence shows<span class="ja" lang="ja">評価結果が示すこと</span><span class="zh" lang="zh-Hans">证据说明了什么</span></b><span>External outcomes and transfer to unseen organizations.<span class="ja" lang="ja">外部結果と未知の組織への転移。</span><span class="zh" lang="zh-Hans">外部结果，以及对未见组织的迁移能力。</span></span></span></a></li>
+          <li><a href="#strategic-layer"><span class="key-points-number">06</span><span class="key-points-copy"><b>What it can unlock<span class="ja" lang="ja">実務で開ける可能性</span><span class="zh" lang="zh-Hans">它能带来什么</span></b><span>M&amp;A, operating resilience, and strategic execution.<span class="ja" lang="ja">M&amp;A、運用レジリエンス、戦略実行。</span><span class="zh" lang="zh-Hans">M&amp;A、运营韧性和战略执行。</span></span></span></a></li>
+        </ol>
+      </nav>
+
+      <p class="lead" id="two-records">Every enterprise keeps two records of itself. One is written down: org charts, documents, tickets, policies. The other is produced by action: who people consult, which handoffs repeat, where work stalls, and whose involvement changes an outcome. The first record describes the organization on paper. The second records how it operates.<span class="ja" lang="ja">あらゆる企業は、自らについて二つの記録を持っている。一つは、組織図、文書、チケット、ポリシーとして書き残された記録。もう一つは、人々が誰に相談するか、どの引き継ぎが繰り返されるか、どこで仕事が滞るか、誰の関与が結果を変えるかという、行動から生まれる記録である。第一の記録は紙面上の組織を示し、第二の記録は組織が実際にどう動いているかを示す。</span><span class="zh" lang="zh-Hans">每家企业都保存着关于自己的两份记录。一份是写下来的：组织架构、文档、工单和制度。另一份由行动生成：人们向谁求助、哪些交接反复发生、工作在哪里停滞，以及谁的参与会改变结果。第一份记录描述纸面上的组织；第二份记录呈现组织实际上如何运转。</span></p>
 
       <p>Enterprise software was built around the first record because it was legible. Search can retrieve it. Graphs can connect it. Agents can act on it. Execution, however, depends on more than retrieving a valid artifact. A team can select an outdated source, route work to the wrong expert, miss the internal stakeholder needed to advance an initiative, or assign a critical step to someone already at capacity. When a key contributor changes roles or leaves, a project can stall even while every document and workflow still appears correct. The second record reveals where execution actually gains or loses momentum.<span class="ja" lang="ja">企業向けソフトウェアは、読み取りやすい第一の記録を中心に構築されてきた。検索はそれを取得し、グラフはそれを結び、エージェントはそれに基づいて行動できる。しかし、実行に必要なのは、有効な成果物を取得することだけではない。チームが古い情報源を選び、仕事を別の専門家に振り分け、施策を前進させるために必要な社内ステークホルダーを見落とし、すでに対応能力の上限に達している人へ重要な工程を割り当てることがある。主要メンバーが異動または退職すれば、文書やワークフローが正しく見える状態でもプロジェクトは停滞する。第二の記録は、実行が実際にどこで勢いを得て、どこで失うのかを明らかにする。</span><span class="zh" lang="zh-Hans">企业软件一直围绕第一份记录构建，因为它清晰可读。搜索可以检索它，图谱可以连接它，智能体可以据此行动。但真正的执行远不只是找到一份有效资料。团队可能选用过时的信息源，把工作交给错误的专家，漏掉推动项目所需的内部关键人，或把关键步骤分配给已经满负荷的人。核心成员调岗或离职时，即使所有文档和流程看起来都没有问题，项目仍可能停摆。第二份记录揭示了执行究竟在哪里获得动能，又在哪里失去动能。</span></p>
 
@@ -1504,7 +1609,7 @@
       <p>Some of those filings have already issued as granted U.S. patents. When businesses this different converge on patents this similar, it marks where the market expects the value to concentrate. That point of convergence is the layer LBM and OIL were built for: reading how an organization actually operates and governing how that intelligence enters human and agent decisions.<span class="ja" lang="ja">その一部は、すでに米国で登録特許となっている。これほど異なるビジネスが、これほど似た特許へ収束するとき、それは市場が価値の集中を見込む場所を示している。その収束点は、LBMとOILが担うために作られた層である。すなわち、組織が実際にどう動いているかを読み取り、その知能が人間とエージェントの意思決定に入る過程を統制する層だ。</span><span class="zh" lang="zh-Hans">其中一部分申请已在美国获得授权。当差异这么大的业务收敛到如此相似的专利上，它标出的正是市场预期价值将要集中的位置。而这个收敛点正是 LBM 与 OIL 为之而生的层：读懂组织实际如何运转，并治理这种智能如何进入人与智能体的决策。</span></p>
 
       <div class="section-owner section-owner-lbm" aria-label="Large Behavior Model section"><span class="section-owner-code">LBM</span><span class="section-owner-name">Large Behavior Model</span></div>
-      <h2>The model came before the category name<span class="ja" lang="ja">カテゴリ名が生まれる前に、モデルはすでに存在した</span><span class="zh" lang="zh-Hans">在类别名称出现之前，模型已经存在</span></h2>
+      <h2 id="model-origin">The model came before the category name<span class="ja" lang="ja">カテゴリ名が生まれる前に、モデルはすでに存在した</span><span class="zh" lang="zh-Hans">在类别名称出现之前，模型已经存在</span></h2>
 
       <p>LEAD began as an employee networking product inside Slack and Microsoft Teams. Since 2020, it has made more than two million introductions across 2,000+ deployments. In roughly 1,400 deployments, we received authorization to use suitable data for model development. That permissioned, longitudinal history captured how networks formed, where expertise was sought, which ties crossed teams, and where collaboration stalled. Recurring patterns across organizations became the substrate for a model that learns beyond local tools, titles, and workflows.<span class="ja" lang="ja">LEADは、SlackとMicrosoft Teams上の社内ネットワーキング製品として始まった。2020年の提供開始以来、2,000件を超える導入で200万件以上の出会いを生み出してきた。このうち約1,400件では、モデル開発に適したデータの利用許可を得ている。そこに蓄積されたのは、社内ネットワークがどう形成され、専門知識がどこで求められ、どのつながりが部門を越え、どこで協働が滞るかを示す長期的な記録だ。組織を越えて繰り返し現れるパターンが、ツールや役職、ワークフローの違いに左右されないモデルの基盤になった。</span><span class="zh" lang="zh-Hans">LEAD 最初是 Slack 和 Microsoft Teams 内的员工社交产品。自 2020 年上线以来，它已在 2,000 多个部署中促成超过 200 万次连接。其中约 1,400 个部署授权我们将合适的数据用于模型开发。这些经授权的长期记录，呈现了职场网络如何形成、专业知识在哪里被寻找、哪些联系跨越团队边界，以及协作在哪里停滞。跨组织反复出现的模式，最终成为模型的学习基底，使它能够超越本地工具、头衔和工作流的差异。</span></p>
 
@@ -1893,7 +1998,7 @@
       <p>Controlled access and human review keep these outputs within a governed research and decision-support boundary.<span class="ja" lang="ja">アクセス制御と人間によるレビューによって、これらの出力を統制された研究・意思決定支援の境界内に保つ。</span><span class="zh" lang="zh-Hans">访问控制与人工审核，使这些输出始终处于受治理的研究和决策支持边界内。</span></p>
 
       <div class="section-owner section-owner-oil" aria-label="Organizational Intelligence Loop section"><span class="section-owner-code">OIL</span><span class="section-owner-name">Organizational Intelligence Loop</span></div>
-      <h2>The strategic question is where the layer belongs<span class="ja" lang="ja">問われているのは、このレイヤーをどこに置くか</span><span class="zh" lang="zh-Hans">真正的问题是：这一层应该放在哪里</span></h2>
+      <h2 id="strategic-layer">The strategic question is where the layer belongs<span class="ja" lang="ja">問われているのは、このレイヤーをどこに置くか</span><span class="zh" lang="zh-Hans">真正的问题是：这一层应该放在哪里</span></h2>
 
       <p>It is tempting to classify organizational behavior as workforce analytics. That is too narrow. Corporate Planning and Foresight can use the same evidence to test whether internal execution can withstand market change; M&amp;A teams can see which operating bridges an integration must preserve; Operations and Transformation teams can locate bottlenecks before a strategy depends on them. The context also matters to search, workflow, workforce planning, security, and multi-agent systems. The strategic question is whether it remains trapped in a dashboard or becomes a reusable, governed layer across enterprise decisions and systems.<span class="ja" lang="ja">組織行動をワークフォース分析に分類したくなるが、それでは狭すぎる。Corporate PlanningやForesightは、同じ知見を使って、市場変化に社内実行力が耐えられるかを検証できる。M&amp;Aチームは、統合後も維持すべき実務上の橋渡しを把握できる。OperationsやTransformationチームは、戦略が依存する前にボトルネックを見つけられる。このコンテキストは、検索、ワークフロー、人員計画、セキュリティ、マルチエージェント・システムにも関わる。戦略上の問いは、それをダッシュボード内に閉じ込めるのか、企業の意思決定とシステムを横断して再利用できる統制されたレイヤーにするのかである。</span><span class="zh" lang="zh-Hans">把组织行为归类为劳动力分析很有诱惑力，但这个定义太窄了。Corporate Planning 和 Foresight 可以用同一套证据检验内部执行能力能否承受市场变化；M&amp;A 团队可以看清整合过程中必须保留哪些实际运营桥梁；Operations 与 Transformation 团队可以在战略真正依赖某个环节之前发现瓶颈。这些上下文也与搜索、工作流、人员规划、安全和多智能体系统有关。真正的战略问题是：它要继续困在一个仪表盘里，还是成为一层可在企业决策与系统之间复用、并受到治理的组织基础？</span></p>
 
