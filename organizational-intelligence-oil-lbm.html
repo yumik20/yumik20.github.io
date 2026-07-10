@@ -208,6 +208,28 @@
       font-size: 16px;
       font-weight: 600;
     }
+    .section-owner {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 54px 0 9px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+    .section-owner-subsection { margin-top: 30px; }
+    .section-owner + h2,
+    .section-owner + h3 { margin-top: 0; }
+    .section-owner-code {
+      padding: 2px 8px;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+    }
+    .section-owner-name { color: var(--faint); }
+    .section-owner-lbm { color: var(--blue); }
+    .section-owner-oil { color: var(--rust); }
     .triad {
       margin: 34px 0;
       padding: 5px 0 5px 22px;
@@ -1008,6 +1030,7 @@
         <figcaption id="records-caption"><span class="fig-num">Fig. 1</span> The enterprise writes a formal record and produces a behavioral record through action. The Large Behavior Model reads the second; OIL governs how that intelligence enters decisions.<span class="ja" lang="ja">企業は正式な記録を書き残す一方、日々の行動を通じて行動の記録も生み出している。Large Behavior Modelは後者を読み、OILはそこから得られる知能が意思決定に入るまでを統制する。</span><span class="zh" lang="zh-Hans">企业一方面写下正式记录，另一方面也在日常行动中生成行为记录。Large Behavior Model 读取后者；OIL 则约束由此产生的智能如何进入决策。</span></figcaption>
       </figure>
 
+      <div class="section-owner section-owner-lbm" aria-label="Large Behavior Model section"><span class="section-owner-code">LBM</span><span class="section-owner-name">Large Behavior Model</span></div>
       <h2>The model came before the category name<span class="ja" lang="ja">カテゴリ名が生まれる前に、モデルはすでに存在した</span><span class="zh" lang="zh-Hans">在类别名称出现之前，模型已经存在</span></h2>
 
       <p>LEAD began as an employee networking product inside Slack and Microsoft Teams. Since 2020, it has made more than two million introductions across 2,000+ deployments. In roughly 1,400 deployments, we received authorization to use suitable data for model development. That permissioned, longitudinal history captured how networks formed, where expertise was sought, which ties crossed teams, and where collaboration stalled. Recurring patterns across organizations became the substrate for a model that learns beyond local tools, titles, and workflows.<span class="ja" lang="ja">LEADは、SlackとMicrosoft Teams上の社内ネットワーキング製品として始まった。2020年の提供開始以来、2,000件を超える導入で200万件以上の出会いを生み出してきた。このうち約1,400件では、モデル開発に適したデータの利用許可を得ている。そこに蓄積されたのは、社内ネットワークがどう形成され、専門知識がどこで求められ、どのつながりが部門を越え、どこで協働が滞るかを示す長期的な記録だ。組織を越えて繰り返し現れるパターンが、ツールや役職、ワークフローの違いに左右されないモデルの基盤になった。</span><span class="zh" lang="zh-Hans">LEAD 最初是 Slack 和 Microsoft Teams 内的员工社交产品。自 2020 年上线以来，它已在 2,000 多个部署中促成超过 200 万次连接。其中约 1,400 个部署授权我们将合适的数据用于模型开发。这些经授权的长期记录，呈现了职场网络如何形成、专业知识在哪里被寻找、哪些联系跨越团队边界，以及协作在哪里停滞。跨组织反复出现的模式，最终成为模型的学习基底，使它能够超越本地工具、头衔和工作流的差异。</span></p>
@@ -1071,6 +1094,7 @@
 
       <p>Together, this research asks two public questions: what can authorized work signals reveal about an organization, and what governance is needed before that evidence informs decisions?<span class="ja" lang="ja">この研究が公に問うのは二点である。許可された業務シグナルから組織について何が分かるのか。そして、その知見を意思決定に用いる前に、どのようなガバナンスが必要なのか。</span><span class="zh" lang="zh-Hans">这项研究公开讨论两个问题：经授权的工作信号能够揭示组织的哪些信息？在这些证据进入决策之前，又需要怎样的治理？</span></p>
 
+      <div class="section-owner section-owner-oil section-owner-subsection" aria-label="Organizational Intelligence Loop section"><span class="section-owner-code">OIL</span><span class="section-owner-name">Organizational Intelligence Loop</span></div>
       <h3>Accountability in an agentic organization<span class="ja" lang="ja">エージェントが働く組織の説明責任</span><span class="zh" lang="zh-Hans">智能体参与组织时的责任机制</span></h3>
 
       <p>At the public-research level, OIL asks how accountability should be preserved as human and agent work becomes intertwined. It keeps the focus on organizational context, responsible human authority, and decisions that remain reviewable.<span class="ja" lang="ja">公開研究としてのOILは、人間とエージェントの仕事が結びつく中で、説明責任をどう保つべきかを問う。焦点は、組織コンテキスト、責任を負う人間の権限、そして後から確認できる意思決定にある。</span><span class="zh" lang="zh-Hans">在公开研究层面，OIL 关注的是：当人类与智能体的工作日益交织时，如何继续保有清晰的责任机制。重点在于组织上下文、承担责任的人类权力，以及仍可复核的决策。</span></p>
@@ -1151,6 +1175,7 @@
         <p class="ip-assets-note">These are plain-language subject descriptions, not application numbers, exact filed titles, or claim language. Technical implementation and claim scope are not disclosed here. LEAD is the commercial product in this history.<span class="ja" lang="ja">これは対象領域を平易に示した説明であり、出願番号、正式な出願タイトル、請求項の文言ではない。技術実装や請求項の範囲は本稿では開示しない。この沿革の中で商用展開されているのはLEADである。</span><span class="zh" lang="zh-Hans">以上内容是对主题领域的通俗说明，并非申请号、正式申请标题或权利要求文本。本文不披露技术实现或权利要求范围。这段发展历程中已经商业化的产品是 LEAD。</span></p>
       </section>
 
+      <div class="section-owner section-owner-lbm" aria-label="Large Behavior Model section"><span class="section-owner-code">LBM</span><span class="section-owner-name">Large Behavior Model</span></div>
       <h2 id="evaluations">What the evaluations show<span class="ja" lang="ja">評価結果が示すこと</span><span class="zh" lang="zh-Hans">评估结果说明了什么</span></h2>
 
       <p>The model is trained on 1B+ authorized behavioral records across roughly 1,400 organizational deployments. The public evaluation surface includes real tickets, an unseen company, Enron, and controlled settings with known hidden states. Methods and results are open to scrutiny at <a href="https://www.behaviorgraph.com/lbm/">behaviorgraph.com/lbm</a>; the learned representation remains proprietary.<span class="ja" lang="ja">モデルは、約1,400件の組織導入から得た10億件超の許可済み行動記録で学習している。公開している評価には、実際のチケット、学習対象外の企業、Enron、正解となる隠れた状態が既知の統制環境が含まれる。評価方法と結果は<a href="https://www.behaviorgraph.com/lbm/">behaviorgraph.com/lbm</a>で検証できる一方、学習済み表現は独自資産として保持している。</span><span class="zh" lang="zh-Hans">模型使用约 1,400 个组织部署产生的十亿余条授权行为记录进行训练。公开评估覆盖真实工单、训练中未出现的公司、Enron 数据集，以及已知隐藏真实状态的受控环境。评估方法与结果可在 <a href="https://www.behaviorgraph.com/lbm/">behaviorgraph.com/lbm</a> 查验；学到的表征则仍是专有资产。</span></p>
@@ -1263,6 +1288,7 @@
         </section>
       </div>
 
+      <div class="section-owner section-owner-lbm" aria-label="Large Behavior Model section"><span class="section-owner-code">LBM</span><span class="section-owner-name">Large Behavior Model</span></div>
       <h2>What the research system has demonstrated<span class="ja" lang="ja">研究システムで実証した能力</span><span class="zh" lang="zh-Hans">研究系统已经验证的能力</span></h2>
 
       <p>Evaluation and pre-commercial research environments have demonstrated six capability groups. A privacy-preserving research interface supports controlled testing; raw identities and model weights remain inside the governed boundary.<span class="ja" lang="ja">評価環境とプレコマーシャルな研究環境で、六つの能力群を実証してきた。プライバシー保護型の研究インターフェースによって統制されたテストを行い、元の個人識別情報とモデル重みは管理境界の内側に保持する。</span><span class="zh" lang="zh-Hans">在评估环境和商业化前研究环境中，我们已经验证了六类能力。保护隐私的研究接口支持受控测试；原始身份信息和模型权重始终留在治理边界之内。</span></p>
@@ -1316,6 +1342,7 @@
       </div>
       <p class="landscape-note">Selected companies and market roles reviewed July 2026. Examples are illustrative, not exhaustive.<span class="ja" lang="ja">企業例と市場での役割は2026年7月時点で確認。網羅的な一覧ではない。</span><span class="zh" lang="zh-Hans">所列公司及其市场角色核验于 2026 年 7 月。示例仅供说明，并非完整名单。</span></p>
 
+      <div class="section-owner section-owner-oil" aria-label="Organizational Intelligence Loop section"><span class="section-owner-code">OIL</span><span class="section-owner-name">Organizational Intelligence Loop</span></div>
       <h2>The strategic question is where the layer belongs<span class="ja" lang="ja">問われているのは、このレイヤーをどこに置くか</span><span class="zh" lang="zh-Hans">真正的问题是：这一层应该放在哪里</span></h2>
 
       <p>It is tempting to classify organizational behavior as workforce analytics. That is too narrow. The same organizational evidence may matter to search, workflow, workforce planning, security, and agent systems. The strategic question is whether that context remains trapped in a dashboard or becomes reusable, governed context across enterprise systems.<span class="ja" lang="ja">組織行動をワークフォース分析に分類したくなるが、それでは狭すぎる。同じ組織の知見が、検索、ワークフロー、人員計画、セキュリティ、エージェント・システムに関わり得る。戦略上の問いは、そのコンテキストをダッシュボード内に閉じ込めるのか、企業システムを横断して再利用できる統制されたコンテキストにするのかである。</span><span class="zh" lang="zh-Hans">把组织行为归类为劳动力分析很有诱惑力，但这个定义太窄了。同一份组织证据可能同时与搜索、工作流、人员规划、安全和智能体系统有关。真正的战略问题是：这些上下文要继续困在一个仪表盘里，还是成为可在企业系统之间复用、并受到治理的组织上下文？</span></p>
