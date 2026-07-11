@@ -289,6 +289,34 @@
       font-size: 0.88em;
       line-height: 1.5;
     }
+    .key-points-sidebar {
+      margin-top: -8px;
+      padding: 18px;
+    }
+    .key-points-sidebar ol { grid-template-columns: 1fr; }
+    .key-points-sidebar li:nth-child(odd) { border-right: 0; }
+    .key-points-sidebar li:nth-last-child(-n + 2) { border-bottom: 1px solid var(--line); }
+    .key-points-sidebar li:last-child { border-bottom: 0; }
+    .key-points-sidebar li:nth-child(even) a { padding-left: 0; }
+    .key-points-sidebar a {
+      min-height: 0;
+      padding: 12px 0;
+    }
+    @media (min-width: 1400px) {
+      .key-points-sidebar {
+        position: fixed;
+        top: 88px;
+        left: max(20px, calc(50% - 700px));
+        z-index: 10;
+        width: 190px;
+        margin: 0;
+        padding: 16px;
+      }
+      .key-points-sidebar .key-points-header { display: block; }
+      .key-points-sidebar .key-points-header p { margin-top: 4px; }
+      .key-points-sidebar a { grid-template-columns: 23px minmax(0, 1fr); }
+      .key-points-sidebar .key-points-copy > span { font-size: 10.5px; }
+    }
     .market-bullets {
       margin: -6px 0 24px;
       padding: 0;
@@ -1534,18 +1562,15 @@
         <p><b>LEAD</b> = original product &nbsp;&middot;&nbsp; <b>LBM</b> = model &nbsp;&middot;&nbsp; <b>OIL</b> = governance framework &nbsp;&middot;&nbsp; <b>BehaviorGraph</b> = pre-release product &nbsp;&middot;&nbsp; <b>ONA</b> = network analysis<span class="ja" lang="ja"><b>LEAD</b>＝最初のプロダクト ・ <b>LBM</b>＝モデル ・ <b>OIL</b>＝ガバナンス枠組み ・ <b>BehaviorGraph</b>＝リリース前のプロダクト ・ <b>ONA</b>＝ネットワーク分析</span><span class="zh" lang="zh-Hans"><b>LEAD</b>＝最初的产品 · <b>LBM</b>＝模型 · <b>OIL</b>＝治理框架 · <b>BehaviorGraph</b>＝尚未发布的产品 · <b>ONA</b>＝组织网络分析</span></p>
       </aside>
 
-      <nav class="key-points wide" aria-label="Key points">
+      <nav class="key-points key-points-sidebar" aria-label="Three key points">
         <div class="key-points-header">
-          <small>Key points<span class="ja" lang="ja">要点から読む</span><span class="zh" lang="zh-Hans">重点速览</span></small>
-          <p>For a quick read, start with these six sections.<span class="ja" lang="ja">短時間で読むなら、次の六項目から。</span><span class="zh" lang="zh-Hans">想快速读完，可以从这六点开始。</span></p>
+          <small>Three things to know<span class="ja" lang="ja">まず読む三点</span><span class="zh" lang="zh-Hans">要看的三件事</span></small>
+          <p>What we own, proof it works, what it enables.<span class="ja" lang="ja">私たちが持つもの、機能する根拠、それが可能にすること。</span><span class="zh" lang="zh-Hans">我们拥有什么、它为什么有效、它能带来什么。</span></p>
         </div>
         <ol>
-          <li><a href="#two-records"><span class="key-points-number">01</span><span class="key-points-copy"><b>The core idea: two records<span class="ja" lang="ja">核心：二つの記録</span><span class="zh" lang="zh-Hans">核心概念：两份记录</span></b><span>Formal structure versus how work actually moves.<span class="ja" lang="ja">正式な構造と、仕事が実際にどう動くかの違い。</span><span class="zh" lang="zh-Hans">正式结构与工作实际如何流动之间的差异。</span></span></span></a></li>
-          <li><a href="#ip-status"><span class="key-points-number">02</span><span class="key-points-copy"><b>Two pending U.S. applications<span class="ja" lang="ja">係属中の米国出願二件</span><span class="zh" lang="zh-Hans">两项正在申请中的美国非临时专利申请</span></b><span>One research asset for LBM, one for OIL.<span class="ja" lang="ja">LBMとOIL、それぞれに対応する研究資産。</span><span class="zh" lang="zh-Hans">分别对应 LBM 与 OIL 的两项研究资产。</span></span></span></a></li>
-          <li><a href="#model-origin"><span class="key-points-number">03</span><span class="key-points-copy"><b>How LBM was built<span class="ja" lang="ja">LBMが生まれた経路</span><span class="zh" lang="zh-Hans">LBM 如何构建</span></b><span>From LEAD's authorized corpus to cross-company pretraining.<span class="ja" lang="ja">LEADの許可済みコーパスから企業横断の事前学習へ。</span><span class="zh" lang="zh-Hans">从 LEAD 的授权语料库到跨公司预训练。</span></span></span></a></li>
-          <li><a href="#oil-accountability"><span class="key-points-number">04</span><span class="key-points-copy"><b>How LBM and OIL work together<span class="ja" lang="ja">LBMとOILの役割分担</span><span class="zh" lang="zh-Hans">LBM 与 OIL 如何协同</span></b><span>The model reads; OIL governs human and multi-agent use.<span class="ja" lang="ja">モデルが読み取り、OILが人間とマルチエージェントの利用を統制する。</span><span class="zh" lang="zh-Hans">模型负责读取；OIL 负责治理人与多智能体如何使用它。</span></span></span></a></li>
-          <li><a href="#evaluations"><span class="key-points-number">05</span><span class="key-points-copy"><b>What the evidence shows<span class="ja" lang="ja">評価結果が示すこと</span><span class="zh" lang="zh-Hans">证据说明了什么</span></b><span>External outcomes and transfer to unseen organizations.<span class="ja" lang="ja">外部結果と未知の組織への転移。</span><span class="zh" lang="zh-Hans">外部结果，以及对未见组织的迁移能力。</span></span></span></a></li>
-          <li><a href="#strategic-layer"><span class="key-points-number">06</span><span class="key-points-copy"><b>What it can unlock<span class="ja" lang="ja">実務で開ける可能性</span><span class="zh" lang="zh-Hans">它能带来什么</span></b><span>M&amp;A, operating resilience, and strategic execution.<span class="ja" lang="ja">M&amp;A、運用レジリエンス、戦略実行。</span><span class="zh" lang="zh-Hans">M&amp;A、运营韧性和战略执行。</span></span></span></a></li>
+          <li><a href="#ip-status"><span class="key-points-number">01</span><span class="key-points-copy"><b>Two pending U.S. applications<span class="ja" lang="ja">係属中の米国出願二件</span><span class="zh" lang="zh-Hans">两项正在申请中的美国非临时专利申请</span></b><span>One research asset for LBM, one for OIL.<span class="ja" lang="ja">LBMとOIL、それぞれに対応する研究資産。</span><span class="zh" lang="zh-Hans">分别对应 LBM 与 OIL 的两项研究资产。</span></span></span></a></li>
+          <li><a href="#evaluations"><span class="key-points-number">02</span><span class="key-points-copy"><b>Foundation-model evaluation<span class="ja" lang="ja">基盤モデルの評価</span><span class="zh" lang="zh-Hans">基础模型评估</span></b><span>Cross-company transfer, external outcomes, and controlled evaluation.<span class="ja" lang="ja">企業横断の転移、外部結果、統制評価。</span><span class="zh" lang="zh-Hans">跨公司迁移、外部结果和受控评估。</span></span></span></a></li>
+          <li><a href="#strategic-layer"><span class="key-points-number">03</span><span class="key-points-copy"><b>Enterprise use cases<span class="ja" lang="ja">エンタープライズでの用途</span><span class="zh" lang="zh-Hans">企业应用场景</span></b><span>M&amp;A, operating resilience, strategic execution, and governed agents.<span class="ja" lang="ja">M&amp;A、運用レジリエンス、戦略実行、統制されたエージェント。</span><span class="zh" lang="zh-Hans">M&amp;A、运营韧性、战略执行和受治理的智能体。</span></span></span></a></li>
         </ol>
       </nav>
 
