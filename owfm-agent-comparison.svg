@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="996" viewBox="0 0 780 996" font-family="Helvetica Neue, Helvetica, Arial, PingFang SC, Hiragino Sans GB, Noto Sans CJK SC, sans-serif">
+<rect width="780" height="996" fill="#ffffff"/>
+<line x1="62.0" x2="96.0" y1="28" y2="28" stroke="#13202e" stroke-width="4.2"/>
+<circle cx="79.0" cy="28" r="4.8" fill="#13202e"/>
+<text x="104.0" y="32.5" font-size="12.5" fill="#000000" font-weight="bold">OWFM</text>
+<line x1="200.0" x2="234.0" y1="28" y2="28" stroke="#2453b3" stroke-width="1.8" stroke-dasharray="7 4 2 4"/>
+<circle cx="217.0" cy="28" r="2.9" fill="#2453b3"/>
+<text x="242.0" y="32.5" font-size="12.5" fill="#000000">GPT-6 Sol</text>
+<line x1="338.0" x2="372.0" y1="28" y2="28" stroke="#7b4fc2" stroke-width="1.8" stroke-dasharray="9 5"/>
+<circle cx="355.0" cy="28" r="2.9" fill="#7b4fc2"/>
+<text x="380.0" y="32.5" font-size="12.5" fill="#000000">Opus 5.5</text>
+<line x1="476.0" x2="510.0" y1="28" y2="28" stroke="#24945f" stroke-width="2.2" stroke-dasharray="2 4"/>
+<circle cx="493.0" cy="28" r="2.9" fill="#24945f"/>
+<text x="518.0" y="32.5" font-size="12.5" fill="#000000">Fable 5.1</text>
+<line x1="614.0" x2="648.0" y1="28" y2="28" stroke="#3aa8e0" stroke-width="1.8" stroke-dasharray="12 6"/>
+<circle cx="631.0" cy="28" r="2.9" fill="#3aa8e0"/>
+<text x="656.0" y="32.5" font-size="12.5" fill="#000000">GPT-6 Astra</text>
+<text x="62" y="80" font-size="15" font-weight="bold" fill="#000000">Personnel ranking</text>
+<text x="62" y="98" font-size="11.5" fill="#333a44">AUC / P@3  ↑ higher is better</text>
+<line x1="62" x2="752" y1="124.0" y2="124.0" stroke="#e6e8eb" stroke-width="1"/>
+<text x="54" y="128.0" font-size="11" text-anchor="end" fill="#000000" font-weight="bold">best</text>
+<line x1="62" x2="752" y1="184.2" y2="184.2" stroke="#e6e8eb" stroke-width="1"/>
+<text x="54" y="188.2" font-size="11" text-anchor="end" fill="#000000">−1%</text>
+<line x1="62" x2="752" y1="209.2" y2="209.2" stroke="#e6e8eb" stroke-width="1"/>
+<text x="54" y="213.2" font-size="11" text-anchor="end" fill="#000000">−2%</text>
+<line x1="62" x2="752" y1="258.7" y2="258.7" stroke="#e6e8eb" stroke-width="1"/>
+<text x="54" y="262.7" font-size="11" text-anchor="end" fill="#000000">−5%</text>
+<line x1="62" x2="752" y1="314.6" y2="314.6" stroke="#e6e8eb" stroke-width="1"/>
+<text x="54" y="318.6" font-size="11" text-anchor="end" fill="#000000">−10%</text>
+<line x1="62" x2="752" y1="393.5" y2="393.5" stroke="#e6e8eb" stroke-width="1"/>
+<text x="54" y="397.5" font-size="11" text-anchor="end" fill="#000000">−20%</text>
+<line x1="62" x2="752" y1="454.0" y2="454.0" stroke="#e6e8eb" stroke-width="1"/>
+<text x="54" y="458.0" font-size="11" text-anchor="end" fill="#000000">−30%</text>
+<polyline points="126.0,211.2 314.0,269.2 502.0,193.5 690.0,124.0" fill="none" stroke="#3aa8e0" stroke-width="1.8" stroke-dasharray="12 6" stroke-linejoin="round"/>
+<circle cx="126.0" cy="211.2" r="3.6" fill="#3aa8e0" stroke="#fff" stroke-width="1"/>
+<circle cx="314.0" cy="269.2" r="3.6" fill="#3aa8e0" stroke="#fff" stroke-width="1"/>
+<circle cx="502.0" cy="193.5" r="3.6" fill="#3aa8e0" stroke="#fff" stroke-width="1"/>
+<circle cx="690.0" cy="124.0" r="3.6" fill="#3aa8e0" stroke="#fff" stroke-width="1"/>
+<polyline points="126.0,124.0 314.0,192.8 502.0,241.1 690.0,248.8" fill="none" stroke="#24945f" stroke-width="2.2" stroke-dasharray="2 4" stroke-linejoin="round"/>
+<circle cx="126.0" cy="124.0" r="3.6" fill="#24945f" stroke="#fff" stroke-width="1"/>
+<circle cx="314.0" cy="192.8" r="3.6" fill="#24945f" stroke="#fff" stroke-width="1"/>
+<circle cx="502.0" cy="241.1" r="3.6" fill="#24945f" stroke="#fff" stroke-width="1"/>
+<circle cx="690.0" cy="248.8" r="3.6" fill="#24945f" stroke="#fff" stroke-width="1"/>
+<polyline points="126.0,223.3 314.0,124.0 502.0,251.9 690.0,250.5" fill="none" stroke="#7b4fc2" stroke-width="1.8" stroke-dasharray="9 5" stroke-linejoin="round"/>
+<circle cx="126.0" cy="223.3" r="3.6" fill="#7b4fc2" stroke="#fff" stroke-width="1"/>
+<circle cx="314.0" cy="124.0" r="3.6" fill="#7b4fc2" stroke="#fff" stroke-width="1"/>
+<circle cx="502.0" cy="251.9" r="3.6" fill="#7b4fc2" stroke="#fff" stroke-width="1"/>
+<circle cx="690.0" cy="250.5" r="3.6" fill="#7b4fc2" stroke="#fff" stroke-width="1"/>
+<polyline points="126.0,217.2 314.0,414.0 502.0,292.7 690.0,270.9" fill="none" stroke="#2453b3" stroke-width="1.8" stroke-dasharray="7 4 2 4" stroke-linejoin="round"/>
+<circle cx="126.0" cy="217.2" r="3.6" fill="#2453b3" stroke="#fff" stroke-width="1"/>
+<circle cx="314.0" cy="414.0" r="3.6" fill="#2453b3" stroke="#fff" stroke-width="1"/>
+<circle cx="502.0" cy="292.7" r="3.6" fill="#2453b3" stroke="#fff" stroke-width="1"/>
+<circle cx="690.0" cy="270.9" r="3.6" fill="#2453b3" stroke="#fff" stroke-width="1"/>
+<polyline points="126.0,151.4 314.0,160.5 502.0,124.0 690.0,191.6" fill="none" stroke="#13202e" stroke-width="3.6" stroke-linejoin="round"/>
+<circle cx="126.0" cy="151.4" r="5.4" fill="#13202e" stroke="#13202e" stroke-width="1"/>
+<circle cx="314.0" cy="160.5" r="5.4" fill="#13202e" stroke="#13202e" stroke-width="1"/>
+<circle cx="502.0" cy="124.0" r="5.4" fill="#13202e" stroke="#13202e" stroke-width="1"/>
+<circle cx="690.0" cy="191.6" r="5.4" fill="#13202e" stroke="#13202e" stroke-width="1"/>
+<polyline points="" fill="none" stroke="#3aa8e0" stroke-width="1.8" stroke-dasharray="12 6" stroke-linejoin="round"/>
+<polyline points="" fill="none" stroke="#24945f" stroke-width="2.2" stroke-dasharray="2 4" stroke-linejoin="round"/>
+<polyline points="" fill="none" stroke="#7b4fc2" stroke-width="1.8" stroke-dasharray="9 5" stroke-linejoin="round"/>
+<polyline points="" fill="none" stroke="#2453b3" stroke-width="1.8" stroke-dasharray="7 4 2 4" stroke-linejoin="round"/>
+<polyline points="" fill="none" stroke="#13202e" stroke-width="3.6" stroke-linejoin="round"/>
+<text x="80.5" y="152.2" font-size="13" fill="#000000" font-weight="bold" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">0.730</text>
+<text x="84.9" y="124.8" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">0.732</text>
+<text x="84.9" y="212.0" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">0.716</text>
+<text x="84.9" y="226.0" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">0.714</text>
+<text x="94.0" y="241.4" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">0.712</text>
+<text x="126.0" y="480" font-size="13" text-anchor="middle" fill="#000000">Departure</text>
+<text x="126.0" y="496" font-size="13" text-anchor="middle" fill="#000000">≤4 weeks</text>
+<text x="292.0" y="149.5" font-size="13" fill="#000000" font-weight="bold" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">0.721</text>
+<text x="322.5" y="124.8" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">0.723</text>
+<text x="282.0" y="210.9" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">0.714</text>
+<text x="282.0" y="287.3" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">0.681</text>
+<text x="272.9" y="420.8" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">0.556</text>
+<text x="314.0" y="480" font-size="13" text-anchor="middle" fill="#000000">Departure</text>
+<text x="314.0" y="496" font-size="13" text-anchor="middle" fill="#000000">weeks 5–8</text>
+<text x="513.0" y="124.8" font-size="13" fill="#000000" font-weight="bold" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">0.962</text>
+<text x="470.0" y="185.0" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">0.949</text>
+<text x="482.0" y="232.6" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">0.926</text>
+<text x="470.0" y="270.0" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">0.919</text>
+<text x="460.9" y="293.5" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">0.887</text>
+<text x="502.0" y="480" font-size="13" text-anchor="middle" fill="#000000">Collaboration</text>
+<text x="502.0" y="496" font-size="13" text-anchor="middle" fill="#000000">withdrawal</text>
+<text x="701.0" y="192.4" font-size="13" fill="#000000" font-weight="bold" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">0.871</text>
+<text x="698.5" y="124.8" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">0.882</text>
+<text x="698.5" y="249.6" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">0.844</text>
+<text x="698.5" y="263.3" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">0.843</text>
+<text x="698.5" y="277.7" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">0.830</text>
+<text x="690.0" y="480" font-size="13" text-anchor="middle" fill="#000000">Qualified</text>
+<text x="690.0" y="496" font-size="13" text-anchor="middle" fill="#000000">support</text>
+<text x="62" y="556" font-size="15" font-weight="bold" fill="#000000">How many? What share?</text>
+<text x="62" y="574" font-size="11.5" fill="#333a44">MAE  ↓ lower is better</text>
+<line x1="62" x2="752" y1="930.0" y2="930.0" stroke="#e6e8eb" stroke-width="1"/>
+<text x="54" y="934.0" font-size="11" text-anchor="end" fill="#000000" font-weight="bold">best</text>
+<line x1="62" x2="752" y1="869.8" y2="869.8" stroke="#e6e8eb" stroke-width="1"/>
+<text x="54" y="873.8" font-size="11" text-anchor="end" fill="#000000">+1%</text>
+<line x1="62" x2="752" y1="844.8" y2="844.8" stroke="#e6e8eb" stroke-width="1"/>
+<text x="54" y="848.8" font-size="11" text-anchor="end" fill="#000000">+2%</text>
+<line x1="62" x2="752" y1="795.3" y2="795.3" stroke="#e6e8eb" stroke-width="1"/>
+<text x="54" y="799.3" font-size="11" text-anchor="end" fill="#000000">+5%</text>
+<line x1="62" x2="752" y1="739.4" y2="739.4" stroke="#e6e8eb" stroke-width="1"/>
+<text x="54" y="743.4" font-size="11" text-anchor="end" fill="#000000">+10%</text>
+<line x1="62" x2="752" y1="660.5" y2="660.5" stroke="#e6e8eb" stroke-width="1"/>
+<text x="54" y="664.5" font-size="11" text-anchor="end" fill="#000000">+20%</text>
+<line x1="62" x2="752" y1="600.0" y2="600.0" stroke="#e6e8eb" stroke-width="1"/>
+<text x="54" y="604.0" font-size="11" text-anchor="end" fill="#000000">+30%</text>
+<polyline points="" fill="none" stroke="#3aa8e0" stroke-width="1.8" stroke-dasharray="12 6" stroke-linejoin="round"/>
+<polyline points="" fill="none" stroke="#24945f" stroke-width="2.2" stroke-dasharray="2 4" stroke-linejoin="round"/>
+<polyline points="" fill="none" stroke="#7b4fc2" stroke-width="1.8" stroke-dasharray="9 5" stroke-linejoin="round"/>
+<polyline points="" fill="none" stroke="#2453b3" stroke-width="1.8" stroke-dasharray="7 4 2 4" stroke-linejoin="round"/>
+<polyline points="" fill="none" stroke="#13202e" stroke-width="3.6" stroke-linejoin="round"/>
+<polyline points="126.0,680.3 267.0,830.2 408.0,794.2 549.0,930.0 690.0,930.0" fill="none" stroke="#3aa8e0" stroke-width="1.8" stroke-dasharray="12 6" stroke-linejoin="round"/>
+<circle cx="126.0" cy="680.3" r="3.6" fill="#3aa8e0" stroke="#fff" stroke-width="1"/>
+<circle cx="267.0" cy="830.2" r="3.6" fill="#3aa8e0" stroke="#fff" stroke-width="1"/>
+<circle cx="408.0" cy="794.2" r="3.6" fill="#3aa8e0" stroke="#fff" stroke-width="1"/>
+<circle cx="549.0" cy="930.0" r="3.6" fill="#3aa8e0" stroke="#fff" stroke-width="1"/>
+<circle cx="690.0" cy="930.0" r="3.6" fill="#3aa8e0" stroke="#fff" stroke-width="1"/>
+<polyline points="126.0,691.6 267.0,805.4 408.0,701.4 549.0,737.0 690.0,857.7" fill="none" stroke="#24945f" stroke-width="2.2" stroke-dasharray="2 4" stroke-linejoin="round"/>
+<circle cx="126.0" cy="691.6" r="3.6" fill="#24945f" stroke="#fff" stroke-width="1"/>
+<circle cx="267.0" cy="805.4" r="3.6" fill="#24945f" stroke="#fff" stroke-width="1"/>
+<circle cx="408.0" cy="701.4" r="3.6" fill="#24945f" stroke="#fff" stroke-width="1"/>
+<circle cx="549.0" cy="737.0" r="3.6" fill="#24945f" stroke="#fff" stroke-width="1"/>
+<circle cx="690.0" cy="857.7" r="3.6" fill="#24945f" stroke="#fff" stroke-width="1"/>
+<polyline points="126.0,626.6 267.0,791.4 408.0,600.9 549.0,656.7 690.0,752.0" fill="none" stroke="#7b4fc2" stroke-width="1.8" stroke-dasharray="9 5" stroke-linejoin="round"/>
+<circle cx="126.0" cy="626.6" r="3.6" fill="#7b4fc2" stroke="#fff" stroke-width="1"/>
+<circle cx="267.0" cy="791.4" r="3.6" fill="#7b4fc2" stroke="#fff" stroke-width="1"/>
+<circle cx="408.0" cy="600.9" r="3.6" fill="#7b4fc2" stroke="#fff" stroke-width="1"/>
+<circle cx="549.0" cy="656.7" r="3.6" fill="#7b4fc2" stroke="#fff" stroke-width="1"/>
+<circle cx="690.0" cy="752.0" r="3.6" fill="#7b4fc2" stroke="#fff" stroke-width="1"/>
+<polyline points="126.0,701.6 267.0,796.3 408.0,628.5 549.0,672.0 690.0,870.6" fill="none" stroke="#2453b3" stroke-width="1.8" stroke-dasharray="7 4 2 4" stroke-linejoin="round"/>
+<circle cx="126.0" cy="701.6" r="3.6" fill="#2453b3" stroke="#fff" stroke-width="1"/>
+<circle cx="267.0" cy="796.3" r="3.6" fill="#2453b3" stroke="#fff" stroke-width="1"/>
+<circle cx="408.0" cy="628.5" r="3.6" fill="#2453b3" stroke="#fff" stroke-width="1"/>
+<circle cx="549.0" cy="672.0" r="3.6" fill="#2453b3" stroke="#fff" stroke-width="1"/>
+<circle cx="690.0" cy="870.6" r="3.6" fill="#2453b3" stroke="#fff" stroke-width="1"/>
+<polyline points="126.0,930.0 267.0,930.0 408.0,930.0 549.0,882.2 690.0,889.1" fill="none" stroke="#13202e" stroke-width="3.6" stroke-linejoin="round"/>
+<circle cx="126.0" cy="930.0" r="5.4" fill="#13202e" stroke="#13202e" stroke-width="1"/>
+<circle cx="267.0" cy="930.0" r="5.4" fill="#13202e" stroke="#13202e" stroke-width="1"/>
+<circle cx="408.0" cy="930.0" r="5.4" fill="#13202e" stroke="#13202e" stroke-width="1"/>
+<circle cx="549.0" cy="882.2" r="5.4" fill="#13202e" stroke="#13202e" stroke-width="1"/>
+<circle cx="690.0" cy="889.1" r="5.4" fill="#13202e" stroke="#13202e" stroke-width="1"/>
+<text x="72.8" y="930.8" font-size="13" fill="#000000" font-weight="bold" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">10.113</text>
+<text x="134.5" y="627.4" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">12.677</text>
+<text x="77.7" y="681.1" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">11.849</text>
+<text x="77.7" y="696.4" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">11.696</text>
+<text x="77.7" y="710.4" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">11.566</text>
+<text x="126.0" y="956" font-size="13" text-anchor="middle" fill="#000000">Newcomer</text>
+<text x="126.0" y="972" font-size="13" text-anchor="middle" fill="#000000">contacts</text>
+<text x="233.0" y="919.0" font-size="13" fill="#000000" font-weight="bold" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">1.025</text>
+<line x1="269.7" y1="795.0" x2="274.3" y2="801.0" stroke="#7b4fc2" stroke-width="0.9" stroke-opacity="0.8"/>
+<text x="275.5" y="812.2" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">1.079</text>
+<line x1="263.3" y1="798.8" x2="246.2" y2="810.4" stroke="#2453b3" stroke-width="0.9" stroke-opacity="0.8"/>
+<text x="211.9" y="821.1" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">1.075</text>
+<line x1="265.3" y1="809.6" x2="259.2" y2="824.7" stroke="#24945f" stroke-width="0.9" stroke-opacity="0.8"/>
+<text x="225.9" y="836.2" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">1.068</text>
+<text x="265.0" y="848.3" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">1.053</text>
+<text x="267.0" y="956" font-size="13" text-anchor="middle" fill="#000000">Advice</text>
+<text x="267.0" y="972" font-size="13" text-anchor="middle" fill="#000000">adoption</text>
+<text x="374.0" y="919.0" font-size="13" fill="#000000" font-weight="bold" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">4.841</text>
+<text x="366.9" y="601.7" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">6.285</text>
+<line x1="408.0" y1="633.0" x2="408.0" y2="640.0" stroke="#2453b3" stroke-width="0.9" stroke-opacity="0.8"/>
+<text x="400.0" y="651.6" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">6.054</text>
+<text x="366.9" y="702.2" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">5.539</text>
+<text x="416.5" y="795.0" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">5.087</text>
+<text x="408.0" y="956" font-size="13" text-anchor="middle" fill="#000000">Help</text>
+<text x="408.0" y="972" font-size="13" text-anchor="middle" fill="#000000">reliance*</text>
+<text x="507.0" y="871.2" font-size="13" fill="#000000" font-weight="bold" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">0.0281</text>
+<text x="557.5" y="657.5" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">0.0337</text>
+<text x="510.0" y="690.1" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">0.0330</text>
+<text x="510.0" y="755.1" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">0.0308</text>
+<text x="500.7" y="936.8" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">0.0279</text>
+<text x="549.0" y="956" font-size="13" text-anchor="middle" fill="#000000">Team</text>
+<text x="549.0" y="972" font-size="13" text-anchor="middle" fill="#000000">concentration*</text>
+<text x="701.0" y="889.9" font-size="13" fill="#000000" font-weight="bold" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">4.620</text>
+<text x="698.5" y="752.8" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">5.000</text>
+<text x="698.5" y="858.5" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">4.665</text>
+<text x="698.5" y="873.4" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">4.643</text>
+<text x="698.5" y="930.8" font-size="13" fill="#000000" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke">4.598</text>
+<text x="690.0" y="956" font-size="13" text-anchor="middle" fill="#000000">Cross-team</text>
+<text x="690.0" y="972" font-size="13" text-anchor="middle" fill="#000000">initiators*</text>
+</svg>
