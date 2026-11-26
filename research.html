@@ -420,11 +420,11 @@
       </li>
       <li>
         <span class="label">Question</span>
-        <span class="val">The org chart explains authority. It does not explain how work actually moves. As companies make operations queryable by AI, dumping meetings, documents, and email into retrieval misses the behavioral facts agents need: which document is treated as true, who teams actually rely on, who owns the latest answer, and where key-person risk sits. <span class="upd">The Organizational World Model (OWM) asks how to model that operating layer: how work moves today, what is likely to happen next, and how work would shift if a key person were absent or a process changed. Privacy protection and bias controls remain part of that work.</span></span>
+        <span class="val">The org chart explains authority. It does not explain how work actually moves. As companies make operations queryable by AI, dumping meetings, documents, and email into retrieval misses the behavioral facts agents need: which document is treated as true, who teams actually rely on, who owns the latest answer, and where key-person risk sits. <span class="upd">The Organizational World Model (OWM) asks how to model that operating layer: how work moves today, what is likely to happen next, and how work would shift if a key person were absent or a process changed.</span></span>
       </li>
       <li>
         <span class="label">Method</span>
-        <span class="val"><span class="upd">OWFM, the research prototype of OWM, uses structured work records, organizational network information and formal context. It does not read message bodies, meeting transcripts or document text. It combines three separately evaluated paths: task-specific estimators, a shared personnel state, and a fixed-parameter Transformer that handles related tasks from labeled reference examples. We evaluate OWFM on real work records from companies held out from fitting, and on controlled synthetic organizations with known hidden states.</span></span>
+        <span class="val"><span class="upd">OWFM, the research prototype of OWM, uses structured work records, organizational network information and formal context. It does not read message bodies, meeting transcripts or document text. It combines three separately evaluated paths: task-specific estimators, a shared personnel state, and a fixed-parameter Transformer that handles related tasks from labeled reference examples. We evaluate OWFM on real work records, including 17 companies held out from fitting, and on controlled synthetic organizations with known hidden states.</span></span>
       </li>
       <li>
         <span class="label">Evidence</span>
@@ -437,7 +437,7 @@
     </ul>
     <figure class="project-fig" style="max-width:100%;">
       <img style="width:100%;max-width:760px;" src="owfm-agent-comparison.svg" alt="Line chart comparing OWFM with agents built on GPT-6 Sol, Claude Opus 5.5, Claude Fable 5.1 and GPT-6 Astra on four personnel-ranking tasks and five count and share tasks">
-      <figcaption><span class="upd">OWFM and tool-using agents built on four frontier models, on nine organizational tasks (SSRN preprint, Figure 3). Top: personnel ranking, higher is better. Bottom: counts and team shares, lower error is better. The vertical axis is the gap from each task&rsquo;s best system; agents are averaged over valid runs. Asterisks mark tasks where OWFM also receives channel-post statistics.</span></figcaption>
+      <figcaption><span class="upd">OWFM and tool-using agents built on four frontier models, on nine organizational tasks (SSRN preprint, Figure 3). Top: personnel ranking, higher is better. Bottom: counts and team shares, lower error is better. The vertical axis is the percentage gap from each task&rsquo;s best system, on a square-root scale; agents are averaged over valid runs. Asterisks mark tasks where OWFM also receives channel-post statistics.</span></figcaption>
     </figure>
   </div>
 
