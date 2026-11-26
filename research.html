@@ -192,6 +192,16 @@
     .oilloop { margin: 26px auto 4px; max-width: 380px; }
     .oilloop svg { width: 100%; display: block; }
     .oilloop figcaption { font-size: 12px; line-height: 1.55; color: var(--text-faint); margin-top: 9px; }
+    .project h3 .h3-sub { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 1.1px; color: var(--text-faint); margin-left: 10px; vertical-align: 3px; white-space: nowrap; }
+    .project-lede { font-size: 15.5px; line-height: 1.75; color: var(--text); margin: -4px 0 20px; padding-left: 16px; border-left: 2px solid #6d28d9; max-width: 720px; }
+    .project-lede a, .qmen .val a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+    .fig-row { display: grid; grid-template-columns: 1.45fr 1fr; gap: 24px; margin-top: 28px; align-items: start; }
+    .fig-row figure { margin: 0; }
+    .fig-row img { width: 100%; display: block; border: 1px solid var(--border); border-radius: 8px; background: #fff; }
+    .fig-row figcaption { font-size: 12px; line-height: 1.55; color: var(--text-faint); margin-top: 9px; }
+    .fig-row figcaption b { color: var(--text-light); font-weight: 600; }
+    @media (max-width: 700px) { .fig-row { grid-template-columns: 1fr; } .project h3 .h3-sub { display: block; margin: 6px 0 0; } }
+    .hero .bio { text-wrap: balance; }
     .qmen { list-style: none; }
     .qmen li {
       display: grid;
@@ -298,6 +308,10 @@
       <a href="https://academiccommons.columbia.edu/doi/10.7916/9da8-c532">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
         OIL Manuscript
+      </a>
+      <a href="https://doi.org/10.2139/ssrn.7590758">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+        OWM Preprint
       </a>
       <a href="organizational-intelligence-oil-lbm.html">Latest Research Note</a>
     </div>
@@ -412,34 +426,40 @@
   <!-- OWM (formerly LBM) -->
   <div class="project">
     <div class="project-cat">Behavioral Context · Evaluation</div>
-    <h3><span class="upd">Organizational World Model</span> <span style="font-size:0.7em;color:var(--text-light);"><span class="upd">(formerly Large Behavior Model)</span></span></h3>
+    <h3><span class="upd">Organizational World Model</span><span class="h3-sub"><span class="upd">formerly Large Behavior Model</span></span></h3>
+    <p class="project-lede"><span class="upd">We first called this model the Large Behavior Model, after the behavior it learned from. As the research went on, we started asking how an organization works today, what is likely to happen next, and how work would shift if a key person were absent or a process changed. Those are questions about the whole organization, so we renamed it. Its research prototype is the Organizational World Foundation Model (OWFM), described in our <a href="https://doi.org/10.2139/ssrn.7590758">SSRN preprint</a>.</span></p>
     <ul class="qmen">
       <li>
-        <span class="label"><span class="upd">Update</span></span>
-        <span class="val"><span class="upd">We first called this model the Large Behavior Model, after the behavior it learned from. As the research went on, we started asking it how an organization works today, what is likely to happen next, and how work would shift if a key person were absent or a process changed. Those are questions about the whole organization, so we renamed it the Organizational World Model. Its research prototype, the Organizational World Foundation Model (OWFM), is described in our <a href="https://doi.org/10.2139/ssrn.7590758">SSRN preprint</a> and does not read message bodies, meeting transcripts or document text.</span></span>
-      </li>
-      <li>
         <span class="label">Question</span>
-        <span class="val">The org chart explains authority. It does not explain how work actually moves. As companies make operations queryable by AI, dumping meetings, documents, and email into retrieval misses the behavioral facts agents need: which document is treated as true, who teams actually rely on, who owns the latest answer, and where key-person risk sits. <span class="upd">The Organizational World Model (OWM) asks how to model that operating layer: how work moves today, what is likely to happen next, and how work would shift if a key person were absent or a process changed.</span></span>
+        <span class="val">The org chart explains authority. It does not explain how work actually moves. As companies make operations queryable by AI, dumping meetings, documents, and email into retrieval misses the behavioral facts agents need: which document is treated as true, who teams actually rely on, who owns the latest answer, and where key-person risk sits. <span class="upd">OWM asks how to model that operating layer without reading workplace content.</span></span>
       </li>
       <li>
         <span class="label">Method</span>
-        <span class="val"><span class="upd">OWFM, the research prototype of OWM, uses structured work records, organizational network information and formal context. It does not read message bodies, meeting transcripts or document text. It combines three separately evaluated paths: task-specific estimators, a shared personnel state, and a fixed-parameter Transformer that handles related tasks from labeled reference examples. We evaluate OWFM on real work records, including 17 companies held out from fitting, and in simulated organizations. Some of these simulations are seeded with aggregate statistics from real workplaces: calendar statistics from two companies and Slack channel statistics from 18, 19 companies in all, which set the scale of interaction. The simulation then specifies the remaining behavior and how requests are routed, so knowledge-source roles, work dependencies and outcomes under a specified change are known. That lets us test questions real records cannot verify directly, such as where requests go when a key person is absent.</span></span>
+        <span class="val"><span class="upd">OWFM uses structured work records, organizational network information and formal context. It does not read message bodies, meeting transcripts or document text. It combines three separately evaluated paths: task-specific estimators, a shared personnel state, and a fixed-parameter Transformer that handles related tasks from labeled reference examples.</span></span>
+      </li>
+      <li>
+        <span class="label"><span class="upd">Data</span></span>
+        <span class="val"><span class="upd">Real work records, including 17 companies held out from fitting, and simulated organizations. Some simulations are seeded with aggregate statistics from 19 real companies (calendar statistics from two and Slack channel statistics from 18, with one company in both) to set the scale of interaction. The simulation specifies the rest, so outcomes such as where requests go when a key person is absent are known and can be tested.</span></span>
       </li>
       <li>
         <span class="label">Evidence</span>
-        <span class="val"><span class="upd">We compared OWFM with tool-using agents built on four frontier models on nine organizational tasks, run in the UK AI Security Institute&rsquo;s Inspect framework. The figure shows four of them, the personnel-ranking tasks. The other tasks and results are in the <a href="https://doi.org/10.2139/ssrn.7590758">preprint</a>. Results from the earlier stage, including the Influence Gap and the Enron and 900-person company studies, are in the <a href="organizational-intelligence-oil-lbm.html">research note</a>.</span>
-          <span style="display:block;margin:14px 0 2px;max-width:420px;"><img src="owfm-agent-comparison-personnel.svg" alt="Line chart comparing OWFM with agents built on GPT-6 Sol, Claude Opus 5.5, Claude Fable 5.1 and GPT-6 Astra on four personnel-ranking tasks" style="width:100%;display:block;border:1px solid var(--border);border-radius:8px;background:#fff;"><span style="display:block;font-size:12px;line-height:1.55;margin-top:8px;"><span class="upd">From Figure 3 of the preprint (upper panel). The vertical axis is the percentage gap from each task&rsquo;s best system, on a square-root scale. Agents are averaged over valid runs; Opus has one valid run on these tasks.</span></span></span></span>
+        <span class="val"><span class="upd">We compared OWFM with tool-using agents built on four frontier models on nine organizational tasks, run in the UK AI Security Institute&rsquo;s Inspect framework. Figure A shows four of them, the personnel-ranking tasks. The other tasks and results are in the <a href="https://doi.org/10.2139/ssrn.7590758">preprint</a>.</span></span>
       </li>
       <li>
         <span class="label">Next step</span>
-        <span class="val"><span class="upd">The OWFM preprint is under revision. Next, we will test OWM with design partners on real organizations and train across more companies.</span></span>
+        <span class="val"><span class="upd">The preprint is under revision. Next, we will test OWM with design partners on real organizations and train across more companies.</span></span>
       </li>
     </ul>
-    <figure class="project-fig">
-      <img src="lbm-influence-gap.png" alt="Scatter plot of peer-perceived value versus formal seniority, highlighting hidden experts and empty suits">
-      <figcaption><span class="upd">The Influence Gap, an earlier-stage result from OWM research: hidden experts (high peer value, lower title) versus empty suits (high title, low peer value). The model identified earned influence that titles missed.</span></figcaption>
-    </figure>
+    <div class="fig-row">
+      <figure>
+        <img src="owfm-agent-comparison-personnel.svg" alt="Line chart comparing OWFM with agents built on GPT-6 Sol, Claude Opus 5.5, Claude Fable 5.1 and GPT-6 Astra on four personnel-ranking tasks">
+        <figcaption><span class="upd"><b>A. OWFM and four frontier-model agents.</b> From Figure 3 of the preprint (upper panel). The vertical axis is the percentage gap from each task&rsquo;s best system, on a square-root scale. Agents are averaged over valid runs; Opus has one valid run on these tasks.</span></figcaption>
+      </figure>
+      <figure>
+        <img src="lbm-influence-gap.png" alt="Scatter plot of peer-perceived value versus formal seniority, highlighting hidden experts and empty suits">
+        <figcaption><span class="upd"><b>B. Earlier stage: the Influence Gap.</b> Hidden experts (high peer value, lower title) versus empty suits (high title, low peer value). More earlier-stage results, including Enron and a 900-person company, are in the <a href="organizational-intelligence-oil-lbm.html" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">research note</a>.</span></figcaption>
+      </figure>
+    </div>
   </div>
 
   <!-- Multi-agent -->
